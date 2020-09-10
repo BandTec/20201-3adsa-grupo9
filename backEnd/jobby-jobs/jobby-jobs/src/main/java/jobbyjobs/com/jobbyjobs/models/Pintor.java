@@ -3,30 +3,28 @@ package jobbyjobs.com.jobbyjobs.models;
 public class Pintor extends Trabalhador{
 
     private Double qtdHoras;
-    private Double valorFixo; // valor fixo do serviço
     private Double valorMetro;
     private Double qtdMetros;
+    private Double valorCobrado;
 
-    public Pintor(String nome, String telefone, String CPF, String email, String senha) {
-        super(nome, telefone, CPF, email, senha);
+    public Pintor(String nome, String telefone, String CPF, String email, String senha, Boolean cobrarPorHora, Double valorHora, Double valorFixo, Double qtdHoras, Double valorMetro, Double qtdMetros, Double valorCobrado) {
+        super(nome, telefone, CPF, email, senha, cobrarPorHora, valorHora, valorFixo);
+        this.qtdHoras = qtdHoras;
+        this.valorMetro = valorMetro;
+        this.qtdMetros = qtdMetros;
+        this.valorCobrado = valorCobrado;
     }
 
     @Override
-    public  Double calculaSalario(){
-        Double valorCobrado;
+    public  Double getCalculaSalario(){
         valorCobrado = (super.getCobrarPorHora()) 
         ? (super.getValorHora() * qtdHoras) + (valorMetro * qtdMetros)  
         : super.getValorFixo() + (valorMetro * qtdMetros);
         return valorCobrado;
     }
 
-
     public Double getQtdHoras() {
         return this.qtdHoras;
-    }
-
-    public Double getValorFixo() {
-        return this.valorFixo;
     }
 
     public Double getValorMetro() {
@@ -36,22 +34,6 @@ public class Pintor extends Trabalhador{
     public Double getQtdMetros() {
         return this.qtdMetros;
     }
-    
-    public void setQtdHoras(Double qtdHoras) {
-        this.qtdHoras = qtdHoras;
-    }
-    public void valorFixo(Double valorFixo) {
-        this.valorFixo = valorFixo;
-    }
-
-    public void setValorMetro(Double valorMetro) {
-        this.valorMetro = valorMetro;
-    }
-
-    public void qtdMetros(Double qtdMetros) {
-        this.qtdMetros = qtdMetros;
-    }
-
 
     @Override
     public String toString() {
@@ -62,13 +44,13 @@ public class Pintor extends Trabalhador{
             " \n Qtd/Horas: " + getQtdHoras() + 
             " \n Valor/Metro: " + getValorMetro() + 
             " \n Qtd/Metro: " + getQtdMetros() + 
-            " \n Valor total: " + calculaSalario();
+            " \n Valor total: " + getCalculaSalario();
         } else {
             return "\n Pintor: " +
                 " \n " + super.toString() +
                 " \n Valor/Metro: " + getValorMetro() + 
                 " \n Qtd/Metro: " + getQtdMetros() +
-                " \n Valor total: " + calculaSalario();
+                " \n Valor total: " + getCalculaSalario();
         }
            
     }

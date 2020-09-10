@@ -6,11 +6,14 @@ public abstract class Trabalhador extends Usuario{
     private Double valorHora;
     private Double valorFixo;
 
-    public Trabalhador(String nome, String telefone, String CPF, String email, String senha) {
+    public Trabalhador(String nome, String telefone, String CPF, String email, String senha, Boolean cobrarPorHora, Double valorHora, Double valorFixo) {
         super(nome, telefone, CPF, email, senha);
+        this.cobrarPorHora = cobrarPorHora;
+        this.valorHora = valorHora;
+        this.valorFixo = valorFixo;
     }
 
-    public abstract Double calculaSalario();
+    public abstract Double getCalculaSalario();
 
     public Boolean getCobrarPorHora() {
         return this.cobrarPorHora;
@@ -23,19 +26,6 @@ public abstract class Trabalhador extends Usuario{
     public Double getValorHora() {
         return this.valorHora;
     }
-
-    public void setCobrarPorHora(Boolean cobrarPorHora) {
-        this.cobrarPorHora = cobrarPorHora;
-    }
-
-    public void setValorhora(Double valorhora) {
-        this.valorHora = valorhora;
-    }
-
-    public void setValorFixo(Double valorFixo) {
-        this.valorFixo = valorFixo;
-    }
-
 
     @Override
     public String toString() {

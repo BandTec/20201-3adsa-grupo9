@@ -26,7 +26,7 @@ public class TrabalhadorController {
 
     @GetMapping
     public ResponseEntity getTrabalhadores() {
-        return this.trabalhadores.isEmpty() ? ResponseEntity.status(204).build() : ResponseEntity.ok(this.trabalhadores);
+        return this.trabalhadores.isEmpty() ? ResponseEntity.status(204).build() : ResponseEntity.ok(trabalhadores);
     }
 
     @GetMapping({"/{id}"})
@@ -40,14 +40,14 @@ public class TrabalhadorController {
         return ResponseEntity.status(201).build();
     }
 
-    @PostMapping({"/pedreiro"})
+    @PostMapping("/pedreiro")
     public ResponseEntity registrarPedreiro(@RequestBody Pedreiro p) {
         this.trabalhadores.add(p);
         return ResponseEntity.status(201).build();
     }
 
     @PostMapping({"/baba"})
-    public ResponseEntity registrarPintor(@RequestBody Baba b) {
+    public ResponseEntity registrarBaba(@RequestBody Baba b) {
         this.trabalhadores.add(b);
         return ResponseEntity.status(201).build();
     }

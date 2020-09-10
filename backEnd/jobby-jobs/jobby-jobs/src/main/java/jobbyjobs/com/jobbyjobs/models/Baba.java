@@ -12,78 +12,59 @@ public class Baba extends Trabalhador{
     private Boolean limpar = false;
     private Double valorCobrado = 0.0;
 
-    public Baba(String nome, String telefone, String CPF, String email, String senha) {
-        super(nome, telefone, CPF, email, senha);
+    public Baba(String nome, String telefone, String CPF, String email, String senha, Boolean cobrarPorHora, Double valorHora, Double valorFixo, Double qtdHoras, Integer qtdCriancas, Integer idadeMedia, Double precoCozinheira, Double precoLimpeza, Double precoAteTres, Double precoTresAteOito, Double precoNoveAteQuinze, Boolean cozinhar, Boolean limpar, Double valorCobrado) {
+        super(nome, telefone, CPF, email, senha, cobrarPorHora, valorHora, valorFixo);
+        this.qtdHoras = qtdHoras;
+        this.qtdCriancas = qtdCriancas;
+        this.idadeMedia = idadeMedia;
+        this.precoCozinheira = precoCozinheira;
+        this.precoLimpeza = precoLimpeza;
+        this.precoAteTres = precoAteTres;
+        this.precoTresAteOito = precoTresAteOito;
+        this.precoNoveAteQuinze = precoNoveAteQuinze;
+        this.cozinhar = cozinhar;
+        this.limpar = limpar;
+        this.valorCobrado = valorCobrado;
     }
 
     public Double getQtdHoras() {
         return qtdHoras;
     }
-    public void setQtdHoras(Double qtdHoras) {
-        this.qtdHoras = qtdHoras;
-    }
 
     public Integer getQtdCriancas() {
         return qtdCriancas;
-    }
-    public void setQtdCriancas(Integer qtdCriancas) {
-        this.qtdCriancas = qtdCriancas;
     }
 
     public Integer getIdadeMedia() {
         return idadeMedia;
     }
-    public void setIdadeMedia(Integer idadeMedia) {
-        this.idadeMedia = idadeMedia;
-    }
 
     public Double getPrecoCozinheira() {
         return precoCozinheira;
-    }
-    public void setPrecoCozinheira(Double precoCozinheira) {
-        this.precoCozinheira = precoCozinheira;
     }
 
     public Double getPrecoLimpeza() {
         return precoLimpeza;
     }
-    public void setPrecoLimpeza(Double precoLimpeza) {
-        this.precoLimpeza = precoLimpeza;
-    }
 
     public Boolean getCozinhar() {
         return cozinhar;
-    }
-    public void setCozinhar(Boolean cozinhar) {
-        this.cozinhar = cozinhar;
     }
 
     public Boolean getLimpar() {
         return limpar;
     }
-    public void setLimpar(Boolean limpar) {
-        this.limpar = limpar;
-    }
 
     public Double getPrecoAteTres() {
         return precoAteTres;
-    }
-    public void setPrecoAteTres(Double precoAteTres) {
-        this.precoAteTres = precoAteTres;
     }
 
     public Double getPrecoTresAteOito() {
         return precoTresAteOito;
     }
-    public void setPrecoTresAteOito(Double precoTresAteOito) {
-        this.precoTresAteOito = precoTresAteOito;
-    }
 
     public Double getPrecoNoveAteQuinze() {
         return precoNoveAteQuinze;
-    }
-    public void setPrecoNoveAteQuinze(Double precoNoveAteQuinze) {
-        this.precoNoveAteQuinze = precoNoveAteQuinze;
     }
 
     public Double getValorCobrado() {
@@ -104,7 +85,7 @@ public class Baba extends Trabalhador{
     }
 
     @Override
-    public  Double calculaSalario(){
+    public  Double getCalculaSalario(){
         if(idadeMedia >= 0 && idadeMedia <= 3){
             valorCobrado += (super.getValorHora() * qtdHoras) + precoAteTres;
         }
