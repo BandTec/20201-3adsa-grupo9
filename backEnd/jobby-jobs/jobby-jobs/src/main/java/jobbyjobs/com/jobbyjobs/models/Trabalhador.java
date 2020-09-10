@@ -21,7 +21,7 @@ public abstract class Trabalhador extends Usuario{
     }
 
     public Double getValorHora() {
-        return this.valorFixo;
+        return this.valorHora;
     }
 
     public void setCobrarPorHora(Boolean cobrarPorHora) {
