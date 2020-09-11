@@ -3,6 +3,8 @@ package jobbyjobs.com.jobbyjobs.controller;
 import java.util.ArrayList;
 import java.util.List;
 import jobbyjobs.com.jobbyjobs.models.Contratante;
+import jobbyjobs.com.jobbyjobs.models.Login;
+import jobbyjobs.com.jobbyjobs.models.Trabalhador;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,6 +34,16 @@ public class ContratanteController {
     public ResponseEntity registrarClientes(@RequestBody Contratante c) {
         this.clientes.add(c);
         return ResponseEntity.status(201).build();
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity fazerLogin(@RequestBody Login l) {
+        for (Contratante c: clientes){
+            if (l.getEmail().equals(c.getEmail()) && l.getSenha().equals(c.getSenha())){
+                return ResponseEntity.ok("Login Aceito!");
+            }
+        }
+        return ResponseEntity.status(404).build();
     }
 
     @DeleteMapping({"/{id}"})
