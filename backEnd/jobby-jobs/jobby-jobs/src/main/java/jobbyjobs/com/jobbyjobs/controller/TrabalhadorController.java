@@ -2,10 +2,8 @@ package jobbyjobs.com.jobbyjobs.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import jobbyjobs.com.jobbyjobs.models.Baba;
-import jobbyjobs.com.jobbyjobs.models.Pedreiro;
-import jobbyjobs.com.jobbyjobs.models.Pintor;
-import jobbyjobs.com.jobbyjobs.models.Trabalhador;
+
+import jobbyjobs.com.jobbyjobs.models.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,6 +48,16 @@ public class TrabalhadorController {
     public ResponseEntity registrarBaba(@RequestBody Baba b) {
         this.trabalhadores.add(b);
         return ResponseEntity.status(201).build();
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity fazerLogin(@RequestBody Login l) {
+       for (Trabalhador t: trabalhadores){
+           if (l.getEmail().equals(t.getEmail()) && l.getSenha().equals(t.getSenha())){
+               return ResponseEntity.ok("Login Aceito!");
+           }
+       }
+        return ResponseEntity.status(404).build();
     }
 
     @DeleteMapping({"/{id}"})

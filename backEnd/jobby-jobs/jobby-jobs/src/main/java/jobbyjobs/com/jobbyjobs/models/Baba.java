@@ -7,10 +7,12 @@ public class Baba extends Trabalhador{
     private Integer idadeMedia;
     private Double precoCozinheira;
     private Double precoLimpeza;
-    private Double precoAteTres, precoTresAteOito, precoNoveAteQuinze;
+    private Double precoAteTres;
+    private Double precoTresAteOito;
+    private Double precoNoveAteQuinze;
     private Boolean cozinhar = false;
     private Boolean limpar = false;
-    private Double valorCobrado = 0.0;
+    private Double valorCobrado;
 
     public Baba(String nome, String telefone, String CPF, String email, String senha, Boolean cobrarPorHora, Double valorHora, Double valorFixo, Double qtdHoras, Integer qtdCriancas, Integer idadeMedia, Double precoCozinheira, Double precoLimpeza, Double precoAteTres, Double precoTresAteOito, Double precoNoveAteQuinze, Boolean cozinhar, Boolean limpar, Double valorCobrado) {
         super(nome, telefone, CPF, email, senha, cobrarPorHora, valorHora, valorFixo);
@@ -67,25 +69,10 @@ public class Baba extends Trabalhador{
         return precoNoveAteQuinze;
     }
 
-    public Double getValorCobrado() {
-        return valorCobrado;
-    }
-
-
-    public void verificaTrabalho(){
-        if (cozinhar && limpar){
-            valorCobrado += precoCozinheira + precoLimpeza;
-        }
-        else if (cozinhar){
-            valorCobrado += precoCozinheira;
-        }
-        else if (limpar){
-            valorCobrado += precoLimpeza;
-        }
-    }
 
     @Override
     public  Double getCalculaSalario(){
+        valorCobrado = 0.0;
         if(idadeMedia >= 0 && idadeMedia <= 3){
             valorCobrado += (super.getValorHora() * qtdHoras) + precoAteTres;
         }
@@ -95,7 +82,16 @@ public class Baba extends Trabalhador{
         else if(idadeMedia >= 9 && idadeMedia <= 15){
             valorCobrado += (super.getValorHora() * qtdHoras) + precoNoveAteQuinze;
         }
-        verificaTrabalho();
+
+        if (cozinhar && limpar){
+            valorCobrado += precoCozinheira + precoLimpeza;
+        }
+        else if (cozinhar){
+            valorCobrado += precoCozinheira;
+        }
+        else if (limpar){
+            valorCobrado += precoLimpeza;
+        }
 
         return valorCobrado;
     }
