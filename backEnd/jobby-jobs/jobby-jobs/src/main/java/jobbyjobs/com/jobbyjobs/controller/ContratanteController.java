@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ContratanteController {
 
     private List<Contratante> clientes = new ArrayList();
+    private List<Login> logados = new ArrayList<>();
 
     @GetMapping
     public ResponseEntity getClientes() {
@@ -40,11 +41,30 @@ public class ContratanteController {
     public ResponseEntity fazerLogin(@RequestBody Login l) {
         for (Contratante c: clientes){
             if (l.getEmail().equals(c.getEmail()) && l.getSenha().equals(c.getSenha())){
+                logados.add(l);
                 return ResponseEntity.ok("Login Aceito!");
             }
         }
         return ResponseEntity.status(404).build();
     }
+
+    @PostMapping("/logoff")
+    public ResponseEntity fazerLogoff(@RequestBody String email) {
+        for (int i = 0; i < logados.size(); i++){
+            Login logado = logados.get(i);
+            if(logado.getEmail().equals(email)){
+                logados.remove(i);
+                return ResponseEntity.ok().build();
+            }
+        }
+        return ResponseEntity.status(404).build();
+    }
+
+    @GetMapping("/logados")
+    public ResponseEntity getLogados() {
+        return this.logados.isEmpty() ? ResponseEntity.status(204).build() : ResponseEntity.ok(this.logados);
+    }
+
 
     @DeleteMapping({"/{id}"})
     public ResponseEntity excluirClientes(@PathVariable int id) {

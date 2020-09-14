@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TrabalhadorController {
 
     private List<Trabalhador> trabalhadores = new ArrayList();
+    private List<Login> logados = new ArrayList<>();
 
     public TrabalhadorController() {
     }
@@ -54,10 +55,28 @@ public class TrabalhadorController {
     public ResponseEntity fazerLogin(@RequestBody Login l) {
        for (Trabalhador t: trabalhadores){
            if (l.getEmail().equals(t.getEmail()) && l.getSenha().equals(t.getSenha())){
+               logados.add(l);
                return ResponseEntity.ok("Login Aceito!");
            }
        }
         return ResponseEntity.status(404).build();
+    }
+
+    @PostMapping("/logoff")
+    public ResponseEntity fazerLogoff(@RequestBody String email) {
+        for (int i = 0; i < logados.size(); i++){
+            Login logado = logados.get(i);
+            if(logado.getEmail().equals(email)){
+                logados.remove(i);
+                return ResponseEntity.ok().build();
+            }
+        }
+        return ResponseEntity.status(404).build();
+    }
+
+    @GetMapping("/logados")
+    public ResponseEntity getLogados() {
+        return this.logados.isEmpty() ? ResponseEntity.status(204).build() : ResponseEntity.ok(this.logados);
     }
 
     @DeleteMapping({"/{id}"})
