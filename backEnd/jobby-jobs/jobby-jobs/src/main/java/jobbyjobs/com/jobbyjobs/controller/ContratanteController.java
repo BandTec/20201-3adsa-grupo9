@@ -45,7 +45,7 @@ public class ContratanteController {
                 return ResponseEntity.ok("Login Aceito!");
             }
         }
-        return ResponseEntity.status(404).build();
+        return ResponseEntity.status(404).body("E-mail ou senha incorretos.");
     }
 
     @PostMapping("/logoff")
