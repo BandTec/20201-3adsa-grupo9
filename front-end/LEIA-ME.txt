@@ -1,0 +1,21 @@
+Sugestão de padrão de diretórios e arquivos:
+
+- public
+    ↳ favicon.ico (ícone que aparece na aba da página)
+    ↳ index.html (arquivo responsável por renderizar o projeto e definir informações básicas mínimas da aplicação)
+- src (diretório responsável por conter todos os códigos produzidos)
+    ↳ assets (diretório responsável por ter arquivos de mídia e/ou estilização)
+        ↳ img
+        ↳ icons
+        ↳ styles (diretório responsável por conter os arquivos de estilização das páginas) !!-- OPCIONAL --!!
+    ↳ components (diretório responsável por conter os arquivos de componentes que serão reutilizados diversas vezes em outras páginas)
+        ↳ NomeDoComponente
+            ↳ index.js --> arquivo responsável pela estrutura da página
+            ↳ style.css --> arquivo responsável pela estilização única da pagina
+    ↳ pages (diretório responsável por conter os arquivos das páginas que serão renderizadas e exibidas)
+        ↳ NomeDaPagina
+            ↳ index.js --> arquivo responsável pela estrutura da página
+            ↳ style.css --> arquivo responsável pela estilização única da pagina !!-- OPCIONAL --!!
+    ↳ services (diretório responsável por conter arquivos de configuração da api do front-end)
+        ↳ api.js
+↳ routes.js (arquivo responsável por realizar a navegação entre páginas e definir quais recebem restrições de acesso e quais são as URIs de acesso)
