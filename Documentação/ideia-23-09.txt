@@ -1,0 +1,6 @@
+dados bancarios para o prestador de serviço e contratante
+pop up de "porque estou usando isso"
+pegar os dados bancarios para caso o contrantante não pegue os juros vão direto para a conta do contratante 
+termos de uso
+Contrato com termos de uso
+*ajudar o trabalhador a criar um conta juridica*
