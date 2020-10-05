@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
+
+* {
+  box-sizing: border-box;
+  color: var(--black);
+  font-family: 'Aldrich',sans-serif;
+  margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+:root {
+    /* Variaveis de cores utilizadas no site */
+    --primary: #29668E;
+    --black: #000;
+    --white: #FFF;
+    --salmon: #FFD196;
+
+    /* Variaveis de tamanhos padroes utilizados */
+    --marginTopButton: 5%;
+}

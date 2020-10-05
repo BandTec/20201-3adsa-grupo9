@@ -1,0 +1,105 @@
+body{
+    width: 100%;
+}
+
+.Apresentacao {
+    height: 100%;
+    width: 100%;
+}
+
+.Apresentacao div{
+    float: left;
+    width: 50%;
+
+    margin-right: 10px;
+    margin-left: 5%;
+}
+
+.Apresentacao div h2{
+    margin-top: 10%;
+    font-size: xx-large;
+}
+
+.Apresentacao div p{
+    font-weight: 300;
+    line-height: 3.0;
+}
+
+.Apresentacao img{
+    position: relative;
+    width: 30%;
+    margin-left: 5%;
+}
+
+.Dicas{
+    width: 100%;
+    margin-top: 6%;
+}
+
+.Dicas h2{
+    text-align: center;
+}
+
+.Dicas div{
+    margin-left: 5%;
+    margin-right: 5%;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.Dicas div img{
+    height: 250px;
+}
+
+.Chamada{
+    width: 100%;
+    margin-top: 6%;
+}
+
+.Chamada div{
+    float: left;
+    width: 50%;
+
+    margin-top: 5%;
+    margin-right: 10px;
+    margin-left: 5%;
+}
+
+.Chamada div p{
+    font-weight: 300;
+    line-height: 3.0;
+}
+
+.Chamada img{
+    position: relative;
+    width: 40%;
+}
+
+.TiposServicos{
+    width: 100%;
+
+    margin-top: 6%;
+    margin-bottom: 6%;
+}
+
+.TiposServicos h2{
+    text-align: center;
+    margin-bottom: 6%;
+}
+
+.Carrossel {
+    display: flex;
+    justify-content: space-between;
+
+    margin-left: 5%;
+}
+
+.Card{
+    width: 300px;
+    text-align: center;
+}
+
+.Card img{
+    width: 300px;
+}
