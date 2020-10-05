@@ -1,38 +1,51 @@
 package jobbyjobs.com.jobbyjobs.models;
 
-public abstract class Trabalhador extends Usuario{
+import javax.persistence.*;
 
-    private Boolean cobrarPorHora = false;
+@Entity
+public class Trabalhador{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name = "cobrarPorHora", nullable = false)
+    private Boolean cobrarPorHora;
+
+    @Column(name = "valorHora")
     private Double valorHora;
+
+    @Column(name = "valorFixo")
     private Double valorFixo;
 
-    public Trabalhador(String nome, String telefone, String CPF, String email, String senha, Boolean cobrarPorHora, Double valorHora, Double valorFixo) {
-        super(nome, telefone, CPF, email, senha);
-        this.cobrarPorHora = cobrarPorHora;
-        this.valorHora = valorHora;
-        this.valorFixo = valorFixo;
-    }
 
-    public abstract Double getCalculaSalario();
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Boolean getCobrarPorHora() {
-        return this.cobrarPorHora;
+        return cobrarPorHora;
     }
-
-    public Double getValorFixo() {
-        return this.valorFixo;
+    public void setCobrarPorHora(Boolean cobrarPorHora) {
+        this.cobrarPorHora = cobrarPorHora;
     }
 
     public Double getValorHora() {
-        return this.valorHora;
+        return valorHora;
+    }
+    public void setValorHora(Double valorHora) {
+        this.valorHora = valorHora;
     }
 
-    @Override
-    public String toString() {
-        return "Trabalhador: " +
-        " \n " + super.toString();
+    public Double getValorFixo() {
+        return valorFixo;
     }
-    
+    public void setValorFixo(Double valorFixo) {
+        this.valorFixo = valorFixo;
+    }
 }
 
 

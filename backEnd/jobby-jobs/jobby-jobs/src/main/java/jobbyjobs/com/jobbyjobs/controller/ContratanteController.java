@@ -2,45 +2,44 @@ package jobbyjobs.com.jobbyjobs.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import jobbyjobs.com.jobbyjobs.models.Contratante;
+
 import jobbyjobs.com.jobbyjobs.models.Login;
-import jobbyjobs.com.jobbyjobs.models.Trabalhador;
+import jobbyjobs.com.jobbyjobs.models.Usuario;
+import jobbyjobs.com.jobbyjobs.repositories.UsuarioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/contratantes")
 public class ContratanteController {
 
-    private List<Contratante> clientes = new ArrayList();
-    private List<Login> logados = new ArrayList<>();
+   @Autowired
+   private UsuarioRepository userRepository;
+
+   List<Login> logados = new ArrayList<>();
 
     @GetMapping
-    public ResponseEntity getClientes() {
-        return this.clientes.isEmpty() ? ResponseEntity.status(204).build() : ResponseEntity.ok(this.clientes);
-    }
-
-    @GetMapping({"/{id}"})
-    public ResponseEntity getIDClientes(@PathVariable int id) {
-        return this.clientes.size() >= id ? ResponseEntity.ok(this.clientes.get(id - 1)) : ResponseEntity.status(404).build();
+    public ResponseEntity getUsuarios(@RequestParam(required = false) Integer id){
+        if(userRepository.count() == 0){
+            return ResponseEntity.noContent().build();
+        } else if (id == null){
+            return ResponseEntity.ok(userRepository.findAll());
+        } else {
+            return ResponseEntity.ok(userRepository.findById(id));
+        }
     }
 
     @PostMapping
-    public ResponseEntity registrarClientes(@RequestBody Contratante c) {
-        this.clientes.add(c);
-        return ResponseEntity.status(201).build();
+    public ResponseEntity registrarUsuarios(@RequestBody Usuario novoUsuario) {
+        userRepository.save(novoUsuario);
+        return ResponseEntity.created(null).build();
     }
 
     @PostMapping("/login")
     public ResponseEntity fazerLogin(@RequestBody Login l) {
-        for (Contratante c: clientes){
-            if (l.getEmail().equals(c.getEmail()) && l.getSenha().equals(c.getSenha())){
+        for (Usuario u: userRepository.findAll()){
+            if (l.getEmail().equals(u.getEmail()) && l.getSenha().equals(u.getSenha())){
                 logados.add(l);
                 return ResponseEntity.ok("Login Aceito!");
             }
@@ -66,13 +65,4 @@ public class ContratanteController {
     }
 
 
-    @DeleteMapping({"/{id}"})
-    public ResponseEntity excluirClientes(@PathVariable int id) {
-        if (this.clientes.size() >= id) {
-            this.clientes.remove(id - 1);
-            return ResponseEntity.ok().build();
-        } else {
-            return ResponseEntity.status(404).build();
-        }
-    }
 }

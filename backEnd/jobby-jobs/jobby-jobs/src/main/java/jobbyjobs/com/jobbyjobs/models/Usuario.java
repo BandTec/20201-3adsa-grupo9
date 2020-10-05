@@ -1,49 +1,79 @@
 package jobbyjobs.com.jobbyjobs.models;
 
-public abstract class Usuario {
+import javax.persistence.*;
+
+@Entity
+public class Usuario {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name = "usuarioNome", length = 30, nullable = false)
     private String nome;
-    private String telefone;
-    private String CPF;
+
+    @Column(name = "usuarioEmail", length = 40, nullable = false)
     private String email;
+
+    @Column(name = "usuarioSenha", length = 16, nullable = false)
     private String senha;
 
+    @Column(name = "usuarioCPF", length = 12, nullable = false)
+    private String CPF;
 
-    public Usuario(String nome, String telefone, String CPF, String email, String senha) {
-        this.nome = nome;
-        this.telefone = telefone;
-        this.CPF = CPF;
-        this.email = email;
-        this.senha = senha;
+    @Column(name = "formaDePagamento", length = 20)
+    private String formaPagamento;
+
+    @Column(name = "usurioTipo", nullable = false)
+    private Integer tipoPessoa;
+
+
+    public Integer getId() {
+        return id;
     }
-
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getNome() {
-        return this.nome;
+        return nome;
     }
-
-    public String getTelefone() {
-        return this.telefone;
-    }
-
-    public String getCPF() {
-        return this.CPF;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getEmail() {
-        return this.email;
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getSenha() {
-        return this.senha;
+        return senha;
+    }
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
-    @Override
-    public String toString() {
-        return "\n Usuario: " +
-                "\n Nome: " + nome +
-                "\n Telefone: " + telefone +
-                "\n CPF: " + CPF +
-                "\n Email: " + email +
-                "\n Senha: " + senha;
+    public String getCPF() {
+        return CPF;
+    }
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
+    }
+
+    public String getFormaPagamento() {
+        return formaPagamento;
+    }
+    public void setFormaPagamento(String formaPagamento) {
+        this.formaPagamento = formaPagamento;
+    }
+
+    public Integer getTipoPessoa() {
+        return tipoPessoa;
+    }
+    public void setTipoPessoa(Integer tipoPessoa) {
+        this.tipoPessoa = tipoPessoa;
     }
 }
