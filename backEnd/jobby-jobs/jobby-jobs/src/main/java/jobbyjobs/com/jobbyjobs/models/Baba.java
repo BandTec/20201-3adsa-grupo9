@@ -9,10 +9,10 @@ public class Baba{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "cozinhar", nullable = false)
+    @Column(name = "cozinhar")
     private Boolean cozinhar;
 
-    @Column(name = "cozinhar", nullable = false)
+    @Column(name = "cozinhar")
     private Boolean limpar;
 
     @Column(name = "precoSeCozinha")

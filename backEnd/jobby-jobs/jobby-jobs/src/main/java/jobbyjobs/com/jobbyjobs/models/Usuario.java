@@ -9,22 +9,22 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "usuarioNome", length = 30, nullable = false)
+    @Column(name = "usuarioNome", length = 30)
     private String nome;
 
-    @Column(name = "usuarioEmail", length = 40, nullable = false)
+    @Column(name = "usuarioEmail", length = 40)
     private String email;
 
-    @Column(name = "usuarioSenha", length = 16, nullable = false)
+    @Column(name = "usuarioSenha", length = 16)
     private String senha;
 
-    @Column(name = "usuarioCPF", length = 12, nullable = false)
+    @Column(name = "usuarioCPF", length = 12)
     private String CPF;
 
     @Column(name = "formaDePagamento", length = 20)
     private String formaPagamento;
 
-    @Column(name = "usurioTipo", nullable = false)
+    @Column(name = "usurioTipo")
     private Integer tipoPessoa;
 
 

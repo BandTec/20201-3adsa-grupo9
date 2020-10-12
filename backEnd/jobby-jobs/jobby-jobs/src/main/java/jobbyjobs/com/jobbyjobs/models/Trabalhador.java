@@ -9,7 +9,7 @@ public class Trabalhador{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "cobrarPorHora", nullable = false)
+    @Column(name = "cobrarPorHora")
     private Boolean cobrarPorHora;
 
     @Column(name = "valorHora")
