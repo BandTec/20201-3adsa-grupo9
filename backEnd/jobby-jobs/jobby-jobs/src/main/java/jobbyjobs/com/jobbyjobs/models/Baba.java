@@ -1,6 +1,7 @@
 package jobbyjobs.com.jobbyjobs.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Baba{
@@ -10,24 +11,31 @@ public class Baba{
     private Integer id;
 
     @Column(name = "cozinhar")
+    @NotNull
     private Boolean cozinhar;
 
-    @Column(name = "cozinhar")
+    @Column(name = "limpar")
+    @NotNull
     private Boolean limpar;
 
     @Column(name = "precoSeCozinha")
+    @NotNull
     private Double precoCozinheira;
 
     @Column(name = "precoSeLimpa")
+    @NotNull
     private Double precoLimpeza;
 
     @Column(name = "precoIdadeAteTres")
+    @NotNull
     private Double precoAteTres;
 
     @Column(name = "precoIdadeTresAteOito")
+    @NotNull
     private Double precoTresAteOito;
 
     @Column(name = "precoIdadeNoveAteQuinze")
+    @NotNull
     private Double precoNoveAteQuinze;
 
     public Integer getId() {

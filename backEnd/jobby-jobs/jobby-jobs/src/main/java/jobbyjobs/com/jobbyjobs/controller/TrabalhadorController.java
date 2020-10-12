@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 
 @RestController
 @RequestMapping("/trabalhadores")
@@ -40,7 +42,7 @@ public class TrabalhadorController implements calcularSalario {
     }
 
     @PostMapping
-    public ResponseEntity registrarTrabalhador(@RequestBody Trabalhador t) {
+    public ResponseEntity registrarTrabalhador(@RequestBody @Valid Trabalhador t) {
         trabalhadorRepo.save(t);
         return ResponseEntity.status(201).build();
     }

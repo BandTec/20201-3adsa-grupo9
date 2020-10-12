@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/contratantes")
 public class ContratanteController {
@@ -31,7 +33,7 @@ public class ContratanteController {
     }
 
     @PostMapping
-    public ResponseEntity registrarUsuarios(@RequestBody Usuario novoUsuario) {
+    public ResponseEntity registrarUsuarios(@RequestBody @Valid Usuario novoUsuario) {
         userRepository.save(novoUsuario);
         return ResponseEntity.created(null).build();
     }

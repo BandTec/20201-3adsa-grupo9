@@ -1,6 +1,7 @@
 package jobbyjobs.com.jobbyjobs.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Usuario {
@@ -10,18 +11,23 @@ public class Usuario {
     private Integer id;
 
     @Column(name = "usuarioNome", length = 30)
+    @NotNull
     private String nome;
 
     @Column(name = "usuarioEmail", length = 40)
+    @NotNull
     private String email;
 
     @Column(name = "usuarioSenha", length = 16)
+    @NotNull
     private String senha;
 
     @Column(name = "usuarioCPF", length = 12)
+    @NotNull
     private String CPF;
 
     @Column(name = "formaDePagamento", length = 20)
+    @NotNull
     private String formaPagamento;
 
     @Column(name = "usurioTipo")
