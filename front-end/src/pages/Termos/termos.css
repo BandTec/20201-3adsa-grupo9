@@ -1,0 +1,43 @@
+.logo{
+    width: 20%;
+    margin-left: 40%;
+}
+
+h1{
+    font-size: 20px;
+    margin-left: 15%;
+    margin-top: 4%;
+}
+
+h2{
+    width: 60%;
+    font-size: 15px;
+    margin-left: 15%;
+    margin-top: 5%;
+    text-align: justify;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.botao_termo{
+    text-decoration:none;
+    background-color: var(--white);
+    text-decoration:none;
+     border-radius: 3px;
+     color: var(--black);
+     text-align: center;
+     padding: 5px 15px;
+     width: 80px;
+     margin-left: 35%;
+}
+
+.botao{
+    background-color: var(--white);
+    text-decoration:none;
+     border-radius: 3px;
+     color: var(--black);
+     text-align: center;
+     padding: 5px 15px;
+     width: 80px;
+     margin: 10px;
+}
+
