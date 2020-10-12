@@ -7,7 +7,7 @@ import Formulario from '../../components/Formulario';
 
 function Cadastro(){
     return(
-        <div>
+        <div className="CadastroConteiner">
             <h1>Cadastre-se já e aumente sua clientela</h1>
             <h2>Este é o passo 1</h2> 
             

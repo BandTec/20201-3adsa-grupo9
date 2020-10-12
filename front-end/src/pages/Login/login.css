@@ -1,0 +1,51 @@
+.LoginPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.UserIcon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
+.UserIcon img{
+    width: 50%;
+}
+
+.Formulario{
+}
+
+.Formulario div{
+    margin-bottom: 10%;
+    width: 100%;
+}
+
+.Formulario h4{
+    margin-bottom: 2%;
+}
+
+.Formulario label{
+    width: 500px;
+    display: inline-block;
+    border-bottom: 1px solid #000000;
+}
+
+.Formulario label img{
+    width: 20px;
+}
+
+.Formulario label input{
+    width: 90%;
+    margin-left: 5%;
+}
+
+
+.Centralizar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

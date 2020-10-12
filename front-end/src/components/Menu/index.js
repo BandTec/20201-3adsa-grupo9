@@ -21,7 +21,7 @@ function Menu(){
 
             <Link className="ButtonLinkSquare" to="">Qual serviço precisa? <img style={{ height: "15px", paddingTop: "3px" }} src={SearchIcon} alt="Ícone de pesquisa" /></Link>
 
-            <Link className="ButtonLink" to="">Login</Link>
+            <Link className="ButtonLink" to="/Login">Login</Link>
 
         </nav>
     );
