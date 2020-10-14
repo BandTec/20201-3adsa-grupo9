@@ -6,18 +6,20 @@ import ConfirmarPerfil from './pages/ConfirmarPerfil';
 import Login from './pages/Login';
 import Cadastro from './pages/Cadastro';
 import Termos from './pages/Termos';
-import Perfil_prestador from './pages/Perfil_prestador';
+import PerfilPrestador from './pages/PerfilPrestador';
+import ContratoServico from './pages/ContratoServico';
 
 export default function Routes(){
     return(
         <BrowserRouter>
             <Switch>
                 <Route path="/" exact component={Home}/>
-                <Route path="/Login" component={Login}/>
-                <Route path="/Confirmar-perfil" component={ConfirmarPerfil}/>
-                <Route path="/Cadastro" component={Cadastro}/>
-                <Route path="/Termos" component={Termos}/>
-                <Route path="/Perfil_prestador" component={Perfil_prestador}/>
+                <Route path="/login" component={Login}/>
+                <Route path="/confirmar-perfil" component={ConfirmarPerfil}/>
+                <Route path="/cadastro" component={Cadastro}/>
+                <Route path="/termos" component={Termos}/>
+                <Route path="/perfil-prestador" component={PerfilPrestador}/>
+                <Route path="/contrato-servico" component={ContratoServico} />
             </Switch>
         </BrowserRouter>
     );

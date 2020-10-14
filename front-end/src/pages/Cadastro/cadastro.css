@@ -1,12 +1,14 @@
 .CadastroConteiner{
+    top: 0;
     background-color: var(--primary);
+    border: 1px solid black;
 }
 
 .CadastroConteiner h1{
     font-family: 'Aldrich',sans-serif;
     color: var(--white);
     font-size: 25px;
-    margin-left: 35%;
+    text-align: center;
 }
 
 .CadastroConteiner h2{

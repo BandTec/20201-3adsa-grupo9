@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import './termos.css';
-import Logo from '../../assets/img/logo/Logo-v.2-azul.png';
 
-
+import Logo from '../../assets/img/logo/logo-removebg.png';
 
 function Termos(){
     return(
-        <div>
+        <div className="TermosConteiner">
             <img className='logo' src={Logo} alt="Logo Jobby Jobs" />
 
             <h1>Termos e condições de uso</h1>
@@ -24,11 +24,11 @@ function Termos(){
             Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" </h2>
 
              <div style={{margin: '10%'}}>
-             <Link className="botao_termo" to="">Li e concordo os termos de uso</Link>
-             <Link className="botao" to="">Voltar</Link>
+                <Link className="botao_termo" to="">Li e concordo os termos de uso</Link>
+                <Link className="botao" to="">Voltar</Link>
              </div>
 
-            </div>
+        </div>
     )}
 
 

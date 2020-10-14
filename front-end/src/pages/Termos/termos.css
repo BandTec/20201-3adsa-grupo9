@@ -1,15 +1,21 @@
+.TermosConteiner{
+    top: 0;
+    height: 100vh;
+    background: var(--primary);
+}
+
 .logo{
     width: 20%;
     margin-left: 40%;
 }
 
-h1{
+.TermosConteiner h1{
     font-size: 20px;
     margin-left: 15%;
     margin-top: 4%;
 }
 
-h2{
+.TermosConteiner h2{
     width: 60%;
     font-size: 15px;
     margin-left: 15%;

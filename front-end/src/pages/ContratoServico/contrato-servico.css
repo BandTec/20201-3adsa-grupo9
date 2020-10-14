@@ -1,4 +1,4 @@
-.ConfirmContainer{
+.ContratoServicoConteiner{
     top: 0%;
 
     margin-left: 5%;
@@ -6,33 +6,30 @@
     max-width: 100%;
 }
 
-.Return{
-    width: 30px;
-    height: 30px;
+.ContratoServicoContent{
+    width: 90%;
 }
 
-.Titulo{
-    margin-top: 15%;
-    margin-bottom: 5%;
-
+.ContratoServicoContent h3{
     font-weight: 400;
     font-size: xx-large;
+    text-align: center;
+    margin-bottom: 10%;
 }
 
-.Botoes{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
+.ContratoServicoContent h4{
+    width: 60%;
+    margin-bottom: 10%;
+    text-align: left;
 }
 
-.ButtonSquareConfirmarPerfil{
+.ButtonSquareContratoServico{
     color: var(--white);
     box-sizing: border-box;
     cursor: pointer;
     padding: 16px 24px;
     margin-top: 5%;
+    margin-right: 5%;
     font-style: normal;
     font-weight: bold;
     font-size: 16px;
@@ -41,5 +38,5 @@
     text-decoration: none;
     display: inline-block;
     transition: opacity .3s;
-    width: 80%;
+    width: 30%;
 }
