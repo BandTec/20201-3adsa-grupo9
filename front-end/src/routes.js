@@ -8,6 +8,7 @@ import Cadastro from './pages/Cadastro';
 import Termos from './pages/Termos';
 import PerfilPrestador from './pages/PerfilPrestador';
 import ContratoServico from './pages/ContratoServico';
+import CadastroPerfilPrestador from './pages/CadastroPerfilPrestador';
 
 export default function Routes(){
     return(
@@ -20,6 +21,8 @@ export default function Routes(){
                 <Route path="/termos" component={Termos}/>
                 <Route path="/perfil-prestador" component={PerfilPrestador}/>
                 <Route path="/contrato-servico" component={ContratoServico} />
+                <Route path="/cadastro-perfil" component={CadastroPerfilPrestador} />
+                
             </Switch>
         </BrowserRouter>
     );

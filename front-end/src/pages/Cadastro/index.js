@@ -2,17 +2,11 @@ import React from 'react';
 import './cadastro.css';
 import GoogleIcon from '../../assets/img/icons/Gmail.png';
 import FaceIcon from '../../assets/img/icons/facebook.png';
-import Assistente from '../../components/Assistente';
-
-
 
 
 function Cadastro(){
     return(
         <div>
-            <Assistente>
-            </Assistente>
-            
             <h1>Cadastre-se já e aumente sua clientela</h1>
             <h2>Este é o passo 1</h2> 
  
