@@ -10,6 +10,7 @@ import PerfilPrestador from './pages/PerfilPrestador';
 import PerfilContratante from './pages/PerfilContratante';
 import InfoContratacao from './pages/InfoContratacao';
 import ContratoServico from './pages/ContratoServico';
+import CadastroPerfilPrestador from './pages/CadastroPerfilPrestador';
 
 export default function Routes(){
     return(
@@ -24,6 +25,8 @@ export default function Routes(){
                 <Route path="/perfil-contratante" component={PerfilContratante}/>
                 <Route path="/info-contratacao" component={InfoContratacao} />
                 <Route path="/contrato-servico" component={ContratoServico} />
+                <Route path="/cadastro-perfil" component={CadastroPerfilPrestador} />
+                
             </Switch>
         </BrowserRouter>
     );
