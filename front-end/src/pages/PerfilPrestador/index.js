@@ -1,11 +1,11 @@
 import React from 'react';
-import './perfil.css';
+import './perfil-prestador.css';
 
 
 function PerfilPrestador(){
     return(
         <div>
-            </div>
+        </div>
     )}
 
 

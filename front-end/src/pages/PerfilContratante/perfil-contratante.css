@@ -1,0 +1,33 @@
+.PerfilContratanteContainer{
+    margin-left: 30%;
+    margin-bottom: 10%;
+}
+
+.PerfilContratanteContainer h4{
+    margin-bottom: 0;
+}
+
+.PerfilContratanteContainer input{
+    border: 1px solid black;
+    background-color: var(--grey);
+
+    margin-bottom: 2%;
+    margin-right: -22%;
+
+    height: 30px;
+    width: 50%;
+}
+
+.FormularioPerfilContratante{}
+
+.FormularioBancarioContratante{
+    margin-top: 5%;
+}
+
+.FormularioBancarioContratante img{
+    width: 20px;
+}
+
+.Checkbox{
+    margin-left: -22%;
+}

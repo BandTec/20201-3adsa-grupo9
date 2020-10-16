@@ -25,7 +25,7 @@ function Termos(){
 
              <div style={{margin: '10%'}}>
                 <Link className="botao_termo" to="">Li e concordo os termos de uso</Link>
-                <Link className="botao" to="">Voltar</Link>
+                <Link className="botao" to="/">Voltar</Link>
              </div>
 
         </div>

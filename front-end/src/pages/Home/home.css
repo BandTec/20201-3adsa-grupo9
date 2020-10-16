@@ -76,6 +76,68 @@ body{
     width: 40%;
 }
 
+.Equipe{
+    width: 100%;
+
+    margin-top: 10%;
+    margin-bottom: 6%;
+}
+
+.Equipe h2{
+    text-align: center;
+    margin-bottom: 6%;
+}
+
+.Integrantes{
+    margin-left: 5%;
+    margin-right: 5%;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.CardIntegrante{
+    width: 200px;
+    border: 1px solid black;
+}
+
+.Integrante h4{
+    text-align: center;
+
+    margin-top: 5%;
+}
+
+.Integrante img{
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.FotoIntegrante{
+    display: flex;
+    position: relative;
+    width: 200px;
+    height: 250px;
+    background-color: #424242;
+    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.SocialMedia{
+    width: 200px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.SocialIcon{
+    width: 40px;
+    height: 40px;
+
+    margin-top: 5%;
+}
+
 .TiposServicos{
     width: 100%;
 

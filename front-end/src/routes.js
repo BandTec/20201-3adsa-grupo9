@@ -7,6 +7,8 @@ import Login from './pages/Login';
 import Cadastro from './pages/Cadastro';
 import Termos from './pages/Termos';
 import PerfilPrestador from './pages/PerfilPrestador';
+import PerfilContratante from './pages/PerfilContratante';
+import InfoContratacao from './pages/InfoContratacao';
 import ContratoServico from './pages/ContratoServico';
 
 export default function Routes(){
@@ -19,6 +21,8 @@ export default function Routes(){
                 <Route path="/cadastro" component={Cadastro}/>
                 <Route path="/termos" component={Termos}/>
                 <Route path="/perfil-prestador" component={PerfilPrestador}/>
+                <Route path="/perfil-contratante" component={PerfilContratante}/>
+                <Route path="/info-contratacao" component={InfoContratacao} />
                 <Route path="/contrato-servico" component={ContratoServico} />
             </Switch>
         </BrowserRouter>

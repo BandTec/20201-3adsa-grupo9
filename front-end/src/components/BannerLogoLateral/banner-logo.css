@@ -1,0 +1,44 @@
+.LogoDireita{
+    top:0;
+    right: 0;
+
+    width: 25%;
+    height: 100%;
+
+    background: var(--primary);
+
+    z-index: 100;
+    position: absolute;
+    
+    float: right;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.LogoDireita img{
+    width: 200px;
+}
+
+.LogoEsquerda{
+    top:0;
+    right: 0;
+
+    width: 25%;
+    height: 100%;
+    
+    background: var(--primary);
+
+    z-index: 100;
+    position: absolute;
+    
+    float: right;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.LogoEsquerda img{
+    width: 200px;
+}

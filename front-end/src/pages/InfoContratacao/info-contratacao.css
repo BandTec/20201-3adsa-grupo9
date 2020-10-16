@@ -1,0 +1,43 @@
+.InfoContratacaoConteiner{
+    top: 0%;
+
+    margin-left: 5%;
+
+    max-width: 100%;
+}
+
+.InfoContratacaoContent{
+    width: 60%;
+}
+
+.InfoContratacaoContent h3{
+    font-weight: 400;
+    font-size: xx-large;
+    text-align: center;
+    margin-bottom: 10%;
+}
+
+.InfoContratacaoContent h4{
+    width: 60%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    text-align: left;
+}
+
+.ButtonSquareInfoContratacao{
+    color: var(--white);
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 16px 24px;
+    margin-top: 5%;
+    margin-right: 5%;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity .3s;
+    width: 30%;
+}

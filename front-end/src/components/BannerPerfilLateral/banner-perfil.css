@@ -1,0 +1,27 @@
+.BannerPerfilLateralContainer{
+    top:0;
+    left: 0;
+
+    width: 25%;
+    height: 100vh;
+
+    background: var(--primary);
+
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.BannerPerfilLateralContainer img{
+    width: 50%;
+}
+
+.BannerPerfilLateralContainer small, h4{
+    margin-bottom: 5%;
+}
+
+.BannerPerfilLateralContainer a, span{
+    color: var(--white);
+}

@@ -8,11 +8,24 @@ import Footer from '../../components/Footer';
 import PedidoIcon from '../../assets/img/icons/pedido.png';
 import ProfissionaisIcon from '../../assets/img/icons/profissionais.png';
 import EscolhaIcon from '../../assets/img/icons/escolha.png';
+
+import LinkedinIcon from '../../assets/img/icons/linkedin.png';
+import GithubIcon from '../../assets/img/icons/github.png';
+import InstagramIcon from '../../assets/img/icons/instagram.png';
+import FacebookIcon from '../../assets/img/icons/facebook.png';
+
 import ApresentacaoImg from '../../assets/img/imagens/apresentacao-plataforma.png';
 import TrabalhadoresImg from '../../assets/img/imagens/trabalhadores.png';
 import BabaImg from '../../assets/img/imagens/baba.png';
 import PintorImg from '../../assets/img/imagens/pintor.png';
 import PedreirosImg from '../../assets/img/imagens/pedreiros.png';
+
+import BrunaPic from '../../assets/img/time/bruna.png';
+import GiulianoPic from '../../assets/img/time/giuliano.png';
+import LucasPic from '../../assets/img/time/lucas.png';
+import MatheusPic from '../../assets/img/time/matheus.png';
+import PedroPic from '../../assets/img/time/pedro.png';
+import RicardoPic from '../../assets/img/time/ricardo.png';
 
 import './home.css';
 
@@ -49,12 +62,97 @@ function Home(){
                         <div>
                             <p>A Jobby Jobs recebe milhares de pedidos todos os meses de clientes procurando profissionais como você.</p> <br/>
                             <p>Cadastre seus serviços e receba solicitações tanto na internet quanto no seu celular.</p>
-                            <Link to="/" className="ButtonLinkSquare" style={{ marginTop: "5%" }}>Cadastrar minhas funções</Link>
+                            <Link to="/confirmar-perfil" className="ButtonLinkSquare" style={{ marginTop: "5%" }}>Cadastrar minhas funções</Link>
                         </div>
                         <img src={TrabalhadoresImg} alt="Foto mostrando pessoas em diversos cargos de trabalho" />
                     </div>
                     {/* Fim da area de chamado de cadastro de trabalhadores */}
 
+                    {/* Area de apresentacao da equipe */}
+                    <div className="Equipe">
+                        <h2>Time Jobby Jobs</h2>
+                        <div className="Integrantes">
+                            <div className="CardIntegrante">
+                                <div className="Integrante">
+                                    <img className="FotoIntegrante" src={BrunaPic} alt="Foto da integrante Bruna"/>
+                                    <h4>Bruna Garcia</h4>
+                                    <h4>Front-end Developer</h4>
+                                </div>
+                                <div className="SocialMedia">
+                                    <img className="SocialIcon" src={LinkedinIcon} alt="Ícone de acesso a rede social LinkedIn da integrante Bruna" />
+                                    <img className="SocialIcon" src={GithubIcon} alt="Ícone de acesso a rede social LinkedIn da integrante Bruna" />
+                                    <img className="SocialIcon" src={InstagramIcon} alt="Ícone de acesso a rede social LinkedIn da integrante Bruna" />
+                                    <img className="SocialIcon" src={FacebookIcon} alt="Ícone de acesso a rede social LinkedIn da integrante Bruna" />
+                                </div>
+                            </div>
+                            <div className="CardIntegrante">
+                                <div className="Integrante">
+                                    <img className="FotoIntegrante" src={GiulianoPic} alt="Foto do integrante Giuliano"/>
+                                    <h4>Giuliano Menegasse</h4>
+                                    <h4>Arquiteto de solução</h4>
+                                </div>
+                                <div className="SocialMedia">
+                                    <img className="SocialIcon" src={LinkedinIcon} alt="Ícone de acesso a rede social LinkedIn do integrante Giuliano" />
+                                    <img className="SocialIcon" src={GithubIcon} alt="Ícone de acesso a rede social LinkedIn do integrante Giuliano" />
+                                    <img className="SocialIcon" src={InstagramIcon} alt="Ícone de acesso a rede social LinkedIn do integrante Giuliano" />
+                                    <img className="SocialIcon" src={FacebookIcon} alt="Ícone de acesso a rede social LinkedIn do integrante Giuliano" />
+                                </div>
+                            </div>
+                            <div className="CardIntegrante">
+                                <div className="Integrante">
+                                    <img className="FotoIntegrante" src={LucasPic} alt="Foto do integrante Lucas"/>
+                                    <h4>Lucas Torres</h4>
+                                    <h4>Full Stack Developer</h4>
+                                </div>
+                                <div className="SocialMedia">
+                                    <img className="SocialIcon" src={LinkedinIcon} alt="Ícone de acesso a rede social LinkedIn do integrante Lucas" />
+                                    <img className="SocialIcon" src={GithubIcon} alt="Ícone de acesso a rede social LinkedIn do integrante Lucas" />
+                                    <img className="SocialIcon" src={InstagramIcon} alt="Ícone de acesso a rede social LinkedIn do integrante Lucas" />
+                                    <img className="SocialIcon" src={FacebookIcon} alt="Ícone de acesso a rede social LinkedIn do integrante Lucas" />
+                                </div>
+                            </div>
+                            <div className="CardIntegrante">
+                                <div className="Integrante">
+                                    <img className="FotoIntegrante" src={MatheusPic} alt="Foto do integrante Matheus"/>
+                                    <h4>MatheusFernandes</h4>
+                                    <h4>Back-end Developer</h4>
+                                </div>
+                                <div className="SocialMedia">
+                                    <img className="SocialIcon" src={LinkedinIcon} alt="Ícone de acesso a rede social LinkedIn do integrante Matheus" />
+                                    <img className="SocialIcon" src={GithubIcon} alt="Ícone de acesso a rede social LinkedIn do integrante Matheus" />
+                                    <img className="SocialIcon" src={InstagramIcon} alt="Ícone de acesso a rede social LinkedIn do integrante Matheus" />
+                                    <img className="SocialIcon" src={FacebookIcon} alt="Ícone de acesso a rede social LinkedIn do integrante Matheus" />
+                                </div>
+                            </div>
+                            <div className="CardIntegrante">
+                                <div className="Integrante">
+                                    <img className="FotoIntegrante" src={PedroPic} alt="Foto do integrante Pedro"/>
+                                    <h4>Pedro Lucas</h4>
+                                    <h4>Full Stack Developer</h4>
+                                </div>
+                                <div className="SocialMedia">
+                                    <img className="SocialIcon" src={LinkedinIcon} alt="Ícone de acesso a rede social LinkedIn do integrante Pedro" />
+                                    <img className="SocialIcon" src={GithubIcon} alt="Ícone de acesso a rede social LinkedIn do integrante Pedro" />
+                                    <img className="SocialIcon" src={InstagramIcon} alt="Ícone de acesso a rede social LinkedIn do integrante Pedro" />
+                                    <img className="SocialIcon" src={FacebookIcon} alt="Ícone de acesso a rede social LinkedIn do integrante Pedro" />
+                                </div>
+                            </div>
+                            <div className="CardIntegrante">
+                                <div className="Integrante">
+                                    <img className="FotoIntegrante" src={RicardoPic} alt="Foto do integrante Ricardo"/>
+                                    <h4>Ricardo Celso</h4>
+                                    <h4>UX</h4>
+                                </div>
+                                <div className="SocialMedia">
+                                    <img className="SocialIcon" src={LinkedinIcon} alt="Ícone de acesso a rede social LinkedIn do integrante Ricardo" />
+                                    <img className="SocialIcon" src={GithubIcon} alt="Ícone de acesso a rede social LinkedIn do integrante Ricardo" />
+                                    <img className="SocialIcon" src={InstagramIcon} alt="Ícone de acesso a rede social LinkedIn do integrante Ricardo" />
+                                    <img className="SocialIcon" src={FacebookIcon} alt="Ícone de acesso a rede social LinkedIn do integrante Ricardo" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {/* Fim da area de apresentacao da equipe */}
 
                     {/* Area de apresentacao de tipos de servicos */}
                     <div className="TiposServicos">

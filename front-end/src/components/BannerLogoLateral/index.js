@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './banner.css';
+import './banner-logo.css';
 
 import Logo from '../../assets/img/logo/logo-removebg.png';
 
