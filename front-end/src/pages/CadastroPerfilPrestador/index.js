@@ -7,6 +7,16 @@ function CadastroPerfilPrestador(){
             <h1>Falta pouco para finalizar seu cadastro, agora vamos deescrever seu perfil</h1>
             <h2>Este é o passo 2</h2>
 
+            <div>
+            <select className='servico'>
+            <option value="0">Selecione sua profissão:</option>
+            <option value="1">Babá</option>
+            <option value="2">Pedreiro</option>
+            <option value="3">Pintor</option>
+            </select>
+            </div>
+
+
              <div className='dia_semana'>
             <h3>Quantos dias por semana voce deseja trabalhar?</h3>
 
@@ -45,7 +55,7 @@ function CadastroPerfilPrestador(){
             <div className='dias_semana'>
                 <h3>Quais dias da semana voce deseja trabalhar?</h3>
 
-                <input type="checkbox"></input>
+                <input className='check' type="checkbox"></input>
                 <label className='text_dias'>Segunda-feira</label>
 
                 <input type="checkbox"></input>

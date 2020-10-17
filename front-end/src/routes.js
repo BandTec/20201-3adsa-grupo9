@@ -14,6 +14,8 @@ import PerfilContratante from './pages/PerfilContratante';
 import InfoContratacao from './pages/InfoContratacao';
 import ContratoServico from './pages/ContratoServico';
 import CadastroPerfilPrestador from './pages/CadastroPerfilPrestador';
+import CadastroEnderecoPrestador from './pages/CadastroEnderecoPrestador';
+import CadastroBancarioPrestador from './pages/CadastroBancarioPrestador';
 
 export default function Routes(){
     return(
