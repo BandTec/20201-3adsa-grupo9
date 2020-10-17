@@ -6,6 +6,7 @@ import FaceIcon from '../../assets/img/icons/facebook.png';
 
 function Cadastro(){
     return(
+		
         <div>
             <h1>Cadastre-se já e aumente sua clientela</h1>
             <h2>Este é o passo 1</h2> 
