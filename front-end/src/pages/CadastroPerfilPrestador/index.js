@@ -3,7 +3,7 @@ import './cadastroPerfil.css';
 
 function CadastroPerfilPrestador(){
     return(
-        <div className='cadastroContainer'>
+        <div className='CadastroContainer'>
             <h1>Falta pouco para finalizar seu cadastro, agora vamos deescrever seu perfil</h1>
             <h2>Este é o passo 2</h2>
 

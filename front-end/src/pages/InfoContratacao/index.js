@@ -50,7 +50,7 @@ function InfoContratacao(){
                 <Link className="ButtonSquareInfoContratacao" to="/contrato-servico" style={{ background: "var(--light-button)" }}>Contratar serviço</Link>
             </div>
 
-            <BannerLogoLateral />
+            <BannerLogoLateral className={"LogoDireita"}/>
         </div>
     )}
 

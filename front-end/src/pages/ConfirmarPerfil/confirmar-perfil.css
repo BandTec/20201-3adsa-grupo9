@@ -1,6 +1,7 @@
 .ConfirmContainer{
     top: 0%;
 
+    margin-top: var(--bodyMarginTop);
     margin-left: 5%;
 
     max-width: 100%;

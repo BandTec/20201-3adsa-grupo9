@@ -1,22 +1,22 @@
-.cadastroContainer{
+.CadastroContainer{
     background-color: #29668E;
 }
 
 
-h1{
+.CadastroContainer h1{
     font-family: 'Aldrich',sans-serif;
     color: var(--white);
     font-size: 20px;
     text-align: center;
 }
- h2{
+ .CadastroContainer h2{
     font-family: 'Aldrich',sans-serif;
     color: var(--white);
     margin-left: 45%;
     font-size: 16px;
 }
 
-h3{
+.CadastroContainer h3{
     font-family: 'Aldrich',sans-serif;
     color: var(--white);
     font-size: 15px;

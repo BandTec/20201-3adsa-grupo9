@@ -20,7 +20,10 @@
     --blue: #3D81E8;
     --dark-button: #3B5998;
     --light-button: #3D81E8;
+    --blue-facebook: #3B5998;
+    --attention-button: #FF4133;
 
     /* Variaveis de tamanhos padroes utilizados */
     --marginTopButton: 5%;
+    --bodyMarginTop: 94px;
 }

@@ -1,4 +1,6 @@
 .LoginPage{
+    margin-top: var(--bodyMarginTop);
+    
     display: flex;
     flex-direction: column;
     align-items: center;

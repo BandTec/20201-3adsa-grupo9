@@ -1,0 +1,44 @@
+.CadastroPerfilContratanteContainer{
+    background: var(--primary);
+
+    height: 100vh;
+    width: 75%;
+}
+
+.CadastroPerfilContratanteContent{
+    padding-top: var(--bodyMarginTop);
+    margin-left: 5%;
+}
+
+.CadastroPerfilContratanteContent form{
+    margin-top: 2%;
+}
+
+.BotoesCadastroPlataformas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 6%;
+}
+
+.ButtonLinkSquareCadastro{
+    color: var(--black);
+    background: var(--white);
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 16px 24px;
+    width: 400px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity .3s;
+}
+
+.ButtonLinkSquareCadastro img {
+    width: 20px;
+}

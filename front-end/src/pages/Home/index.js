@@ -35,7 +35,7 @@ function Home(){
             <Menu />
             <body>
 
-                <div>
+                <div className="HomeContent">
                     {/* Area de apresentacao da empresa/plataforma */}
                     <div className="Apresentacao">
                         <div>

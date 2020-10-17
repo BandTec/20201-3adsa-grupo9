@@ -17,7 +17,7 @@ function ContratoServico(){
                 <Link className="ButtonSquareContratoServico" to="" style={{ background: "var(--light-button)" }}>Termos e condições de uso</Link>
             </div>
 
-            <BannerLogoLateral />
+            <BannerLogoLateral className={"LogoDireita"}/>
         </div>
     )}
 

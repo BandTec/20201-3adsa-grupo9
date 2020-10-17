@@ -20,11 +20,6 @@
   
     background: var(--primary);
   }
-  
-  body {
-    --bodyPaddingTop: 94px;
-    padding-top: var(--bodyPaddingTop);
-  }
 
   .ButtonLink {
     color: var(--black);

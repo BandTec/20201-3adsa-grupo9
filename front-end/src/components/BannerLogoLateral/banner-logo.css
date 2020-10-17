@@ -16,13 +16,14 @@
     align-items: center;
     justify-content: center;
 }
+
 .LogoDireita img{
     width: 200px;
 }
 
 .LogoEsquerda{
     top:0;
-    right: 0;
+    left: 0;
 
     width: 25%;
     height: 100%;

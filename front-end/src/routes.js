@@ -5,6 +5,9 @@ import Home from './pages/Home';
 import ConfirmarPerfil from './pages/ConfirmarPerfil';
 import Login from './pages/Login';
 import Cadastro from './pages/Cadastro';
+import CadastroPerfilContratante from './pages/CadastroPerfilContratante';
+import CadastroInfoPessoalContratante from './pages/CadastroInfoPessoalContratante';
+import CadastroInfoBancariaContratante from './pages/CadastroInfoBancariaContratante';
 import Termos from './pages/Termos';
 import PerfilPrestador from './pages/PerfilPrestador';
 import PerfilContratante from './pages/PerfilContratante';
@@ -20,13 +23,15 @@ export default function Routes(){
                 <Route path="/login" component={Login}/>
                 <Route path="/confirmar-perfil" component={ConfirmarPerfil}/>
                 <Route path="/cadastro" component={Cadastro}/>
+                <Route path="/cadastro-perfil-contratante" component={CadastroPerfilContratante}/>
+                <Route path="/cadastro-info-pesosal-contratante" component={CadastroInfoPessoalContratante}/>
+                <Route path="/cadastro-info-bancaria-contratante" component={CadastroInfoBancariaContratante}/>
                 <Route path="/termos" component={Termos}/>
                 <Route path="/perfil-prestador" component={PerfilPrestador}/>
                 <Route path="/perfil-contratante" component={PerfilContratante}/>
                 <Route path="/info-contratacao" component={InfoContratacao} />
                 <Route path="/contrato-servico" component={ContratoServico} />
                 <Route path="/cadastro-perfil" component={CadastroPerfilPrestador} />
-                
             </Switch>
         </BrowserRouter>
     );

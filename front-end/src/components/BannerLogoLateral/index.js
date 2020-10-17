@@ -4,10 +4,10 @@ import './banner-logo.css';
 
 import Logo from '../../assets/img/logo/logo-removebg.png';
 
-function BannerLogoLateral(){
+function BannerLogoLateral(props){
 
     return(
-        <div className="LogoDireita">
+        <div className={props.className}>
             <img src={Logo} alt="Logotipo da Jobby Jobs."/>
         </div>
     );

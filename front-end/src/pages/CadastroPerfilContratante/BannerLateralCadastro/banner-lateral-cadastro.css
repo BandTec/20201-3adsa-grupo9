@@ -1,0 +1,30 @@
+.BannerDireita{
+    top:0;
+    right: 0;
+
+    width: 25%;
+    height: 100%;
+
+    z-index: 100;
+    position: absolute;
+    
+    float: right;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.BannerDireita h4{
+    width: 65%;
+
+    font-size: x-large;
+    text-align: center;
+
+    margin-bottom: 20%;
+}
+
+.BannerDireita img{
+    width: 200px;
+}

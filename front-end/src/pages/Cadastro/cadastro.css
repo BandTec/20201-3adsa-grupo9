@@ -1,11 +1,11 @@
 
- h1{
+ .CadastroContainer h1{
     font-family: 'Aldrich',sans-serif;
     color: var(--white);
     font-size: 25px;
     text-align: center;
 }
- h2{
+.CadastroContainer h2{
     font-family: 'Aldrich',sans-serif;
     color: var(--white);
     margin-left: 45%;

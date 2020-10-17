@@ -1,4 +1,4 @@
-.PerfilContratanteContainer{
+.CadastroInfoBancariaContratanteContainer{
     margin-top: var(--bodyMarginTop);
     margin-left: 30%;
     margin-bottom: 10%;
@@ -6,16 +6,16 @@
     height: 100%;
 }
 
-.PerfilContratanteContainer h3{
+.CadastroInfoBancariaContratanteContainer h3{
     font-size: x-large;
     margin-bottom: 2%;
 }
 
-.PerfilContratanteContainer h4{
+.CadastroInfoBancariaContratanteContainer h4{
     margin-bottom: 0;
 }
 
-.PerfilContratanteContainer input{
+.CadastroInfoBancariaContratanteContainer input{
     border: 1px solid black;
     background-color: var(--grey);
 
@@ -24,18 +24,4 @@
 
     height: 30px;
     width: 50%;
-}
-
-.FormularioPerfilContratante{}
-
-.FormularioBancarioContratante{
-    margin-top: 5%;
-}
-
-.FormularioBancarioContratante img{
-    width: 20px;
-}
-
-.Checkbox{
-    margin-left: -22%;
 }
