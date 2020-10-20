@@ -9,10 +9,10 @@ public class UsuarioConta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "numeroAgencia", nullable = false)
+    @Column(name = "Agencia", nullable = false)
     private Integer agencia;
 
-    @Column(name = "numeroConta", nullable = false)
+    @Column(name = "Numero_Conta", nullable = false)
     private Integer conta;
 
     public Integer getId() {

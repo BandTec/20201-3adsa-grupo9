@@ -1,5 +1,4 @@
 package jobbyjobs.com.jobbyjobs.models;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -10,28 +9,33 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "usuarioNome", length = 30)
+    @Column(name = "Usuario_Nome", length = 30)
     @NotNull
     private String nome;
 
-    @Column(name = "usuarioEmail", length = 40)
+    @Column(name = "Usuario_Email", length = 40)
     @NotNull
     private String email;
 
-    @Column(name = "usuarioSenha", length = 16)
+    @Column(name = "Usuario_Senha", length = 16)
     @NotNull
     private String senha;
 
-    @Column(name = "usuarioCPF", length = 12)
+    @Column(name = "Usuario_Cpf", length = 12)
     @NotNull
     private String CPF;
 
-    @Column(name = "formaDePagamento", length = 20)
-    @NotNull
-    private String formaPagamento;
+    @Column(name = "Tipo_usuario")
+    private Integer tipoUsuario;
 
-    @Column(name = "usurioTipo")
-    private Integer tipoPessoa;
+    @Column(name = "Fk_Endereco")
+    @ManyToOne
+    private Endereco endereco;
+
+    @Column(name = "Fk_Usuario_Conta")
+    @ManyToOne
+    private UsuarioConta usuarioConta;
+
 
 
     public Integer getId() {
@@ -69,17 +73,24 @@ public class Usuario {
         this.CPF = CPF;
     }
 
-    public String getFormaPagamento() {
-        return formaPagamento;
+    public Integer getTipoUsuario() {
+        return tipoUsuario;
     }
-    public void setFormaPagamento(String formaPagamento) {
-        this.formaPagamento = formaPagamento;
+    public void setTipoUsuario(Integer tipoPessoa) {
+        this.tipoUsuario = tipoPessoa;
     }
 
-    public Integer getTipoPessoa() {
-        return tipoPessoa;
+    public Endereco getEndereco() {
+        return endereco;
     }
-    public void setTipoPessoa(Integer tipoPessoa) {
-        this.tipoPessoa = tipoPessoa;
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public UsuarioConta getUsuarioConta() {
+        return usuarioConta;
+    }
+    public void setUsuarioConta(UsuarioConta usuarioConta) {
+        this.usuarioConta = usuarioConta;
     }
 }

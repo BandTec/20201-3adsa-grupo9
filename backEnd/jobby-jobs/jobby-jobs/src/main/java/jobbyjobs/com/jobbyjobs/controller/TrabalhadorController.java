@@ -6,8 +6,8 @@ import java.util.Optional;
 
 import jobbyjobs.com.jobbyjobs.models.*;
 import jobbyjobs.com.jobbyjobs.repositories.BabaRepository;
-import jobbyjobs.com.jobbyjobs.repositories.TrabalhadorRepository;
-import jobbyjobs.com.jobbyjobs.repositories.UsuarioRepository;
+import jobbyjobs.com.jobbyjobs.repositories.ProfissionalRepository;
+import jobbyjobs.com.jobbyjobs.repositories.UsuariosJobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,10 +20,10 @@ import javax.validation.Valid;
 public class TrabalhadorController implements calcularSalario {
 
     @Autowired
-    private TrabalhadorRepository trabalhadorRepo;
+    private ProfissionalRepository profissionalRepository;
 
     @Autowired
-    private UsuarioRepository userRepository;
+    private UsuariosJobRepository userRepository;
 
     @Autowired
     private BabaRepository babaRepository;
@@ -32,18 +32,21 @@ public class TrabalhadorController implements calcularSalario {
 
     @GetMapping
     public ResponseEntity getTrabalhadores(@RequestParam(required = false) Integer id){
-        if(trabalhadorRepo.count() == 0){
+        if(profissionalRepository.count() == 0){
             return ResponseEntity.noContent().build();
         } else if (id == null){
-            return ResponseEntity.ok(trabalhadorRepo.findAll());
+            return ResponseEntity.ok(profissionalRepository.findAll());
         } else {
-            return ResponseEntity.ok(trabalhadorRepo.findById(id));
+            return ResponseEntity.ok(profissionalRepository.findById(id));
         }
     }
 
     @PostMapping
-    public ResponseEntity registrarTrabalhador(@RequestBody @Valid Trabalhador t) {
-        trabalhadorRepo.save(t);
+    public ResponseEntity registrarTrabalhador(@RequestBody @Valid Profissional p) {
+        if(p.getProfissao().equals("Baba")){
+            babaRepository.save(p.getBaba());
+        }
+        profissionalRepository.save(p);
         return ResponseEntity.status(201).build();
     }
 
@@ -83,7 +86,7 @@ public class TrabalhadorController implements calcularSalario {
             @RequestParam(required = true) int qtdHoras,
             @RequestParam(required = false) Double valorMetro,
             @RequestParam(required = false) Double qtdMetros) {
-        Optional<Trabalhador> trabalhador = trabalhadorRepo.findById(id);
+        Optional<Profissional> trabalhador = profissionalRepository.findById(id);
         Double salario;
         if (valorMetro != null && qtdMetros != null){
            if(trabalhador.get().getCobrarPorHora()){
@@ -108,28 +111,27 @@ public class TrabalhadorController implements calcularSalario {
         @RequestParam(required = true) int idadeMedia,
         @RequestParam(required = false) int qtdCriancas,
         @RequestParam(required = true) int qtdHoras){
-        Optional<Baba> baba = babaRepository.findById(id);
-        Optional<Trabalhador> trabalhador = trabalhadorRepo.findById(id);
+        Optional<Profissional> t = profissionalRepository.findById(id);
 
         Double valorCobrado = 0.0;
         if(idadeMedia >= 0 && idadeMedia <= 3){
-            valorCobrado += (trabalhador.get().getValorHora() * qtdHoras) + baba.get().getPrecoAteTres();
+            valorCobrado += (t.get().getValorHora() * qtdHoras) + t.get().getBaba().getPrecoAteTres();
         }
         else if(idadeMedia >= 4 && idadeMedia <= 8){
-            valorCobrado += (trabalhador.get().getValorHora() * qtdHoras) + baba.get().getPrecoTresAteOito();
+            valorCobrado += (t.get().getValorHora() * qtdHoras) + t.get().getBaba().getPrecoTresAteOito();
         }
         else if(idadeMedia >= 9 && idadeMedia <= 15){
-            valorCobrado += (trabalhador.get().getValorHora() * qtdHoras) +  baba.get().getPrecoNoveAteQuinze();
+            valorCobrado += (t.get().getValorHora() * qtdHoras) +  t.get().getBaba().getPrecoNoveAteQuinze();
         }
 
-        if ( baba.get().getCozinhar() &&  baba.get().getLimpar()){
-            valorCobrado += baba.get().getPrecoCozinheira() + baba.get().getPrecoLimpeza();
+        if ( t.get().getBaba().getCozinhar() &&  t.get().getBaba().getLimpar()){
+            valorCobrado += t.get().getBaba().getPrecoCozinheira() + t.get().getBaba().getPrecoLimpeza();
         }
-        else if (baba.get().getCozinhar()){
-            valorCobrado += baba.get().getPrecoCozinheira();
+        else if (t.get().getBaba().getCozinhar()){
+            valorCobrado += t.get().getBaba().getPrecoCozinheira();
         }
-        else if (baba.get().getLimpar()){
-            valorCobrado +=  baba.get().getPrecoLimpeza();
+        else if (t.get().getBaba().getLimpar()){
+            valorCobrado +=  t.get().getBaba().getPrecoLimpeza();
         }
 
         return valorCobrado;

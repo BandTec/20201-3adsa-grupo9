@@ -5,42 +5,43 @@ import java.util.List;
 
 import jobbyjobs.com.jobbyjobs.models.Login;
 import jobbyjobs.com.jobbyjobs.models.Usuario;
-import jobbyjobs.com.jobbyjobs.repositories.UsuarioRepository;
+import jobbyjobs.com.jobbyjobs.repositories.UsuariosJobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+
 @RestController
 @RequestMapping("/contratantes")
 public class ContratanteController {
 
-   @Autowired
-   private UsuarioRepository userRepository;
-
    List<Login> logados = new ArrayList<>();
+
+    @Autowired
+    private UsuariosJobRepository usuarioRepository;
 
     @GetMapping
     public ResponseEntity getUsuarios(@RequestParam(required = false) Integer id){
-        if(userRepository.count() == 0){
+        if(usuarioRepository.count() == 0){
             return ResponseEntity.noContent().build();
         } else if (id == null){
-            return ResponseEntity.ok(userRepository.findAll());
+            return ResponseEntity.ok(usuarioRepository.findAll());
         } else {
-            return ResponseEntity.ok(userRepository.findById(id));
+            return ResponseEntity.ok(usuarioRepository.findById(id));
         }
     }
 
     @PostMapping
     public ResponseEntity registrarUsuarios(@RequestBody @Valid Usuario novoUsuario) {
-        userRepository.save(novoUsuario);
+        usuarioRepository.save(novoUsuario);
         return ResponseEntity.created(null).build();
     }
 
     @PostMapping("/login")
     public ResponseEntity fazerLogin(@RequestBody Login l) {
-        for (Usuario u: userRepository.findAll()){
+        for (Usuario u: usuarioRepository.findAll()){
             if (l.getEmail().equals(u.getEmail()) && l.getSenha().equals(u.getSenha())){
                 logados.add(l);
                 return ResponseEntity.ok("Login Aceito!");
