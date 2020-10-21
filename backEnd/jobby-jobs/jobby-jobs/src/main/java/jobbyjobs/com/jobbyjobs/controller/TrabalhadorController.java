@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import jobbyjobs.com.jobbyjobs.calcularSalario;
 import jobbyjobs.com.jobbyjobs.models.*;
 import jobbyjobs.com.jobbyjobs.repositories.BabaRepository;
 import jobbyjobs.com.jobbyjobs.repositories.ProfissionalRepository;
@@ -79,7 +80,7 @@ public class TrabalhadorController implements calcularSalario {
         return this.logados.isEmpty() ? ResponseEntity.status(204).build() : ResponseEntity.ok(this.logados);
     }
 
-    @GetMapping
+    @GetMapping("salario-trabalhador")
     @Override
     public Double calcularSalarioTrabalhador(
             @RequestParam(required = true) int id,
@@ -87,7 +88,7 @@ public class TrabalhadorController implements calcularSalario {
             @RequestParam(required = false) Double valorMetro,
             @RequestParam(required = false) Double qtdMetros) {
         Optional<Profissional> trabalhador = profissionalRepository.findById(id);
-        Double salario;
+        double salario;
         if (valorMetro != null && qtdMetros != null){
            if(trabalhador.get().getCobrarPorHora()){
                salario = (trabalhador.get().getValorHora() * qtdHoras) + (valorMetro * qtdMetros);
@@ -104,7 +105,7 @@ public class TrabalhadorController implements calcularSalario {
         return salario;
     }
 
-    @GetMapping
+    @GetMapping("salario-baba")
     @Override
     public Double calcularSalarioBaba(
         @RequestParam(required = true) int id,

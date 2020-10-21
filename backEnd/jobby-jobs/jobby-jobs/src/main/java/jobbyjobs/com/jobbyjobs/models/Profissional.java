@@ -9,23 +9,21 @@ public class Profissional {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "Nome_Profissao", length = 40, nullable = false)
+    @Column(name = "nome_profissao", length = 40, nullable = false)
     private String profissao;
 
-    @Column(name = "Cobrar_Por_Hora", nullable = false)
+    @Column(name = "cobrar_cor_hora", nullable = false)
     private Boolean cobrarPorHora;
 
-    @Column(name = "Valor_Hora", nullable = false)
+    @Column(name = "valor_hora", nullable = false)
     private double valorHora;
 
-    @Column(name = "Valor_Fixo", nullable = false)
+    @Column(name = "valor_fixo", nullable = false)
     private double valorFixo;
 
-    @Column(name = "Fk_Baba")
     @ManyToOne
     private Baba baba;
 
-    @Column(name = "Fk_Usuario")
     @ManyToOne
     private Usuario usuario;
 
@@ -76,5 +74,17 @@ public class Profissional {
     }
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    @Override
+    public String toString() {
+        return "\n Profissional: " +
+                "\n Id: " + id +
+                "\n Profissao: " + profissao +
+                "\n CobrarPorHora: " + cobrarPorHora +
+                "\n ValorHora: " + valorHora +
+                "\n ValorFixo: " + valorFixo +
+                "\n Baba: " + baba +
+                "\n Usuario: " + usuario;
     }
 }

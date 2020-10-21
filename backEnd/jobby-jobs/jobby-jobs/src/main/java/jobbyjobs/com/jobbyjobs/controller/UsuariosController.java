@@ -14,8 +14,8 @@ import javax.validation.Valid;
 
 
 @RestController
-@RequestMapping("/contratantes")
-public class ContratanteController {
+@RequestMapping("/usuarios")
+public class UsuariosController {
 
    List<Login> logados = new ArrayList<>();
 

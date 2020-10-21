@@ -7,32 +7,31 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_usuario")
     private Integer id;
 
-    @Column(name = "Usuario_Nome", length = 30)
+    @Column(name = "usuario_nome", length = 50)
     @NotNull
     private String nome;
 
-    @Column(name = "Usuario_Email", length = 40)
+    @Column(name = "usuario_email", length = 40)
     @NotNull
     private String email;
 
-    @Column(name = "Usuario_Senha", length = 16)
+    @Column(name = "usuario_senha", length = 16)
     @NotNull
     private String senha;
 
-    @Column(name = "Usuario_Cpf", length = 12)
+    @Column(name = "usuario_cpf", length = 11)
     @NotNull
     private String CPF;
 
-    @Column(name = "Tipo_usuario")
+    @Column(name = "tipo_usuario")
     private Integer tipoUsuario;
 
-    @Column(name = "Fk_Endereco")
     @ManyToOne
     private Endereco endereco;
 
-    @Column(name = "Fk_Usuario_Conta")
     @ManyToOne
     private UsuarioConta usuarioConta;
 
@@ -92,5 +91,18 @@ public class Usuario {
     }
     public void setUsuarioConta(UsuarioConta usuarioConta) {
         this.usuarioConta = usuarioConta;
+    }
+
+    @Override
+    public String toString() {
+        return "\n Usuario: " +
+                "\n Id:" + id +
+                "\n Nome: " + nome +
+                "\n Email: " + email +
+                "\n Senha: " + senha +
+                "\n CPF: " + CPF +
+                "\n Tipo usuario: " + tipoUsuario +
+                "\n Endereco: " + endereco +
+                "\n Usuario conta: " + usuarioConta;
     }
 }

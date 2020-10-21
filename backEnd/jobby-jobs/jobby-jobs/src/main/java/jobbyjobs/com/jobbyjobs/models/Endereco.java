@@ -1,33 +1,38 @@
 package jobbyjobs.com.jobbyjobs.models;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id_Endereço")
-    private Integer idEndereco;
+    @Column(name = "id_endereco")
+    private Integer id;
 
-    @Column(name ="Nome_Rua")
+    @Column(name ="nome_rua")
+    @NotNull
     private String rua;
 
-    @Column(name = "Nome_Bairro")
+    @Column(name = "nome_bairro")
+    @NotNull
     private String bairro;
 
-    @Column(name = "Numero")
+    @Column(name = "numero")
+    @NotNull
     private Integer numero;
 
-    @Column(name = "Complemento", length=11)
+    @Column(name = "complemento", length=11)
     private String complemento;
 
-    @Column(name = "CEP", length=9)
+    @Column(name = "cep", length=9)
+    @NotNull
     private String CEP;
 
     public Integer getIdEndereco() {
-        return idEndereco;
+        return id;
     }
     public void setIdEndereco(Integer idEndereco) {
-        this.idEndereco = idEndereco;
+        this.id = idEndereco;
     }
 
     public String getRua() {
@@ -63,5 +68,16 @@ public class Endereco {
     }
     public void setCEP(String CEP) {
         this.CEP = CEP;
+    }
+
+    @Override
+    public String toString() {
+        return "\n Endereco: " +
+                "\n Id: " + id +
+                "\n Rua: " + rua +
+                "\n Bairro: " + bairro +
+                "\n Numero: " + numero +
+                "\n Complemento: " + complemento +
+                "\n CEP: " + CEP ;
     }
 }

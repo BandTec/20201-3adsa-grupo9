@@ -7,22 +7,21 @@ public class JobsSolicitados {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "id_job")
     private Integer idJob;
 
-    @Column(name = "QtdHorasTrabalho", nullable = false)
+    @Column(name = "qtd_horas_trabalho", nullable = false)
     private Integer qtdHorasTrabalho;
 
-    @Column(name = "ValorDaHora", nullable = true, precision = 2)
+    @Column(name = "valor_da_hora", nullable = true, precision = 2)
     private Double valorHora;
 
-    @Column(name = "ValorFixo", nullable = true, precision = 2)
+    @Column(name = "valor_fixo", nullable = true, precision = 2)
     private Double valorFixo;
 
-    @Column(name = "ValorTotal", nullable = false, precision = 2)
+    @Column(name = "valor_total", nullable = false, precision = 2)
     private Double valorTotal;
 
-    @Column(name = "Fk_Usuario")
     @ManyToOne
     private Usuario usuario;
 
@@ -66,5 +65,16 @@ public class JobsSolicitados {
     }
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    @Override
+    public String toString() {
+        return "\n JobsSolicitados: " +
+                "\n IdJob: " + idJob +
+                "\n QtdHorasTrabalho: " + qtdHorasTrabalho +
+                "\n ValorHora: " + valorHora +
+                "\n ValorFixo " + valorFixo +
+                "\n ValorTotal: " + valorTotal +
+                "\n Usuario: " + usuario;
     }
 }

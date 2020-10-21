@@ -1,4 +1,4 @@
-package jobbyjobs.com.jobbyjobs.controller;
+package jobbyjobs.com.jobbyjobs;
 
 public  interface calcularSalario {
     public Double calcularSalarioTrabalhador(int id, int qtdHoras, Double valorMetro, Double qtdMetro);

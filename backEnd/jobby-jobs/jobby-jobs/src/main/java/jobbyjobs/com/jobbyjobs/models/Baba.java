@@ -18,23 +18,23 @@ public class Baba{
     @NotNull
     private Boolean limpar;
 
-    @Column(name = "precoSeCozinha")
+    @Column(name = "preco_se_cozinha")
     @NotNull
     private Double precoCozinheira;
 
-    @Column(name = "precoSeLimpa")
+    @Column(name = "preco_se_limpa")
     @NotNull
     private Double precoLimpeza;
 
-    @Column(name = "precoIdadeAteTres")
+    @Column(name = "prec_idade_ate_tres")
     @NotNull
     private Double precoAteTres;
 
-    @Column(name = "precoIdadeTresAteOito")
+    @Column(name = "preco_idade_tres_ate_oito")
     @NotNull
     private Double precoTresAteOito;
 
-    @Column(name = "precoIdadeNoveAteQuinze")
+    @Column(name = "preco_idade_nove_ate_quinze")
     @NotNull
     private Double precoNoveAteQuinze;
 
@@ -94,4 +94,16 @@ public class Baba{
         this.precoNoveAteQuinze = precoNoveAteQuinze;
     }
 
+    @Override
+    public String toString() {
+        return "\n Baba: " +
+                "\n Id: " + id +
+                "\n Cozinhar: " + cozinhar +
+                "\n Limpar: " + limpar +
+                "\n PrecoCozinheira: " + precoCozinheira +
+                "\n PrecoLimpeza: " + precoLimpeza +
+                "\n PrecoAteTres: " + precoAteTres +
+                "\n PrecoTresAteOito: " + precoTresAteOito +
+                "\n PrecoNoveAteQuinze: " + precoNoveAteQuinze;
+    }
 }

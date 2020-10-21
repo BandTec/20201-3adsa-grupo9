@@ -1,4 +1,4 @@
-package jobbyjobs.com.jobbyjobs.controller;
+package jobbyjobs.com.jobbyjobs;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
