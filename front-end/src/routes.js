@@ -27,8 +27,10 @@ export default function Routes(){
                 <Route path="/confirmar-perfil" component={ConfirmarPerfil}/>
                 <Route path="/cadastro" component={Cadastro}/>
                 <Route path="/cadastro-perfil-contratante" component={CadastroPerfilContratante}/>
-                <Route path="/cadastro-info-pesosal-contratante" component={CadastroInfoPessoalContratante}/>
+                <Route path="/cadastro-info-pessoal-contratante" component={CadastroInfoPessoalContratante}/>
                 <Route path="/cadastro-info-bancaria-contratante" component={CadastroInfoBancariaContratante}/>
+                <Route path="/cadastro-info-bancaria-prestador" component={CadastroBancarioPrestador}/>
+                <Route path="/cadastro-endereco-prestador" component={CadastroEnderecoPrestador}/>
                 <Route path="/termos" component={Termos}/>
                 <Route path="/perfil-prestador" component={PerfilPrestador}/>
                 <Route path="/perfil-contratante" component={PerfilContratante}/>

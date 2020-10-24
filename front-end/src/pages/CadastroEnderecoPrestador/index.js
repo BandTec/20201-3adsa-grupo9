@@ -6,6 +6,27 @@ function CadastroEnderecoPrestador(){
     return(
          <div className='ContainerEndereco'>
 
+             <div className = 'Assistente'>
+             <ol class="progress" data-steps="4">
+  <li class="done">
+    <span class="name">Dados cadastrais</span>
+    <span class="step"><span>1</span></span>
+  </li>
+  <li class="done">
+    <span class="name">Cadastro de perfil</span>
+    <span class="step"><span>2</span></span>
+  </li>
+  <li class="active">
+    <span class="name">Cadastro de endereço</span>
+    <span class="step"><span>3</span></span>
+  </li>
+  <li>
+    <span class="name">Dados bancários</span>
+    <span class="step"><span>4</span></span>
+  </li>
+</ol>
+             </div>
+
              <h1>Cadastro de endereço</h1>
              <h2>Este é o passo 3</h2>
 
@@ -29,7 +50,7 @@ function CadastroEnderecoPrestador(){
              </form>
              </div>
 
-            <button className='botaoContinuar'>Continuar cadastro</button>
+            <button className='botaoContinuar' style={{ background: "var(--pink)", color: "var(--white)" }}>Continuar cadastro</button>
             <button className='botaoRevisar'>revisar dados anteriores</button>
 
   

@@ -1,24 +1,20 @@
-.CadastroContainer{
-    background-color: var(--dark-grey);
-}
-
 
 .CadastroContainer h1{
     font-family: 'Aldrich',sans-serif;
-    color: var(--white);
+    color: var(--black);
     font-size: 25px;
     text-align: center;
 }
  .CadastroContainer h2{
     font-family: 'Aldrich',sans-serif;
-    color: var(--white);
+    color: var(--black);
     margin-left: 45%;
     font-size: 18px;
 }
 
 .CadastroContainer h3{
     font-family: 'Aldrich',sans-serif;
-    color: var(--white);
+    color: var(--black);
     font-size: 18px;
     margin-top: 5%;
     margin-left: 1%;
@@ -26,7 +22,7 @@
 }
 
 .text{
-    color: var(--white);
+    color: var(--black);
     position: absolute;
     margin-top: 1.5%;
     margin-left: -1.1%;
@@ -35,22 +31,19 @@
 .inputRadio{
     margin: 8px;
     margin-left: 1%;
+    display: flex;
+    float:left;
 }
 
-.text_pagamento{
-    color: var(--white);
-    font-size: 16px;
-}
 
 .text_dias{
-    color: var(--white);
+    color: var(--black);
     font-size: 16x;
     margin: 8px;
 }
 
 
 .botaoContinuar{
-    background-color: #9399E3;
     padding: 15px;
     width: 18%;
     margin: 10%;
@@ -60,7 +53,7 @@
 }
 
 .botaoRevisar{
-    background-color: #3D81E8;
+    background-color: #EF335F;
     padding: 15px;
     width: 18%;
     color: var(--white);
@@ -77,3 +70,157 @@
 .check{
     margin-left: 1%;
 }
+
+.input_cozinhar{
+    display: flex;
+    float:left;
+    margin-top: 1%;
+}
+
+.text_cozinha{
+    color: var(--black);
+    position: absolute;
+}
+
+.limpeza{
+    margin-left: 50%;
+    margin-top: -3.5%;
+}
+
+.input_limpeza{
+    margin: 45px;
+    display: flex;
+    float:left;
+    margin-top: 2%;
+}
+
+.text_limpeza{
+    color: var(--black);
+    position: absolute;
+}
+
+.input_pagamento{
+    margin: 30px;
+    display: block;
+    margin-top: 2%;
+}
+
+.text_pagamento{
+    color: var(--black);
+    font-size: 16px;
+    position: absolute;
+    margin-top: -2.8%;
+    margin-left: 3%;
+}
+
+  .assistente{
+      margin: 40px;
+  }
+
+  .texto{
+      padding: 10%;
+  }
+
+  ol.progress[data-steps="2"] li {
+    width: 49%;
+  }
+  ol.progress[data-steps="3"] li {
+    width: 33%;
+  }
+  ol.progress[data-steps="4"] li {
+    width: 24%;
+  }
+  ol.progress[data-steps="5"] li {
+    width: 19%;
+  }
+  ol.progress[data-steps="6"] li {
+    width: 16%;
+  }
+  ol.progress[data-steps="7"] li {
+    width: 14%;
+  }
+  ol.progress[data-steps="8"] li {
+    width: 12%;
+  }
+  ol.progress[data-steps="9"] li {
+    width: 11%;
+  }
+  .progress {
+    width: 100%;
+    list-style: none;
+    list-style-image: none;
+    margin: 20px 0 20px 0;
+    padding: 0;
+  }
+  .progress li {
+    float: left;
+    text-align: center;
+    position: relative;
+  }
+  .progress .name {
+    display: block;
+    text-align: center;
+    margin-bottom: 1em;
+    color: black;
+    opacity: 0.3;
+  }
+  .progress .step {
+    color: black;
+    border: 3px solid var(--pink);
+    background-color: var(--pink);
+    border-radius: 50%;
+    line-height: 1.2;
+    width: 1.2em;
+    height: 1.2em;
+    display: inline-block;
+    z-index: 0;
+  }
+  .progress .step span {
+    opacity: 0.3;
+  }
+  .progress .active .name,
+  .progress .active .step span {
+    opacity: 1;
+  }
+  .progress .step:before {
+    content: "";
+    display: block;
+    background-color: var(--pink);
+    height: 0.4em;
+    width: 50%;
+    position: absolute;
+    bottom: 0.6em;
+    left: 0;
+    z-index: -1;
+  }
+  .progress .step:after {
+    content: "";
+    display: block;
+    background-color:  var(--pink);
+    height: 0.4em;
+    width: 50%;
+    position: absolute;
+    bottom: 0.6em;
+    right: 0;
+    z-index: -1;
+  }
+  .progress li:first-of-type .step:before {
+    display: none;
+  }
+  .progress li:last-of-type .step:after {
+    display: none;
+  }
+  .progress .done .step,
+  .progress .done .step:before,
+  .progress .done .step:after,
+  .progress .active .step,
+  .progress .active .step:before {
+    background-color: var(--pink);
+  }
+  .progress .done .step,
+  .progress .active .step {
+    border: 3px solid var(--pink);
+  }
+  
+
+  
