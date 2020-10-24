@@ -2,9 +2,14 @@ package jobbyjobs.com.jobbyjobs.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import jobbyjobs.com.jobbyjobs.models.Baba;
 import jobbyjobs.com.jobbyjobs.models.Login;
+import jobbyjobs.com.jobbyjobs.models.Notifcacoes;
 import jobbyjobs.com.jobbyjobs.models.Usuario;
+import jobbyjobs.com.jobbyjobs.repositories.BabaRepository;
+import jobbyjobs.com.jobbyjobs.repositories.NotificacaoRepository;
 import jobbyjobs.com.jobbyjobs.repositories.UsuariosJobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +26,12 @@ public class UsuariosController {
 
     @Autowired
     private UsuariosJobRepository usuarioRepository;
+
+    @Autowired
+    private NotificacaoRepository notificacaoRepository;
+
+    @Autowired
+    private BabaRepository babaRepository;
 
     @GetMapping
     public ResponseEntity getUsuarios(@RequestParam(required = false) Integer id){
@@ -66,6 +77,25 @@ public class UsuariosController {
     public ResponseEntity getLogados() {
         return this.logados.isEmpty() ? ResponseEntity.status(204).build() : ResponseEntity.ok(this.logados);
     }
+
+    @GetMapping("/pedir-orcamento/{id}")
+    public ResponseEntity pedirOrcamentoBaba(@PathVariable int id) {
+        String msg = "Pedido de orçamento requisitado";
+        Notifcacoes notifcacoes = new Notifcacoes();
+        Optional<Baba> babaExistente = babaRepository.findById(id);
+
+        if (babaExistente.isPresent()){
+            Baba b = babaExistente.get();
+            notifcacoes.setMsg(msg);
+            notifcacoes.setBabaNotificada(b);
+            notificacaoRepository.save(notifcacoes);
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
 
 
 }

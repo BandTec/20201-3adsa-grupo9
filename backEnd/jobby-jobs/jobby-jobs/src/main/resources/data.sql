@@ -13,3 +13,9 @@ insert into usuario
  usuario_cpf, tipo_usuario, endereco_id_endereco, usuario_conta_id_usuario_conta) values
  (null, 'Matheus Fernandes Costa', 'fernandesmatheus369@gmail.com', 'palmeiras100', '51217820809',1, 1, 1),
  (null, 'Bruna Garcia Delfino', 'bruninhalinda@gmail.com', 'digisystems', '18999237307', 2, 2, 2);
+
+ insert into baba
+ (id_baba, cozinhar, limpar, preco_se_cozinha, preco_se_limpa,
+  prec_idade_ate_tres, preco_idade_tres_ate_oito, preco_idade_nove_ate_quinze) values
+  (null, true, true, 50.00, 50.00 , 75.00, 45.00, 25.00);
+

@@ -7,6 +7,7 @@ import java.util.Optional;
 import jobbyjobs.com.jobbyjobs.calcularSalario;
 import jobbyjobs.com.jobbyjobs.models.*;
 import jobbyjobs.com.jobbyjobs.repositories.BabaRepository;
+import jobbyjobs.com.jobbyjobs.repositories.NotificacaoRepository;
 import jobbyjobs.com.jobbyjobs.repositories.ProfissionalRepository;
 import jobbyjobs.com.jobbyjobs.repositories.UsuariosJobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,9 @@ public class TrabalhadorController implements calcularSalario {
 
     @Autowired
     private BabaRepository babaRepository;
+
+    @Autowired
+    private NotificacaoRepository notificacaoRepository;
 
     private List<Login> logados = new ArrayList<>();
 
@@ -137,6 +141,18 @@ public class TrabalhadorController implements calcularSalario {
 
         return valorCobrado;
 
+    }
+
+    @GetMapping("notificacoes/{id}")
+    public ResponseEntity getNotificacoes(@PathVariable Integer id) {
+        Optional<Baba> babaExistente = babaRepository.findById(id);
+
+        if (babaExistente.isPresent()) {
+            List<Notifcacoes> notifcacoes  = notificacaoRepository.findByBabaNotificadaId(id);
+            return ResponseEntity.ok(notifcacoes);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 }

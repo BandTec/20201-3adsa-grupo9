@@ -2,12 +2,14 @@ package jobbyjobs.com.jobbyjobs.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 public class Baba{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_baba")
     private Integer id;
 
     @Column(name = "cozinhar")
@@ -37,6 +39,7 @@ public class Baba{
     @Column(name = "preco_idade_nove_ate_quinze")
     @NotNull
     private Double precoNoveAteQuinze;
+
 
     public Integer getId() {
         return id;
@@ -93,6 +96,8 @@ public class Baba{
     public void setPrecoNoveAteQuinze(Double precoNoveAteQuinze) {
         this.precoNoveAteQuinze = precoNoveAteQuinze;
     }
+
+
 
     @Override
     public String toString() {
