@@ -10,7 +10,7 @@ import UserPasswordIcon from '../../assets/img/icons/user-password.png';
 
 function Login(){
 
-    const[login, setLogin] = useState('');
+    const[email, setEmail] = useState('');
     const[senha, setSenha] = useState('');
 
     const history = useHistory();
@@ -19,19 +19,23 @@ function Login(){
         e.preventDefault(); //funcao que recebe o evento do formulario e evita o reload da pagina
 
         const data = {
-            login,
+            email,
             senha
         };
 
         try{
-            const response = await api.post('trabalhadores/login', data);
-            alert('Login efetuado com sucesso.');
-            history.push('/perfil-prestador');
+            try{
+                const response = await api.post('trabalhadores/login', data);
+                alert('Login efetuado com sucesso.');
+                localStorage.setItem('email', email);
+                history.push('/perfil-prestador');
+            }catch(err){
+                const response = await api.post('usuarios/login', data);
+                alert('Login efetuado com sucesso.');
+                localStorage.setItem('email', email);
+                history.push('/perfil-contratante');
+            }
         } catch(err){
-            const response = await api.post('contratantes/login', data);
-            alert('Login efetuado com sucesso.');
-            history.push('/perfil-contratante');
-        } finally{
             alert('Erro no login, tente novamente.');
         }
     }
@@ -48,9 +52,9 @@ function Login(){
                         <label>
                             <img src={UserLoginIcon} alt="a"/>
                             <input type="text" 
-                            name="login" 
-                            value={login} 
-                            onChange={ e => setLogin(e.target.value)}/>
+                            name="email" 
+                            value={email} 
+                            onChange={ e => setEmail(e.target.value)}/>
                         </label>
                     </div>
 

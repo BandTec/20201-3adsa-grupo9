@@ -13,10 +13,11 @@ import jobbyjobs.com.jobbyjobs.repositories.UsuariosJobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.validation.Valid;
 
-
+@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @RestController
 @RequestMapping("/trabalhadores")
 public class TrabalhadorController implements calcularSalario {
