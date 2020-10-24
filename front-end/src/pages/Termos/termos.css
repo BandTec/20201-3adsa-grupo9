@@ -1,7 +1,7 @@
 .TermosConteiner{
     top: 0;
     height: 100vh;
-    background: var(--primary);
+    background: var(--dark-grey);
 }
 
 .logo{
@@ -14,7 +14,7 @@
     font-size: 20px;
     margin-left: 15%;
     margin-top: 4%;
-    color: var(--white);
+    color: var(--black);
 }
 
 .TermosConteiner h2{
@@ -24,12 +24,12 @@
     margin-top: 5%;
     text-align: justify;
     font-family: 'Courier New', Courier, monospace;
-    color: var(--white);
+    color: var(--black);
 }
 
 .botao_termo{
     text-decoration:none;
-    background-color: var(--white);
+    background-color: var(--pink);
     text-decoration:none;
      border-radius: 3px;
      color: var(--black);
@@ -44,6 +44,7 @@
     text-decoration:none;
      border-radius: 3px;
      color: var(--black);
+     border: 1px solid black;
      text-align: center;
      padding: 5px 15px;
      width: 80px;

@@ -14,7 +14,7 @@ function ContratoServico(){
                     Concordo com os termos de uso e contrato de serviço</h4>
 
                 <Link className="ButtonSquareContratoServico" to="" style={{ background: "var(--dark-button)" }}>Aceito os termos de contrato de serviço</Link>
-                <Link className="ButtonSquareContratoServico" to="" style={{ background: "var(--light-button)" }}>Termos e condições de uso</Link>
+                <Link className="ButtonSquareContratoServico" to="" style={{ background: "var(--blue)" }}>Termos e condições de uso</Link>
             </div>
 
             <BannerLogoLateral className={"LogoDireita"}/>

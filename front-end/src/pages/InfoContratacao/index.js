@@ -47,7 +47,7 @@ function InfoContratacao(){
                 <input type="checkbox" />Pagar diretamente para o prestador de serviço <br/>
                 <input type="checkbox" />Boleto bancário <br/>
                 <input type="checkbox" />Débito ou crédito virtual <br/>
-                <Link className="ButtonSquareInfoContratacao" to="/contrato-servico" style={{ background: "var(--light-button)" }}>Contratar serviço</Link>
+                <Link className="ButtonSquareInfoContratacao" to="/contrato-servico" style={{ background: "var(--blue)" }}>Contratar serviço</Link>
             </div>
 
             <BannerLogoLateral className={"LogoDireita"}/>

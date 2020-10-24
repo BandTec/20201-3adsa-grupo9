@@ -4,14 +4,12 @@ import './cadastro-info-bancaria-contratante.css';
 
 import InfoIcon from '../../assets/img/icons/info.png';
 
-import BannerLogoLateral from '../../components/BannerLogoLateral';
 import { Link } from 'react-router-dom';
 
 function CadastroInfoBancariaContratante(){
     return(
         <div className="CadastroInfoBancariaContratanteContainer">
-            <BannerLogoLateral className={"LogoEsquerda"}/>
-
+            <h2>Cadastro de informações bancárias</h2>
             <form className="FormularioBancarioContratante" onSubmit={function handleSubmit(){}}>
                 <h3>Dados bancários <img src={InfoIcon} alt="Ponto de interrogação"/></h3>
                 <div>
@@ -60,8 +58,8 @@ function CadastroInfoBancariaContratante(){
                     </label>
                 </div>
                 <div className="BotoesLoginForm">
-                    <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--light-button", marginRight: " 5%", color:"var(--white)" }} to="/termos">Confirmar dados</Link>
-                    <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--attention-button)", color: "var(--white)" }}>Revisar dados anteriores</Link>
+                    <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--blue)", marginRight: " 5%", color:"var(--white)" }} to="/termos">Confirmar dados</Link>
+                    <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--pink)", color: "var(--white)" }}>Revisar dados anteriores</Link>
                 </div>
             </form>
         </div>

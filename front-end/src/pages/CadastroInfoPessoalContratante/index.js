@@ -37,8 +37,8 @@ function CadastroInfoPessoalContratante(){
                         </div>
                     </form>
                     <div className="BotoesLoginForm">
-                        <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--light-button", marginRight: " 5%", color:"var(--white)" }} to="/cadastro-info-bancaria-contratante">Continuar cadastro</Link>
-                        <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--attention-button)", color: "var(--white)" }}>Revisar dados anteriores</Link>
+                        <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--blue", marginRight: " 5%", color:"var(--white)" }} to="/cadastro-info-bancaria-contratante">Continuar cadastro</Link>
+                        <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--pink)", color: "var(--white)" }}>Revisar dados anteriores</Link>
                     </div>
                 </div>
             </div>

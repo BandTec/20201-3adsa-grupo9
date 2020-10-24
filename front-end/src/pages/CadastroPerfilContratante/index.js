@@ -39,8 +39,8 @@ function CadastroPerfilContratante(){
                         <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--blue-facebook)", marginTop: "1%", color: "var(--white)" }}><img src={FacebookIcon} alr="Ícone do Facebook" /> Cadastrar usando Facebook</Link>
                     </div>
                     <div className="BotoesLoginForm">
-                        <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--light-button", marginRight: " 5%", color:"var(--white)" }} to="/cadastro-info-pesosal-contratante">Cadastrar-se</Link>
-                        <Link className="ButtonLinkSquareCadastro" to="/login">Login</Link>
+                        <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--blue", marginRight: " 5%", color:"var(--white)" }} to="/cadastro-info-pesosal-contratante">Cadastrar-se</Link>
+                        <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--pink)" }} to="/login">Login</Link>
                     </div>
                 </div>
             </div>

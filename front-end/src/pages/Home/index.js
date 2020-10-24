@@ -14,11 +14,14 @@ import GithubIcon from '../../assets/img/icons/github.png';
 import InstagramIcon from '../../assets/img/icons/instagram.png';
 import FacebookIcon from '../../assets/img/icons/facebook.png';
 
-import ApresentacaoImg from '../../assets/img/imagens/apresentacao-plataforma.png';
-import TrabalhadoresImg from '../../assets/img/imagens/trabalhadores.png';
+// import ApresentacaoImg from '../../assets/img/imagens/apresentacao-plataforma.png';
+import BabaApresentacaoImg from '../../assets/img/imagens/baba-apresentacao.png';
+// import TrabalhadoresImg from '../../assets/img/imagens/trabalhadores.png';
+import EstudosImg from '../../assets/img/imagens/estudo.png';
 import BabaImg from '../../assets/img/imagens/baba.png';
-import PintorImg from '../../assets/img/imagens/pintor.png';
-import PedreirosImg from '../../assets/img/imagens/pedreiros.png';
+import BabaLimpandoImg from '../../assets/img/imagens/baba-trabalhando.png';
+// import PintorImg from '../../assets/img/imagens/pintor.png';
+// import PedreirosImg from '../../assets/img/imagens/pedreiros.png';
 
 import BrunaPic from '../../assets/img/time/bruna.png';
 import GiulianoPic from '../../assets/img/time/giuliano.png';
@@ -42,7 +45,7 @@ function Home(){
                             <h2>O que é a Jobby Jobs?</h2>
                             <p>Jobby Jobs é uma plataforma de oportunidades profissionais que oferece ferramentas entre profissionais e solicitantes que facilitam tanto a pesquisa quanto a comunicação. Conectamos profissionais com pessoas solicitando serviço, atendendo com qualidade, facilidade e rapidez todos os tipos de necessidade.</p>
                         </div>
-                        <img src={ApresentacaoImg} alt="Imagem ilustrando trabalhadores em uma obra" />
+                        <img src={BabaApresentacaoImg} alt="Imagem ilustrando uma babá cuidando de uma criança" />
                     </div>
                     {/* Fim da area de apresentacao da empresa/plataforma */}
 
@@ -64,12 +67,12 @@ function Home(){
                             <p>Cadastre seus serviços e receba solicitações tanto na internet quanto no seu celular.</p>
                             <Link to="/confirmar-perfil" className="ButtonLinkSquare" style={{ marginTop: "5%" }}>Cadastrar minhas funções</Link>
                         </div>
-                        <img src={TrabalhadoresImg} alt="Foto mostrando pessoas em diversos cargos de trabalho" />
+                        <img src={EstudosImg} alt="Foto mostrando crianças aprendendo brincando" />
                     </div>
                     {/* Fim da area de chamado de cadastro de trabalhadores */}
 
                     {/* Area de apresentacao da equipe */}
-                    <div className="Equipe">
+                    {/* <div className="Equipe">
                         <h2>Time Jobby Jobs</h2>
                         <div className="Integrantes">
                             <div className="CardIntegrante">
@@ -151,34 +154,43 @@ function Home(){
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     {/* Fim da area de apresentacao da equipe */}
 
                     {/* Area de apresentacao de tipos de servicos */}
                     <div className="TiposServicos">
                         <h2>Tipos de serviços</h2>
                         <div className="Carrossel">
-                            <div className="Card">
+                            {/* <div className="Card">
                                 <img src={PintorImg} alt="Foto de exemplo de um pintor" />
                                 <h3>Pintores(as)</h3>
                                 <p>Preparar e pintar as superfícies externas e internas de edifícios e outras obras civis, raspando-as, limpando-as, emassando-as e cobrindo-as com uma ou várias camadas de tinta.</p>
                                 <Link to="/" className="ButtonLinkSquare" style={{ marginTop: "var(--marginTopButton)", background: "var(--salmon)"}}>Veja mais</Link>
-                            </div>
+                            </div> */}
                             <div className="Card">
                                 <img src={BabaImg} alt="Foto de exemplo de uma babá" />
                                 <h3>Babás</h3>
                                 <p>A Babá é a profissional responsável por cuidar de crianças e tudo que se refere ao universo infantil zelando sempre pelo bem estar da criança, cuidando de sua higiene, orientando-a nas distrações, preparando-lhe a alimentação e auxiliando-a nas refeições, para garantir o bem estar e o desenvolvimento sadio da mesma.</p>
-                                <Link to="/" className="ButtonLinkSquare" style={{ marginTop: "var(--marginTopButton)", background: "var(--salmon)" }}>Veja mais</Link>
+                                <Link to="/" className="ButtonLinkSquare" style={{ marginTop: "var(--marginTopButton)", background: "var(--pink)" }}>Veja mais</Link>
                             </div>
                             <div className="Card">
+                                <img src={BabaLimpandoImg} alt="Foto de exemplo de pedreiros" />
+                                <h3>Babá + serviços de limpeza</h3>
+                                <p>A Babá é a profissional responsável por cuidar de crianças e tudo que se refere ao universo infantil zelando sempre pelo bem estar da criança, cuidando de sua higiene, orientando-a nas distrações, preparando-lhe a alimentação e auxiliando-a nas refeições, para garantir o bem estar e o desenvolvimento sadio da mesma.</p>
+                                <Link to="/" className="ButtonLinkSquare" style={{ marginTop: "var(--marginTopButton)", background: "var(--pink)" }}>Veja mais</Link>
+                            </div>
+                            {/* <div className="Card">
                                 <img src={PedreirosImg} alt="Foto de exemplo de pedreiros" />
                                 <h3>Pedreiros(as)</h3>
                                 <p>Executar trabalhos em alvenaria, concreto e outros materiais, guiando-se por desenhos, esquemas e especificações, utilizando processos e instrumentos pertinentes ao ofício para construir, reformar ou reparar.</p>
                                 <Link to="/" className="ButtonLinkSquare" style={{ marginTop: "var(--marginTopButton)", background: "var(--salmon)" }}>Veja mais</Link>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     {/* Fim da area de apresentacao de tipos de servicos */}
+
+                    {/* Area de apresentação de clientes da plataforma */}
+                    {/* Fim da area de apresentação de clientes da plataforma */}
 
                 </div>
 

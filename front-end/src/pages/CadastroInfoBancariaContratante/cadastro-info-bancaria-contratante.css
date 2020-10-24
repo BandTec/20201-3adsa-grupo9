@@ -1,9 +1,16 @@
 .CadastroInfoBancariaContratanteContainer{
     margin-top: var(--bodyMarginTop);
-    margin-left: 30%;
+    margin-left: 5%;
     margin-bottom: 10%;
 
     height: 100%;
+}
+
+.CadastroInfoBancariaContratanteContainer h2{
+    color: var(--black);
+    font-size: xx-large;
+
+    margin-left: 30%;
 }
 
 .CadastroInfoBancariaContratanteContainer h3{
