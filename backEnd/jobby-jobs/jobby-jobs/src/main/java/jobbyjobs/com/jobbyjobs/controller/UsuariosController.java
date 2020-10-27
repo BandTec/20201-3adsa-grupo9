@@ -62,11 +62,12 @@ public class UsuariosController {
         return ResponseEntity.status(404).body("E-mail ou senha incorretos.");
     }
 
-    @PostMapping("/logoff")
-    public ResponseEntity fazerLogoff(@RequestBody String email) {
+    @GetMapping("/logoff")
+    public ResponseEntity fazerLogoff(@RequestParam(required = true) String email) {
         for (int i = 0; i < logados.size(); i++){
             Login logado = logados.get(i);
             if(logado.getEmail().equals(email)){
+                System.out.println("entrou");
                 logados.remove(i);
                 return ResponseEntity.ok().build();
             }
