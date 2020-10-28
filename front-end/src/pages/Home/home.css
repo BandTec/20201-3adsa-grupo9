@@ -1,5 +1,6 @@
 body{
     width: 100%;
+    background-color: var(--pink);
 }
 
 .HomeContent{
@@ -22,18 +23,21 @@ body{
 .Apresentacao div h2{
     margin-top: 10%;
     font-size: xx-large;
+    margin-left: 1%;
+    color: var(--white);
 }
 
 .Apresentacao div p{
     font-weight: 300;
     line-height: 3.0;
+    color: var(--white);
 }
 
 .Apresentacao img{
     position: relative;
-    width: 35%;
+    width: 22%;
     margin-top: 5%;
-    margin-left: 5%;
+    margin-left: 10%;
 }
 
 .Dicas{
@@ -171,3 +175,86 @@ body{
 .Card img{
     width: 300px;
 }
+
+
+.square {
+    position: relative;
+    margin: 0 10px;
+    width: 50px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.square span:nth-child(1) {
+    position: absolute;
+    top: 0;
+    left: 130%;
+    width: 55%;
+    height: 180%;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 32% 58% 69% 43% / 48% 32% 59% 55%;
+    transition: 0.5s;
+    animation: animate 6s linear infinite;
+}
+
+
+.square span:nth-child(2) {
+    position: absolute;
+    top: 0;
+    left: 130%;
+    width: 55%;
+    height: 180%;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+
+}
+
+
+.content {
+    position: relative;
+    padding: 40px 60px;
+    color: #fff;
+    text-align: center;
+    transition: 0.5s;
+    z-index: 1000;
+}
+
+.content a {
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+    border: 2px solid #fff;
+    padding: 6px 18px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 73% 27% 44% 56% / 49% 44% 56% 51%;
+}
+
+.content a:hover {
+    background: white;
+    color: #333;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animate2 {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+
+  
