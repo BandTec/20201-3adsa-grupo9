@@ -32,7 +32,7 @@
     font-weight: bold;
     font-size: 16px;
     outline: none;
-    border-radius: 50px;
+    border-radius: 10px;
     text-decoration: none;
     display: inline-block;
     transition: opacity .3s;

@@ -44,8 +44,8 @@ function Footer(){
                 <div>
                     <h4>Downloads</h4>
                     <ul>
-                        <li><Link className="ButtonLinkSquare" style={{ background: "var(--black)", cursor: "not-allowed" }} to=""><img style={{ width: "70%" }} src={GoogleButtonIcon} alt="Ícone da Play Store"/></Link></li>
-                        <li><Link className="ButtonLinkSquare" style={{ background: "var(--black)", cursor: "not-allowed" }} to=""><img style={{ width: "70%" }} src={AppleButtonIcon} alt="Ícone da Apple Store"/></Link></li>
+                        <li><Link className="ButtonLinkSquare" style={{ background: "var(--black)", cursor: "not-allowed" }} to=""><img style={{ width: "50%", height: '30%'}} src={GoogleButtonIcon} alt="Ícone da Play Store"/></Link></li>
+                        <li><Link className="ButtonLinkSquare" style={{ background: "var(--black)", cursor: "not-allowed" }} to=""><img style={{ width: "50%", height: '30%'}} src={AppleButtonIcon} alt="Ícone da Apple Store"/></Link></li>
                     </ul>
                 </div>
                 {/* Fim dos links para download do aplicativo */}
