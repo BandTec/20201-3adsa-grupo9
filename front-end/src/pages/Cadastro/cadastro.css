@@ -1,19 +1,19 @@
 
  .CadastroContainer h1{
     font-family: 'Aldrich',sans-serif;
-    color: var(--white);
+    color: var(--black);
     font-size: 25px;
     text-align: center;
 }
 .CadastroContainer h2{
     font-family: 'Aldrich',sans-serif;
-    color: var(--white);
+    color: var(--black);
     margin-left: 45%;
     font-size: 20px;
 }
 
 .text-center{
-	color:#fff;	
+	color:rgb(0, 0, 0);	
 	text-transform:uppercase;
     font-size: 23px;
     margin: 50px 0 80px 0;
@@ -30,18 +30,18 @@
 	top:0px;
 	left:30%;
 	font-size:16px;
-	color:#fff;	
+	color:rgb(0, 0, 0);	
     pointer-events:none;
 	transition: all 0.5s ease-in-out;
 }
 .input-container input{ 
   border:0;
-  border-bottom:1px solid rgb(253, 253, 253);  
+  border-bottom:1px solid rgb(0, 0, 0);  
   background:transparent;
   width:45%;
   padding:8px 0 5px 0;
   font-size:16px;
-  color:#fff;
+  color:rgb(0, 0, 0);
   margin-left: 30%;
 }
 .input-container input:focus{ 
@@ -58,7 +58,6 @@
 }
 
 .buttonGoogle{
-    color: var(--white);
     padding: 15px;
     width: 20%;
     border-color: var(--white) 1px;
@@ -77,7 +76,7 @@
 }
 
 .buttonNext{
-    background-color: #3D81E8;
+    background-color: var(--pink);
     padding: 12px;
     width: 12%;
     border: 1px;
@@ -88,4 +87,104 @@
     color: var(--white);
 }
 
+ol.progress[data-steps="2"] li {
+    width: 49%;
+  }
+  ol.progress[data-steps="3"] li {
+    width: 33%;
+  }
+  ol.progress[data-steps="4"] li {
+    width: 24%;
+  }
+  ol.progress[data-steps="5"] li {
+    width: 19%;
+  }
+  ol.progress[data-steps="6"] li {
+    width: 16%;
+  }
+  ol.progress[data-steps="7"] li {
+    width: 14%;
+  }
+  ol.progress[data-steps="8"] li {
+    width: 12%;
+  }
+  ol.progress[data-steps="9"] li {
+    width: 11%;
+  }
+  .progress {
+    width: 100%;
+    list-style: none;
+    list-style-image: none;
+    margin: 20px 0 20px 0;
+    padding: 0;
+  }
+  .progress li {
+    float: left;
+    text-align: center;
+    position: relative;
+  }
+  .progress .name {
+    display: block;
+    text-align: center;
+    margin-bottom: 1em;
+    color: black;
+    opacity: 0.3;
+  }
+  .progress .step {
+    color: black;
+    border: 3px solid var(--pink);
+    background-color: var(--pink);
+    border-radius: 50%;
+    line-height: 1.2;
+    width: 1.2em;
+    height: 1.2em;
+    display: inline-block;
+    z-index: 0;
+  }
+  .progress .step span {
+    opacity: 0.3;
+  }
+  .progress .active .name,
+  .progress .active .step span {
+    opacity: 1;
+  }
+  .progress .step:before {
+    content: "";
+    display: block;
+    background-color: var(--pink);
+    height: 0.4em;
+    width: 50%;
+    position: absolute;
+    bottom: 0.6em;
+    left: 0;
+    z-index: -1;
+  }
+  .progress .step:after {
+    content: "";
+    display: block;
+    background-color:  var(--pink);
+    height: 0.4em;
+    width: 50%;
+    position: absolute;
+    bottom: 0.6em;
+    right: 0;
+    z-index: -1;
+  }
+  .progress li:first-of-type .step:before {
+    display: none;
+  }
+  .progress li:last-of-type .step:after {
+    display: none;
+  }
+  .progress .done .step,
+  .progress .done .step:before,
+  .progress .done .step:after,
+  .progress .active .step,
+  .progress .active .step:before {
+    background-color: var(--pink);
+  }
+  .progress .done .step,
+  .progress .active .step {
+    border: 3px solid var(--pink);
+  }
 

@@ -5,7 +5,6 @@ function CadastroPerfilPrestador(){
     return(
 
         <div>
-
             <div className = 'Assistente'>
             <ol class="progress" data-steps="4">
   <li class="done">
@@ -27,8 +26,7 @@ function CadastroPerfilPrestador(){
 </ol>
             </div>
 
-        
-     
+      
         <div className='CadastroContainer'>
             <div className='texto'>
             <h1>Falta pouco para finalizar seu cadastro, agora vamos deescrever seu perfil</h1>

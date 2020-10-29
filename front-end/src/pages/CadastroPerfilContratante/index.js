@@ -22,7 +22,7 @@ function CadastroPerfilContratante(){
                             <label>Nome completo</label>
                         </div>
                         <div className="input-container">
-                            <input type="mail" name="email"/>
+                            <input type="text" name="email"/>
                             <label>Email</label>
                         </div>
                         <div className="input-container">
@@ -30,7 +30,7 @@ function CadastroPerfilContratante(){
                             <label>Telefone</label>
                         </div>
                         <div className="input-container">
-                            <input type="password" name="senha"/>
+                            <input type="text" name="senha"/>
                             <label>Senha</label>
                         </div>
                     </form>

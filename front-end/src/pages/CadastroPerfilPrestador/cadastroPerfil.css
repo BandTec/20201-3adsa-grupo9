@@ -5,20 +5,20 @@
 
 .CadastroContainer h1{
   font-family: 'Aldrich',sans-serif;
-  color: var(--white);
+  color: var(--black);
   font-size: 25px;
   text-align: center;
 }
 .CadastroContainer h2{
   font-family: 'Aldrich',sans-serif;
-  color: var(--white);
+  color: var(--black);
   margin-left: 45%;
   font-size: 18px;
 }
 
 .CadastroContainer h3{
   font-family: 'Aldrich',sans-serif;
-  color: var(--white);
+  color: var(--black);
   font-size: 18px;
   margin-top: 5%;
   margin-left: 1%;
@@ -26,7 +26,7 @@
 }
 
 .text{
-  color: var(--white);
+  color: var(--black);
   position: absolute;
   margin-top: 1.5%;
   margin-left: -1.1%;
@@ -38,12 +38,12 @@
 }
 
 .text_pagamento{
-  color: var(--white);
+  color: var(--black);
   font-size: 16px;
 }
 
 .text_dias{
-  color: var(--white);
+  color: var(--black);
   font-size: 16x;
   margin: 8px;
 }

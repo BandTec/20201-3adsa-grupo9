@@ -12,9 +12,9 @@
 
 .TermosConteiner h1{
     font-size: 20px;
-    margin-left: 15%;
     margin-top: 4%;
     color: var(--black);
+    text-align: center;
 }
 
 .TermosConteiner h2{
@@ -28,15 +28,15 @@
 }
 
 .botao_termo{
-    text-decoration:none;
     background-color: var(--pink);
     text-decoration:none;
-     border-radius: 3px;
-     color: var(--black);
+    border-radius: 3px;
+    border: 1px solid rgb(255, 255, 255);
+     color: var(--white);
      text-align: center;
      padding: 5px 15px;
-     width: 80px;
-     margin-left: 35%;
+     margin: 10px;
+     margin-left: 30%;
 }
 
 .botao{
