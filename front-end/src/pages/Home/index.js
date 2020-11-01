@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 
 import Menu from '../../components/Menu';
 import Footer from '../../components/Footer';
-import PedidoIcon from '../../assets/img/imagens/pedido.png';
-import ProfissionaisIcon from '../../assets/img/imagens/escolha.svg';
-import EscolhaIcon from '../../assets/img/imagens/chupeta.png';
+import PedidoIcon from '../../assets/img/icons/pedido.png';
+import ProfissionaisIcon from '../../assets/img/icons/profissionais.png';
+import EscolhaIcon from '../../assets/img/icons/escolha1.png';
 import BabaApresentacaoImg from '../../assets/img/imagens/baba-blobs.png';
 import BabaChamadaImg from '../../assets/img/imagens/baba-chamada.png';
-import ClienteImg01 from '../../assets/img/imagens/Ellipse 11.png';
-import ClienteImg02 from '../../assets/img/imagens/Ellipse 16.png';
-import ClienteImg03 from '../../assets/img/imagens/Ellipse 19.png';
+import ClienteImg01 from '../../assets/img/imagens/1.jpg';
+import ClienteImg02 from '../../assets/img/imagens/2.jpg';
+import ClienteImg03 from '../../assets/img/imagens/3.jpeg';
 
 
 
@@ -35,11 +35,11 @@ function Home(){
 
                     {/* Area de instrucao de utilizacao do site */}
                     <div className="Dicas">
-                        <h2 style={{marginLeft: '1%', color: 'var(--white)'}}>Encontre a babá perfeita para a sua necessidade.</h2> <br/>
+                        <h2>Encontre a babá perfeita para a sua necessidade.</h2> <br/>
                         <div>
-                            <div><img style={{width: '100%', height: '70%'}} src={PedidoIcon} alt="Ícone de preenchimento de requisitos" /></div>
-                            <div> <img style={{width: '50%', height: '40%', marginTop: '10%', marginLeft: '30%'}} src={ProfissionaisIcon} alt="Ícone de perfis sendo apresentados" /></div>
-                            <div><img style={{width: '60%', height: '50%', marginTop: '10%'}} src={EscolhaIcon} alt="Ícone do usuário escolhendo um perfil" /></div>
+                            <div><img src={PedidoIcon} alt="Ícone de preenchimento de requisitos" /></div>
+                            <div> <img src={ProfissionaisIcon} alt="Ícone de perfis sendo apresentados" /></div>
+                            <div><img src={EscolhaIcon} alt="Ícone do usuário escolhendo um perfil" /></div>
                         </div>
                     </div>
                     {/* Fim da area de instrucao de utilizacao do site */}
@@ -48,52 +48,52 @@ function Home(){
 
                     <div className="Chamada">
                         <div>
-                            <p style={{color: 'var(--white)'}}> A Jobby Jobs recebe milhares de pedidos todos os meses de clientes procurando profissionais como você.</p> 
-                            <p style={{color: 'var(--white)'}}> Cadastre seus serviços e receba solicitações tanto na internet quanto no seu celular.</p>
+                            <p style={{color: 'var(--black)'}}> A Jobby Jobs recebe milhares de pedidos todos os meses de clientes procurando profissionais como você
+                            Cadastre seus serviços e receba solicitações tanto na internet quanto no seu celular
+                            </p> 
+
+
                             <Link to="/confirmar-perfil" className="ButtonLinkSquare" style={{ marginTop: "5%" }}>Cadastrar minhas funções</Link>
                         </div>
 
                         <img style={{borderRadius: '324.5px', width: '25%', marginLeft: '15%'}} src={BabaChamadaImg} alt="Foto de baba com crianças"/>
                         
-                        <div style={{marginTop: '-27%'}} class="square">
-                        <span></span>
-                         <span></span>
-                        <div className="content">
-                        </div>
-                         </div>
                     </div> 
 
 
 
-                    <div style={{marginTop: '20%'}} className='Cliente'>
+                    <div className='Cliente'>
                         <div className='bloco01'>
                         <div className='blobs01'> 
-                        <img style={{width: '85%', height: '85%', marginLeft: '7%', marginTop: '6%'}} src={ClienteImg01} alt='mulher sorrindo' />
+                        <img style={{borderRadius: '50%', width: '90%', height: '90%', marginLeft:'4%', marginTop: '6%'}} src={ClienteImg01} alt='mulher sorrindo' />
                         </div>
-                        <h1 style={{color: 'var(--white)', fontSize: '20px', margin: '15px'}}>ANA</h1>
-                        <p style={{color: 'var(--white)', fontSize: '14px', textAlign: 'center'}}>"Plataforma muito boa, intuitiva e com ótimos profissionais."</p>
+                        <h1 style={{color: 'var(--white)', fontSize: '20px', margin:'4%'}}>ANA</h1>
+                        <p style={{color: 'var(--white)', fontSize: '15px', textAlign: 'center'}}>"Plataforma muito boa, intuitiva e com ótimos profissionais."</p>
                         </div>
 
                         <div className='bloco02'>
                         <div className='blobs02'> 
-                        <img style={{width: '85%', height: '85%', marginLeft: '7%', marginTop: '6%'}} src={ClienteImg02} alt='homem sorrindo' />
+                        <img style={{borderRadius: '50%', width: '90%', height: '90%', marginLeft:'4%', marginTop: '6%'}} src={ClienteImg02} alt='homem sorrindo' />
                         </div>
-                        <h1 style={{color: 'var(--white)', fontSize: '20px', margin: '15px'}}>MARCOS</h1>
-                        <p style={{color: 'var(--white)', fontSize: '14px', textAlign: 'center'}}>“Após a solicitação dos profissionais, entraram em contato rapidamente, super atenciosos.”</p>
+                        <h1 style={{color: 'var(--white)', fontSize: '20px', margin:'4%'}}>MARCOS</h1>
+                        <p style={{color: 'var(--white)', fontSize: '15px', textAlign: 'center'}}>“Após a solicitação dos profissionais, entraram em contato rapidamente, super atenciosos.”</p>
                         </div>
 
                         <div className='bloco03'>
                         <div className='blobs03'> 
-                        <img style={{width: '85%', height: '85%', marginLeft: '7%', marginTop: '6%'}} src={ClienteImg03} alt='mulher sorrindo'/>
+                        <img style={{borderRadius: '50%', width: '90%', height: '90%', marginLeft:'4%', marginTop: '6%'}} src={ClienteImg03} alt='mulher sorrindo'/>
                         </div>
-                        <h1 style={{color: 'var(--white)', fontSize: '20px', margin: '15px'}}>LIVIA</h1>
-                        <p style={{color: 'var(--white)', fontSize: '14px', textAlign: 'center'}}>“Excelente, serviço impecável, cuidadoso e atencioso. Eu recomendo!”</p>
+                        <h1 style={{color: 'var(--white)', fontSize: '20px', margin:'4%'}}>LIVIA</h1>
+                        <p style={{color: 'var(--white)', fontSize: '15px', textAlign: 'center'}}>“Excelente, serviço impecável, cuidadoso e atencioso. Eu recomendo!”</p>
                         </div>
 
+                    
+                    <div className='espacoFooter'></div>
+                        
+
+                    <Footer />
                     </div>
                 </div>
-
-                <Footer />
         </div>
     );
 }

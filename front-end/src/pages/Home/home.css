@@ -1,5 +1,5 @@
 .HomeContainer{
-    background-color: #EB5E7F;
+    background-color: var(--white);
 }
 
 .HomeContent{
@@ -23,13 +23,13 @@
     margin-top: 10%;
     font-size: xx-large;
     margin-left: 1%;
-    color: var(--white);
+    color: var(--black);
 }
 
 .Apresentacao div p{
     font-weight: 300;
     line-height: 3.0;
-    color: var(--white);
+    color: var(--black);
 }
 
 .Apresentacao img{
@@ -46,6 +46,9 @@
 
 .Dicas h2{
     text-align: center;
+    font-size: xx-large;
+    color: var(--black);
+    margin-left: 5%;
 }
 
 .Dicas div{
@@ -57,7 +60,7 @@
 }
 
 .Dicas div img{
-    height: 250px;
+    height: 160px;
 }
 
 .Chamada{
@@ -176,62 +179,6 @@
 }
 
 
-.square {
-    position: relative;
-    margin: 0 10px;
-    width: 50px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.square span:nth-child(1) {
-    position: absolute;
-    top: 0;
-    left: 130%;
-    width: 55%;
-    height: 190%;
-    border: 2px solid rgb(255, 255, 255);
-    border-radius:41% 59% 66% 34% / 42% 48% 52% 58%;
-    transition: 0.5s;
-}
-
-
-.square span:nth-child(2) {
-    position: absolute;
-    top: 0;
-    left: 130%;
-    width: 55%;
-    height: 190%;
-    border: 2px solid rgb(255, 255, 255);
-    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
-
-}
-
-
-.content {
-    position: relative;
-    padding: 40px 60px;
-    color: #fff;
-    text-align: center;
-    transition: 0.5s;
-    z-index: 1000;
-}
-
-.content a {
-    position: relative;
-    display: inline-block;
-    margin-top: 10px;
-    border: 2px solid #fff;
-    padding: 6px 18px;
-    text-decoration: none;
-    color: #fff;
-    font-weight: 600;
-    border-radius: 73% 27% 44% 56% / 49% 44% 56% 51%;
-}
-
-
 .bloco01{
 position: absolute;
 width: 350px;
@@ -245,7 +192,7 @@ background: #7AB6DD;
 position: absolute;
 width: 350px;
 height: 270px;
-left: 500px;
+right: 40%;
 background: #7AB6DD;
 }
 
@@ -254,12 +201,12 @@ background: #7AB6DD;
 position: absolute;
 width: 350px;
 height: 270px;
-left: 900px;
+right: 10%;
 background: #7AB6DD;
 }
 
 .blobs01{
-    border: 2px solid #fff;
+    border: 3px solid var(--white);
     border-radius: 60%;
     width: 70%;
     height: 90%;
@@ -269,7 +216,7 @@ background: #7AB6DD;
 }
 
 .blobs02{
-    border: 2px solid #fff;
+    border: 3px solid var(--white);
     border-radius: 60%;
     width: 70%;
     height: 90%;
@@ -279,11 +226,19 @@ background: #7AB6DD;
 }
 
 .blobs03{
-    border: 2px solid #fff;
+    border: 3px solid var(--white);
     border-radius: 60%;
     width: 70%;
     height: 90%;
     margin-left: 18%;
     margin-top: -3cm;
     border-style:dotted;
+}
+
+.Cliente{
+    margin-top: 18%;
+}
+
+.espacoFooter{
+    padding: 10%;
 }

@@ -8,25 +8,16 @@ function CadastroBancarioPrestador(){
     return(
 
         <div className='ContainerBancario'>
-            <div className = 'Assistente'>
-            <ol class="progress" data-steps="4">
-  <li class="active">
-    <span class="name">Dados cadastrais</span>
-    <span class="step"><span>1</span></span>
-  </li>
-  <li class="active">
-    <span class="name">Cadastro de perfil</span>
-    <span class="step"><span>2</span></span>
-  </li>
-  <li class="active">
-    <span class="name">Cadastro de endereço</span>
-    <span class="step"><span>3</span></span>
-  </li>
-  <li>
-    <span class="name">Dados bancários</span>
-    <span class="step"><span>4</span></span>
-  </li>
-</ol>
+
+<div class="progressbar-wrapper">
+      <ul class="progressbar">
+          <li>Cadastro</li>
+          <li class="active" className='li02'>Informações profissionais</li>
+          <li className='li03'>Cadastro de endereço</li>
+          <li className='li04'>Dados bancários</li>
+      </ul>
+</div>
+           
 
 
 <div  className="CadastroInfoBancariaPrestadorContainer"  style={{ padding: '5%'}}>
@@ -83,7 +74,6 @@ function CadastroBancarioPrestador(){
                     <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--pink)", color: "var(--white)" }}>Revisar dados anteriores</Link>
                 </div>
             </form>
-        </div>
         </div>
         </div>
     )

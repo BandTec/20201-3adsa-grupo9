@@ -6,28 +6,18 @@ function CadastroEnderecoPrestador(){
     return(
          <div className='ContainerEndereco'>
 
-             <div className = 'Assistente'>
-             <ol class="progress" data-steps="4">
-  <li class="done">
-    <span class="name">Dados cadastrais</span>
-    <span class="step"><span>1</span></span>
-  </li>
-  <li class="done">
-    <span class="name">Cadastro de perfil</span>
-    <span class="step"><span>2</span></span>
-  </li>
-  <li class="active">
-    <span class="name">Cadastro de endereço</span>
-    <span class="step"><span>3</span></span>
-  </li>
-  <li>
-    <span class="name">Dados bancários</span>
-    <span class="step"><span>4</span></span>
-  </li>
-</ol>
-             </div>
+<div class="progressbar-wrapper">
+      <ul class="progressbar">
+          <li className='li01'>Cadastro</li>
+          <li className='li02'>Informações profissionais</li>
+          <li class="active">Cadastro de endereço</li>
+          <li className='li04'>Dados bancários</li>
+      </ul>
+</div>
 
-             <h1>Cadastro de endereço</h1>
+            
+
+             <h1  style={{color: 'var(--black)', marginTop:'9%'}}>Cadastro de endereço</h1>
              <h2>Este é o passo 3</h2>
 
              <div className='form'>
