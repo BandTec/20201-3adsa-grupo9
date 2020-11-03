@@ -9,7 +9,7 @@ import CadastroPerfilContratante from './pages/CadastroPerfilContratante';
 import CadastroInfoPessoalContratante from './pages/CadastroInfoPessoalContratante';
 import CadastroInfoBancariaContratante from './pages/CadastroInfoBancariaContratante';
 import Termos from './pages/Termos';
-import PerfilContratante from './pages/PerfilContratante';
+import InfoPerfilPrestador from './pages/InfoPerfilPrestador';
 import InfoPerfilContratante from './pages/InfoPerfilContratante';
 import InfoContratacao from './pages/InfoContratacao';
 import ContratoServico from './pages/ContratoServico';
@@ -31,7 +31,7 @@ export default function Routes(){
                 <Route path="/cadastro-info-bancaria-prestador" component={CadastroBancarioPrestador}/>
                 <Route path="/cadastro-endereco-prestador" component={CadastroEnderecoPrestador}/>
                 <Route path="/termos" component={Termos}/>
-                <Route path="/perfil-contratante" component={PerfilContratante}/>
+                <Route path="/perfil-contratante" component={InfoPerfilPrestador}/>
                 <Route path="/info-perfil-contratante" component={InfoPerfilContratante}/>
                 <Route path="/info-contratacao" component={InfoContratacao} />
                 <Route path="/contrato-servico" component={ContratoServico} />

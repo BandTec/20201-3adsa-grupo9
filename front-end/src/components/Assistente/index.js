@@ -1,29 +1,32 @@
 import React from 'react';
-import './assistente.css';
+import ImageUploader from 'react-images-upload';
 
 
-function Assistente(){
-    return(
-        <ol class="progress" data-steps="4">
-  <li class="done">
-    <span class="name">Dados cadastrais</span>
-    <span class="step"><span>1</span></span>
-  </li>
-  <li class="done">
-    <span class="name">Cadastro de perfil</span>
-    <span class="step"><span>2</span></span>
-  </li>
-  <li class="active">
-    <span class="name">Cadastro de endereço</span>
-    <span class="step"><span>3</span></span>
-  </li>
-  <li>
-    <span class="name">Dados bancários</span>
-    <span class="step"><span>4</span></span>
-  </li>
-</ol>
+class Foto extends React.Component {
+ 
+  constructor(props) {
+      super(props);
+       this.state = { pictures: [] };
+       this.onDrop = this.onDrop.bind(this);
+  }
 
-    )
+  onDrop(picture) {
+      this.setState({
+          pictures: this.state.pictures.concat(picture),
+      });
+  }
+
+  render() {
+      return (
+          <ImageUploader
+              withIcon={true}
+              buttonText='Choose images'
+              onChange={this.onDrop}
+              imgExtension={['.jpg', '.gif', '.png', '.gif']}
+              maxFileSize={5242880}
+          />
+      );
+  }
 }
 
-export default Assistente;
+export default Foto;

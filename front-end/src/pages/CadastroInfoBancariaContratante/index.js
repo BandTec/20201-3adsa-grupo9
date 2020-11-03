@@ -1,9 +1,7 @@
 import React from 'react';
 
 import './cadastro-info-bancaria-contratante.css';
-
 import InfoIcon from '../../assets/img/icons/info.png';
-
 import { Link } from 'react-router-dom';
 
 function CadastroInfoBancariaContratante(){

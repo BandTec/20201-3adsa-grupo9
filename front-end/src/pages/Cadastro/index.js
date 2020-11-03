@@ -3,7 +3,12 @@ import './cadastro.css';
 import GoogleIcon from '../../assets/img/icons/Gmail.png';
 import FaceIcon from '../../assets/img/icons/facebook.png';
 import { Link } from 'react-router-dom';
+import InputMask from 'react-input-mask';
 
+
+const InputTelefone = (props) => (
+    <InputMask mask="(99)99999-9999" value={props.value} onChange={props.onChange} />
+  );
 
 function Cadastro(){
     return(	
@@ -37,11 +42,11 @@ function Cadastro(){
 
            <div class="input-container">
 		   <input type="text" required=""/>
-		   <label>Telefone</label>		
+		   <InputTelefone>Telefone</InputTelefone>	
 	       </div>
 
            <div class="input-container">
-		   <input type="text" required=""/>
+		   <input type="password" required=""/>
 		   <label>Senha</label>		
 	       </div>
            </form>
