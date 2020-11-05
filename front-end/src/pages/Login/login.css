@@ -1,9 +1,12 @@
 .LoginPage{
-    margin-top: var(--bodyMarginTop);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 30%;
+    height: 620px;
+    background-color: var(--pink);
+    margin-left: 35%;
 }
 
 .UserIcon{
@@ -11,14 +14,14 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 5%;
+    width: 100%;
+    height: 50px;
 }
 
 .UserIcon img{
     width: 50%;
 }
 
-.Formulario{
-}
 
 .Formulario div{
     margin-bottom: 10%;
@@ -29,18 +32,13 @@
     margin-bottom: 2%;
 }
 
-.Formulario label{
-    width: 500px;
-    display: inline-block;
-    border-bottom: 1px solid #000000;
-}
 
-.Formulario label img{
+.Formulario img{
     width: 20px;
 }
 
-.Formulario label input{
-    width: 90%;
+.Formulario input{
+    width: 100%;
     margin-left: 5%;
 }
 
@@ -50,3 +48,4 @@
     align-items: center;
     justify-content: center;
 }
+

@@ -23,7 +23,7 @@ function Termos(){
             Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" </h2>
 
              <div style={{margin: '10%'}}>
-                <Link className="botao_termo" to="">Li e concordo com os termos de uso</Link>
+                <Link className="botao_termo" to="/login">Li e concordo com os termos de uso</Link>
                 <Link className="botao" to="/">Voltar</Link>
              </div>
 

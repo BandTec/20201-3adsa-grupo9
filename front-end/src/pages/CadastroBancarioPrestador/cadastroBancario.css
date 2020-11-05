@@ -63,102 +63,103 @@
 .inputRadio{
     display: block;
 }
+.input [type=number], select {
+  width: 40%; 
+  padding: 12px 20px; 
+  margin: 8px 0; 
+  display: inline-block; 
+  border: 1px solid var(--black); 
+  box-sizing: border-box; 
+  display: block; 
+  margin-left: 30%; 
+}
 
-.progressbar-wrapper {
-  background: #fff;
+.steps {
+  min-height: 90px;
+  padding: 30px 0 0 0;
+  font-family: 'Open Sans', sans-serif;
+  position: relative;
+}
+.steps .steps-container {
+  background: #ddd;
+  height: 10px;
   width: 100%;
-  padding-top: 10px;
-  padding-bottom: 5px;
+  border-radius: 10px ;
+  -moz-border-radius: 10px ;
+  -webkit-border-radius: 10px ;
+  -ms-border-radius: 10px ;
+  margin: 0;
+  list-style: none;
 }
-
-.progressbar li {
-  left: 10%;
-  list-style-type: none;
-  width: 20%;
+.steps .steps-container li {
+  text-align: center;
+  list-style: none;
   float: left;
-  font-size: 12px;
-  position: relative;
-  text-align: center;
-  text-transform: uppercase;
-  color: #000000;
 }
-
-.progressbar li:before {
-  width: 60px;
-  height: 60px;
-  content: "";
-  line-height: 60px;
-  border: 2px solid var(--pink);
+.steps .steps-container li .step {
+  padding: 0 50px;
+}
+.steps .steps-container li .step .step-image {
+  margin: -14px 0 0 0;
+}
+.steps .steps-container li .step .step-image span {
+  background-color: #ddd;
   display: block;
-  text-align: center;
-  margin: 0 auto 3px auto;
-  border-radius: 50%;
-  position: relative;
-  z-index: 2;
+  width: 37px;
+  height: 37px;
+  margin: 0 auto;
+  border-radius: 37px ;
+  -moz-border-radius: 37px ;
+  -webkit-border-radius: 37px ;
+  -ms-border-radius: 37px ;
+}
+.steps .steps-container li .step .step-current {
+  font-size: 11px;
+  font-style: italic;
+  color: #999;
+  margin: 8px 0 0 0;
+}
+.steps .steps-container li .step .step-description {
+  font-size: 13px;
+  font-style: italic;
+  color: #538897;
+}
+.steps .steps-container li.activated .step .step-image span {
+  background-color: var(--pink);
+}
+.steps .steps-container li.activated .step .step-image span:after {
   background-color: #fff;
+  display: block;
+  content: '';
+  position: absolute;
+  z-index: 1;
+  width: 27px;
+  height: 27px;
+  margin: 5px;
+  border-radius: 27px ;
+  -moz-border-radius: 27px ;
+  -webkit-border-radius: 27px ;
+  -ms-border-radius: 27px ;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.15) ;
+  -moz-box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.15) ;
+  -webkit-box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.15) ;
 }
-.progressbar li:after {
-   width: 100%;
-   height: 2px;
-   content: '';
-   position: absolute;
-   background-color: #000000;
-   top: 30px;
-   left: -50%;
-   z-index: 0;
+.steps .step-bar {
+  background-color: var(--pink);
+  height: 10px;
+  position: absolute;
+  top: 30px;
+  border-radius: 10px 0 0 10px;
+  -moz-border-radius: 10px 0 0 10px;
+  -webkit-border-radius: 10px 0 0 10px;
+  -ms-border-radius: 10px 0 0 10px;
 }
-.progressbar li:first-child:after {
-   content: none;
+.steps .step-bar.last {
+  border-radius: 10px ;
+  -moz-border-radius: 10px ;
+  -webkit-border-radius: 10px ;
+  -ms-border-radius: 10px ;
 }
-
-.progressbar li.active {
-  color: var(--pink);
-  font-weight: bold;  
-}
-.progressbar li.active:before {
-  border-color: #d15392;
-  background: var(--pink);
-}
-.progressbar li.active + li:after {
-  background-color: #d15392;
-}
-
-.progressbar li.active:before {
-  background: #d15392  url(../../assets/img/icons/cadastro.png) no-repeat center center;
-  background-size: 80%;
-}
-.progressbar li::before {
-  background: #fff url(../../assets/img/icons/cadastro.png) no-repeat center center;
-  background-size: 80%;
-}
-
-.progressbar .li02.active:before {
-  background: #d15392  url(../../assets/img/icons/baba.png) no-repeat center center;
-  background-size: 80%;
-}
-.progressbar .li02::before {
-  background: #d15392 url(../../assets/img/icons/baba.png) no-repeat center center;
-  background-size: 80%;
-}
-
-.progressbar .li03.active:before {
-  background: #d15392  url(../../assets/img/icons/transferir.png) no-repeat center center;
-  background-size: 80%;
-}
-.progressbar .li03::before {
-  background: #ffffff url(../../assets/img/icons/transferir.png) no-repeat center center;
-  background-size: 80%;
-}
-
-.progressbar .li04.active:before {
-  background: #d15392  url(../../assets/img/icons/banco.png) no-repeat center center;
-  background-size: 80%;
-}
-.progressbar .li04::before {
-  background: #fff url(../../assets/img/icons/banco.png) no-repeat center center;
-  background-size: 80%;
-}
-
 
 
 

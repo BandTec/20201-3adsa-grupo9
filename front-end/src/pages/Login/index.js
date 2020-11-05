@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-
 import api from '../../services/api';
 import './login.css';
+import UserIcon from '../../assets/img/imagens/A119.jpeg';
 
-import UserIcon from '../../assets/img/icons/user.png';
-import UserLoginIcon from '../../assets/img/icons/user-form.png';
-import UserPasswordIcon from '../../assets/img/icons/user-password.png';
 
 function Login(){
 
@@ -43,33 +40,27 @@ function Login(){
     return(
         <div className="LoginPage">
             <div className="UserIcon">
-                <img src={UserIcon} alt="Ícone remetendo há um usuário."/>
+                <img style={{borderRadius: '100%'}} src={UserIcon} alt="Ícone remetendo há um usuário."/>
             </div>
             <div>
-                <form className="Formulario" onSubmit={handleLogin}>
+                <form style={{margin:'20%'}} className="Formulario" onSubmit={handleLogin}>
                     <div>
                         <h4>Login</h4>
-                        <label>
-                            <img src={UserLoginIcon} alt="a"/>
-                            <input type="text" 
+                            <input style={{width:'250px', marginLeft:'1%'}} type="text" 
                             name="email" 
                             value={email} 
                             onChange={ e => setEmail(e.target.value)}/>
-                        </label>
                     </div>
 
                     <div>
                         <h4>Senha</h4>
-                        <label>
-                            <img src={UserPasswordIcon} alt="a"/>
-                            <input type="password" 
+                            <input style={{width:'250px', marginLeft:'1%'}} type="password" 
                             name="senha"
                             value={senha} 
                             onChange={ e => setSenha(e.target.value)}/>
-                        </label>
                     </div>
                     <div className="Centralizar">
-                        <button  className="ButtonLinkSquare" type="submit">Entrar</button>
+                        <button style={{backgroundColor:'var(--blue)', width:'180px'}} className="ButtonLinkSquare" type="submit">Entrar</button>
                     </div>
                 </form>
             </div>

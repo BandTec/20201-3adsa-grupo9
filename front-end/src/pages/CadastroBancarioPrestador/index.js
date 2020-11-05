@@ -9,14 +9,41 @@ function CadastroBancarioPrestador(){
 
         <div className='ContainerBancario'>
 
-<div class="progressbar-wrapper">
-      <ul class="progressbar">
-          <li>Cadastro</li>
-          <li class="active" className='li02'>Informações profissionais</li>
-          <li className='li03'>Cadastro de endereço</li>
-          <li className='li04'>Dados bancários</li>
-      </ul>
+<div class="steps">
+    <ul class="steps-container">
+        <li  style={{width: "20%"}} class="activated">
+            <div class="step">
+                <div class="step-image"><span></span></div>
+                <div class="step-current">Etapa 1</div>
+                <div class="step-description">Dados cadastrais</div>
+            </div>
+        </li>
+        <li style={{width: "30%"}} class="activated">
+            <div class="step">
+                <div  class="step-image"><span></span></div>
+                <div class="step-current">Etapa 2</div>
+                <div class="step-description">Cadastro de perfil</div>
+            </div>
+        </li>
+        <li  style={{width: "20%"}} class="activated">
+            <div class="step">
+                <div class="step-image"><span></span></div>
+                <div class="step-current">Etapa 3</div>
+                <div class="step-description">Cadastro de endereço</div>
+            </div>
+        </li>
+        <li  style={{width: "20%"}} class="activated">
+            <div class="step">
+                <div class="step-image"><span></span></div>
+                <div class="step-current">Etapa 4</div>
+                <div class="step-description">Dados bancários</div>
+            </div>
+        </li>
+    </ul>
+    <div class="step-bar" style={{width: "80%"}}></div>
 </div>
+
+
            
 
 
@@ -52,26 +79,26 @@ function CadastroBancarioPrestador(){
                 <div>
                     <h4>Agencia*:</h4>
                     <label>
-                        <input type="text" name="agencia"/>
+                        <input type="number" name="agencia"/>
                     </label>
                     <h4>Digito*:</h4>
                     <label>
-                        <input type="text" name="digito"/>
+                        <input type="number" name="digito"/>
                     </label>
                 </div>
                 <div>
                     <h4>Conta*:</h4>
                     <label>
-                        <input type="text" name="conta"/>
+                        <input type="number" name="conta"/>
                     </label>
                     <h4>Digito*:</h4>
                     <label>
-                        <input type="text" name="digito"/>
+                        <input type="number" name="digito"/>
                     </label>
                 </div>
                 <div className="BotoesLoginForm">
                     <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--blue)", marginRight: "5%", color:"var(--white)", marginLeft: "28%"}} to="/termos">Confirmar dados</Link>
-                    <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--pink)", color: "var(--white)" }}>Revisar dados anteriores</Link>
+                    <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--pink)", color: "var(--white)" }} to="/cadastro-endereco-prestador">Revisar dados anteriores</Link>
                 </div>
             </form>
         </div>
