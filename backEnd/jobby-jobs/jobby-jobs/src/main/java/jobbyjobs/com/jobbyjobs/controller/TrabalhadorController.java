@@ -10,6 +10,7 @@ import jobbyjobs.com.jobbyjobs.repositories.BabaRepository;
 import jobbyjobs.com.jobbyjobs.repositories.NotificacaoRepository;
 import jobbyjobs.com.jobbyjobs.repositories.ProfissionalRepository;
 import jobbyjobs.com.jobbyjobs.repositories.UsuariosJobRepository;
+import jobbyjobs.com.jobbyjobs.services.ViaCepService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +34,8 @@ public class TrabalhadorController implements calcularSalario {
 
     @Autowired
     private NotificacaoRepository notificacaoRepository;
+
+
 
     private List<Login> logados = new ArrayList<>();
 

@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import jobbyjobs.com.jobbyjobs.models.Baba;
-import jobbyjobs.com.jobbyjobs.models.Login;
-import jobbyjobs.com.jobbyjobs.models.Notifcacoes;
-import jobbyjobs.com.jobbyjobs.models.Usuario;
+import jobbyjobs.com.jobbyjobs.models.*;
 import jobbyjobs.com.jobbyjobs.repositories.BabaRepository;
 import jobbyjobs.com.jobbyjobs.repositories.NotificacaoRepository;
 import jobbyjobs.com.jobbyjobs.repositories.UsuariosJobRepository;
+import jobbyjobs.com.jobbyjobs.services.ViaCepService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -34,6 +32,9 @@ public class UsuariosController {
     @Autowired
     private BabaRepository babaRepository;
 
+    @Autowired
+    private ViaCepService service;
+
     @GetMapping
     public ResponseEntity getUsuarios(@RequestParam(required = false) Integer id){
         if(usuarioRepository.count() == 0){
@@ -49,6 +50,12 @@ public class UsuariosController {
     public ResponseEntity registrarUsuarios(@RequestBody @Valid Usuario novoUsuario) {
         usuarioRepository.save(novoUsuario);
         return ResponseEntity.created(null).build();
+    }
+
+    @GetMapping("/cep/{cep}")
+    public ResponseEntity getCep(@PathVariable  String cep) {
+        RespostaCep respostaCep = service.getCep(cep);
+        return ResponseEntity.ok(respostaCep);
     }
 
     @PostMapping("/login")
