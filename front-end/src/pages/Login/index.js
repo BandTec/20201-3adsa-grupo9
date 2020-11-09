@@ -46,7 +46,7 @@ function Login(){
                 <form style={{margin:'20%'}} className="Formulario" onSubmit={handleLogin}>
                     <div>
                         <h4>Login</h4>
-                            <input style={{width:'250px', marginLeft:'1%'}} type="text" 
+                            <input style={{width:'250px', marginLeft:'-20%'}} type="text" 
                             name="email" 
                             value={email} 
                             onChange={ e => setEmail(e.target.value)}/>
@@ -54,7 +54,7 @@ function Login(){
 
                     <div>
                         <h4>Senha</h4>
-                            <input style={{width:'250px', marginLeft:'1%'}} type="password" 
+                            <input style={{width:'250px', marginLeft:'-20%'}} type="password" 
                             name="senha"
                             value={senha} 
                             onChange={ e => setSenha(e.target.value)}/>
