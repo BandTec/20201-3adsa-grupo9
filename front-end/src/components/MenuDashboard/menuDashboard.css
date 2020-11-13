@@ -1,0 +1,61 @@
+.Logo{
+    max-width: 140px;
+}
+
+.Menu {
+    width: 100vw;
+    height: 94px;
+    z-index: 100;
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-left: 5%;
+    padding-right: 5%;
+  
+    background: var(--pink);
+  }
+
+  .ButtonLink {
+    color: var(--black);
+    background: var(--white);
+    border: 1px solid var(--black);
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 12px 35px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    outline: none;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity .3s;
+  }
+
+  .ButtonLinkSquare{
+      color: var(--black);
+      background: var(--white);
+      border: 1px solid var(--black);
+      box-sizing: border-box;
+      cursor: pointer;
+      padding: 16px 30px;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 16px;
+      outline: none;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-block;
+      transition: opacity .3s;
+  }
+
+  .icone{
+    width: 32px;
+  }
+
