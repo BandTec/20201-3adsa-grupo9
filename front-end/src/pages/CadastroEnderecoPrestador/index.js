@@ -1,84 +1,106 @@
 import React from 'react';
 import './cadastroEndereco.css';
 import InputMask from 'react-input-mask';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import api from '../../services/api';
 
 
 
 
 const InputCep = (props) => (
     <InputMask mask="99999-999" value={props.value} onChange={props.onChange} />
-  );
+);
 
-function CadastroEnderecoPrestador(){
-    return(
-        
-         <div className='ContainerEndereco'>
+function CadastroEnderecoPrestador() {
 
-<div class="steps">
-    <ul class="steps-container">
-        <li  style={{width: "20%"}} class="activated">
-            <div class="step">
-                <div class="step-image"><span></span></div>
-                <div class="step-current">Etapa 1</div>
-                <div class="step-description">Dados cadastrais</div>
+    const history = useHistory();
+
+    function handleCadastroTresPrestador(e) {
+        e.preventDefault();
+
+        localStorage.setItem("cep", document.getElementById("cep").value);
+        localStorage.setItem("endereco", document.getElementById("endereco").value);
+        localStorage.setItem("bairro", document.getElementById("bairro").value);
+        localStorage.setItem("numero", document.getElementById("numero").value);
+        localStorage.setItem("complemento", document.getElementById("complemento").value);
+
+        history.push('/cadastro-info-bancaria-prestador');
+        // to="/cadastro-info-bancaria-prestador"
+    }
+
+    return (
+
+        <div className='ContainerEndereco'>
+
+            <div className="steps">
+                <ul className="steps-container">
+                    <li style={{ width: "20%" }} className="activated">
+                        <div className="step">
+                            <div className="step-image"><span></span></div>
+                            <div className="step-current">Etapa 1</div>
+                            <div className="step-description">Dados cadastrais</div>
+                        </div>
+                    </li>
+                    <li style={{ width: "30%" }} className="activated">
+                        <div className="step">
+                            <div className="step-image"><span></span></div>
+                            <div className="step-current">Etapa 2</div>
+                            <div className="step-description">Cadastro de perfil</div>
+                        </div>
+                    </li>
+                    <li style={{ width: "20%" }} className="activated">
+                        <div className="step">
+                            <div className="step-image"><span></span></div>
+                            <div className="step-current">Etapa 3</div>
+                            <div className="step-description">Cadastro de endereço</div>
+                        </div>
+                    </li>
+                    <li style={{ width: "20%" }}>
+                        <div className="step">
+                            <div className="step-image"><span></span></div>
+                            <div className="step-current">Etapa 4</div>
+                            <div className="step-description">Dados bancários</div>
+                        </div>
+                    </li>
+                </ul>
+                <div className="step-bar" style={{ width: "60%" }}></div>
             </div>
-        </li>
-        <li style={{width: "30%"}} class="activated">
-            <div class="step">
-                <div  class="step-image"><span></span></div>
-                <div class="step-current">Etapa 2</div>
-                <div class="step-description">Cadastro de perfil</div>
+
+
+            <h1 style={{ color: 'var(--black)', marginTop: '9%' }}>Cadastro de endereço</h1>
+            <h2>Este é o passo 3</h2>
+
+            <div className='form'>
+                <form onSubmit={handleCadastroTresPrestador}>
+                    <label className='titulo' for="cep">Informe seu CEP: </label>
+                    <input type="text" id="cep" name="cep" placeholder="Digite seu CEP"
+                        onFocusOut={e => {
+                            var uri = `/ws/${document.getElementById("cep").value}/json`;
+                            const response = api.get(uri);
+                            console.log(response);
+                        }} />
+
+                    <label className='titulo' for="endereco">Endereço: </label>
+                    <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço" />
+
+                    <label className='titulo' for="bairro">Bairro: </label>
+                    <input type="text" id="bairro" name="bairro" placeholder="Digite seu bairro" />
+
+                    <label className='titulo' for="numero">Número: </label>
+                    <input type="text" id="numero" name="numero" placeholder="Digite o número da casa" />
+
+                    <label className='titulo' for="complemento">Complemento: </label>
+                    <input type="text" id="complemento" name="complemento" placeholder="Complemento" />
+
+                    <button className="ButtonLinkSquareCadastro" style={{ background: "var(--blue)", marginRight: "5%", color: "var(--white)", marginLeft: "28%" }} type="submit" >Próximo passo</button>
+                </form>
             </div>
-        </li>
-        <li  style={{width: "20%"}} class="activated">
-            <div class="step">
-                <div class="step-image"><span></span></div>
-                <div class="step-current">Etapa 3</div>
-                <div class="step-description">Cadastro de endereço</div>
-            </div>
-        </li>
-        <li  style={{width: "20%"}}>
-            <div class="step">
-                <div class="step-image"><span></span></div>
-                <div class="step-current">Etapa 4</div>
-                <div class="step-description">Dados bancários</div>
-            </div>
-        </li>
-    </ul>
-    <div class="step-bar" style={{width: "60%"}}></div>
-</div>
 
-
-             <h1  style={{color: 'var(--black)', marginTop:'9%'}}>Cadastro de endereço</h1>
-             <h2>Este é o passo 3</h2>
-
-             <div className='form'>
-             <form>
-             <label className='titulo' for="cep">Informe seu CEP: </label>
-             <InputCep type="text" id="cep" name="cep" placeholder="Digite seu CEP"></InputCep>
-
-             <label className='titulo'  for="endereco">Endereço: </label>
-             <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço"></input>
-
-             <label className='titulo'  for="bairro">Bairro: </label>
-             <input type="text" id="bairro" name="bairro" placeholder="Digite seu bairro"></input>
-
-             <label className='titulo'  for="numero">Número: </label>
-             <input type="text" id="numero" name="numero" placeholder="Digite o número da casa"></input>
-
-             <label className='titulo'  for="complemento">Complemento: </label>
-             <input type="text" id="complemento" name="complemento" placeholder="Complemento"></input>
-
-             </form>
-             </div>
-
-            <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--blue)", marginRight: "5%", color:"var(--white)", marginLeft: "28%"}} to="/cadastro-info-bancaria-prestador">Próximo passo</Link>
             <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--pink)", color: "var(--white)" }} to='/cadastro-perfil'>Revisar dados anteriores</Link>
 
-  
 
-         </div>
+
+        </div>
     )
 }
 
