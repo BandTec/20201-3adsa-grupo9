@@ -113,14 +113,14 @@ function CadastroPerfilPrestador() {
             <div className='formulario'>
                 <div className='cozinhar'>
                     <h3>O seu serviço inclui cozinhar?</h3>
-                    <button style={{ marginLeft: '35%' }} onClick={setCozinharSim}>Sim </button>
-                    <button onClick={setCozinharNao}>Não</button>
+                    <button className='botaoSim' onClick={setCozinharSim}>Sim </button>
+                    <button className='botaoNao' onClick={setCozinharNao}>Não</button>
                 </div>
 
                 <div className='limpeza'>
                     <h3>O seu serviço inclui limpeza?</h3>
-                    <button style={{ marginLeft: '35%' }} onClick={setLimpezaSim}>Sim </button>
-                    <button onClick={setLimpezaNao}>Não</button>
+                    <button className='botaoSim' onClick={setLimpezaSim}>Sim </button>
+                    <button className='botaoNao' onClick={setLimpezaNao}>Não</button>
                 </div>
 
                 <div className='QtdSemana'>
@@ -137,29 +137,28 @@ function CadastroPerfilPrestador() {
                     </select>
                 </div>
 
+                <h3>Quais dias da semana voce deseja trabalhar?</h3>
                 <div className='diasSemana'>
-                    <h3>Quais dias da semana voce deseja trabalhar?</h3>
-
                     <input type="checkbox" id="segunda" />
-                    <label for="scales">Segunda-feira</label>
+                    <label style={{margin:'1%'}} for="scales">Segunda-feira</label>
 
                     <input type="checkbox" id="terca" />
-                    <label for="scales">Terça-feira</label>
+                    <label style={{margin:'1%'}} for="scales">Terça-feira</label>
 
                     <input type="checkbox" id="quarta" />
-                    <label for="scales">Quarta-feira</label>
+                    <label style={{margin:'1%'}} for="scales">Quarta-feira</label>
 
                     <input type="checkbox" id="quinta" />
-                    <label for="scales">Quinta-feira</label>
+                    <label style={{margin:'1%'}} for="scales">Quinta-feira</label>
 
                     <input type="checkbox" id="sexta" />
-                    <label for="scales">Sexta-feira</label>
+                    <label style={{margin:'1%'}} for="scales">Sexta-feira</label>
 
                     <input type="checkbox" id="sabado" />
-                    <label for="scales">Sabádo-feira</label>
+                    <label style={{margin:'1%'}} for="scales">Sabádo-feira</label>
 
                     <input type="checkbox" id="domingo" />
-                    <label for="scales">Domingo-feira</label>
+                    <label style={{margin:'1%'}} for="scales">Domingo-feira</label>
 
 
                 </div>

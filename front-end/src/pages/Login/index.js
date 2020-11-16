@@ -39,9 +39,6 @@ function Login(){
 
     return(
         <div className="LoginPage">
-            <div className="UserIcon">
-                <img style={{borderRadius: '100%'}} src={UserIcon} alt="Ícone remetendo há um usuário."/>
-            </div>
             <div>
                 <form style={{margin:'20%'}} className="Formulario" onSubmit={handleLogin}>
                     <div>
@@ -60,13 +57,23 @@ function Login(){
                             onChange={ e => setSenha(e.target.value)}/>
                     </div>
                     <div className="Centralizar">
-                        <button style={{backgroundColor:'var(--blue)', width:'180px'}} className="ButtonLinkSquare" type="submit">Entrar</button>
+                        <button style={{backgroundColor:'var(--light-blue)', width:'200px'}} className="ButtonLinkSquare" type="submit">Entrar</button>
                     </div>
                 </form>
             </div>
+            <div class="sub-cont">
+    <div class="img">
+      <div class="img__text m--up">
+        <h2>Novo(a) aqui?</h2>
+        <p>Inscreva-se e descubra uma grande quantidade de novas oportunidades!</p>
+      </div>
+    </div>
+  </div>
+
             <div className="ForgotPass">
                 <Link to="">Esqueci minha senha</Link>
             </div>
+
         </div>
     );
 }

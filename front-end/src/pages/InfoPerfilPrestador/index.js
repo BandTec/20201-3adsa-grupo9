@@ -3,15 +3,6 @@ import { Link } from 'react-router-dom';
 import InfoIcon from '../../assets/img/icons/info.png';
 import './perfil-contratante.css';
 import BannerPerfilLateral from '../../components/BannerPerfilLateral';
-import InputMask from 'react-input-mask';
-
-const Input = (props) => (
-    <InputMask mask="999.999.999-99" value={props.value} onChange={props.onChange} />
-  );
-
-  const InputCep = (props) => (
-    <InputMask mask="99999-999" value={props.value} onChange={props.onChange} />
-  );
 
 
 function PerfilContratante(){
@@ -33,14 +24,14 @@ function PerfilContratante(){
                 <div>
                     <h4>CPF:</h4>
                     <label>
-                        <Input type="text" name="cpf"/>
+                        <input type="text" name="cpf"/>
                     </label>
                 </div>
 
                 <div>
                     <h4>CEP:</h4>
                     <label>
-                        <InputCep type="text" name="cep"/>
+                        <input type="text" name="cep"/>
                     </label>
                 </div>
                 <div>

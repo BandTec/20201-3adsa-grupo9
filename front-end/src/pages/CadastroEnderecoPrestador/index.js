@@ -1,12 +1,7 @@
 import React from 'react';
 import './cadastroEndereco.css';
-// import InputMask from 'react-input-mask';
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api';
-
-// const InputCep = (props) => (
-//     <InputMask mask="99999-999" value={props.value} onChange={props.onChange} />
-// );
 
 function CadastroEnderecoPrestador() {
 
@@ -90,7 +85,7 @@ function CadastroEnderecoPrestador() {
                     <label className='titulo' >Complemento: </label>
                     <input type="text" id="complemento" name="complemento" placeholder="Complemento" />
 
-                    <button className="ButtonLinkSquareCadastro" style={{ background: "var(--blue)", marginRight: "5%", color: "var(--white)", marginLeft: "28%" }} type="submit" >Próximo passo</button>
+                    <button className="ButtonLinkSquareCadastro" style={{ background: "var(--blue)", marginRight: "5%", color: "var(--white)", marginLeft: "20%" }} type="submit" >Próximo passo</button>
                 </form>
             </div>
 

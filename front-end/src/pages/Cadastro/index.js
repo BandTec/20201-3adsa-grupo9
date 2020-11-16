@@ -93,7 +93,6 @@ function Cadastro() {
                 </div>
 
                 <div className="input-container">
-                    {/* <InputTelefone  type="number" required="" placeholder="Digite seu telefone"/> */}
                     <input type="number" required="" placeholder="Digite seu telefone" 
                     name="telefone" 
                     value={telefone} 
@@ -108,7 +107,8 @@ function Cadastro() {
                     onChange={ e => setSenha(e.target.value)}/>
                     <label>Senha</label>
                 </div>
-                <button className="ButtonLinkSquareCadastro" style={{ background: "var(--pink)", color: "var(--white)", marginLeft: '38%' }} type="submit">Próximo passo</button>
+
+                <button className="ButtonLinkSquareCadastro" style={{ background: "var(--pink)", color: "var(--white)", marginLeft: '35%', padding:'25px'}} type="submit">Próximo passo</button>
             </form>
 
 

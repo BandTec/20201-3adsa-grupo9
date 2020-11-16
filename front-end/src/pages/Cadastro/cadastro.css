@@ -40,14 +40,14 @@ margin: 2%;
 }
 
 .input-container input{ 
-  border:0;
-  border-bottom:1px solid rgb(0, 0, 0);  
-  background:transparent;
-  width:45%;
-  padding:8px 0 5px 0;
-  font-size:16px;
-  color:rgb(0, 0, 0);
-  margin-left: 30%;
+  width: 40%; 
+  padding: 12px 20px; 
+  margin: 8px 0; 
+  display: inline-block; 
+  border: 1px solid var(--black); 
+  box-sizing: border-box; 
+  display: block; 
+  margin-left: 30%; 
 }
 
 
@@ -77,8 +77,8 @@ input[type=password], select {
 }
 
 
-.input [type=number], select {
-  width: 40%; 
+input [type=number], select {
+  width: 30%; 
   padding: 12px 20px; 
   margin: 8px 0; 
   display: inline-block; 
