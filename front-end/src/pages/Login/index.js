@@ -57,7 +57,7 @@ function Login(){
                             onChange={ e => setSenha(e.target.value)}/>
                     </div>
                     <div className="Centralizar">
-                        <button style={{backgroundColor:'var(--light-blue)', width:'200px'}} className="ButtonLinkSquare" type="submit">Entrar</button>
+                        <button className="ButtonLinkSquare" type="submit">Entrar</button>
                     </div>
                 </form>
             </div>
@@ -66,11 +66,12 @@ function Login(){
       <div class="img__text m--up">
         <h2>Novo(a) aqui?</h2>
         <p>Inscreva-se e descubra uma grande quantidade de novas oportunidades!</p>
+        <Link className="botaoImg" to="/escolher-perfil">Cadastre-se</Link>
       </div>
     </div>
   </div>
 
-            <div className="ForgotPass">
+            <div  className="ForgotPass">
                 <Link to="">Esqueci minha senha</Link>
             </div>
 
