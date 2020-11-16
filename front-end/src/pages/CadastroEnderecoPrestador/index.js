@@ -1,15 +1,12 @@
 import React from 'react';
 import './cadastroEndereco.css';
-import InputMask from 'react-input-mask';
+// import InputMask from 'react-input-mask';
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api';
 
-
-
-
-const InputCep = (props) => (
-    <InputMask mask="99999-999" value={props.value} onChange={props.onChange} />
-);
+// const InputCep = (props) => (
+//     <InputMask mask="99999-999" value={props.value} onChange={props.onChange} />
+// );
 
 function CadastroEnderecoPrestador() {
 
@@ -72,24 +69,25 @@ function CadastroEnderecoPrestador() {
 
             <div className='form'>
                 <form onSubmit={handleCadastroTresPrestador}>
-                    <label className='titulo' for="cep">Informe seu CEP: </label>
+                    <label className='titulo' >Informe seu CEP: </label>
                     <input type="text" id="cep" name="cep" placeholder="Digite seu CEP"
-                        onFocusOut={e => {
+                        onBlur={e => {
                             var uri = `/ws/${document.getElementById("cep").value}/json`;
                             const response = api.get(uri);
-                            console.log(response);
+                            document.getElementById("endereco").value = response.endereco;
+                            document.getElementById("bairro").value = response.bairro;
                         }} />
 
-                    <label className='titulo' for="endereco">Endereço: </label>
+                    <label className='titulo' >Endereço: </label>
                     <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço" />
 
-                    <label className='titulo' for="bairro">Bairro: </label>
+                    <label className='titulo' >Bairro: </label>
                     <input type="text" id="bairro" name="bairro" placeholder="Digite seu bairro" />
 
-                    <label className='titulo' for="numero">Número: </label>
+                    <label className='titulo' >Número: </label>
                     <input type="text" id="numero" name="numero" placeholder="Digite o número da casa" />
 
-                    <label className='titulo' for="complemento">Complemento: </label>
+                    <label className='titulo' >Complemento: </label>
                     <input type="text" id="complemento" name="complemento" placeholder="Complemento" />
 
                     <button className="ButtonLinkSquareCadastro" style={{ background: "var(--blue)", marginRight: "5%", color: "var(--white)", marginLeft: "28%" }} type="submit" >Próximo passo</button>

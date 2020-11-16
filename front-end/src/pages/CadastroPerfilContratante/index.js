@@ -71,7 +71,7 @@ function CadastroPerfilContratante() {
                     </form>
                     <div className="BotoesCadastroPlataformas">
                         <Link className="ButtonLinkSquareCadastro"><img src={GoogleIcon} alt="Ícone do Google" to="#" /> Cadastrar usando Google</Link>
-                        <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--blue-facebook)", marginTop: "1%", color: "var(--white)" }} to="#" ><img src={FacebookIcon} alr="Ícone do Facebook" /> Cadastrar usando Facebook</Link>
+                        <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--blue-facebook)", marginTop: "1%", color: "var(--white)" }} to="#" ><img src={FacebookIcon} alt="Ícone do Facebook" /> Cadastrar usando Facebook</Link>
                     </div>
                 </div>
             </div>

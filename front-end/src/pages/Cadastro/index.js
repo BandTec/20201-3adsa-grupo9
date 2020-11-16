@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import './cadastro.css';
 import GoogleIcon from '../../assets/img/icons/Gmail.png';
 import FaceIcon from '../../assets/img/icons/facebook.png';
-import { Link, useHistory } from 'react-router-dom';
-import InputMask from 'react-input-mask';
+import { useHistory } from 'react-router-dom';
+// import InputMask from 'react-input-mask';
 
 
 // const InputTelefone = (props) => (

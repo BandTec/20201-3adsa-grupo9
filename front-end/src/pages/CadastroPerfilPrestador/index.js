@@ -12,7 +12,6 @@ function CadastroPerfilPrestador() {
 
         var qtdDiasEscolhidos = 0;
 
-        // localStorage.setItem("selectDias", document.getElementById("selectDias").value);
         var element = document.getElementById("selectDias");
         localStorage.setItem("qtdSelectDias", element.options[element.selectedIndex].value );
 
