@@ -18,7 +18,7 @@ function Termos() {
         const email = localStorage.getItem("email");
         const senha = localStorage.getItem("senha");
         const telefone = localStorage.getItem("telefone"); // ESTE CAMPO NÃO TEM NO BANCO
-        const cpf = 0; // ESTE CAMPO NÃO TEM NA TELA
+        const cpf = 11111111111; // ESTE CAMPO NÃO TEM NA TELA
 
         //Informacoes bancarias usuario
         const banco = localStorage.getItem("banco"); // ESTE CAMPO NÃO TEM NO BANCO
@@ -64,18 +64,43 @@ function Termos() {
                 nome,
                 email,
                 senha,
+                telefone,
+                cpf,
                 tipo_usuario,
+
                 endereco,
                 bairro,
                 numero,
                 complemento,
                 cep,
+
+                banco,
+                tipo_conta,
+                titular_conta,
+                pessoa_fisica,
+                pessoa_juridica,
                 agencia,
                 conta,
+
+                cobra_por_hora,
+                valor_hora,
+                valor_fixo,
+                qtd_dias_trabalha,
+                segunda,
+                terca,
+                quarta,
+                quinta,
+                sexta,
+                sabado,
+                domingo,
+
                 cozinhar,
                 preco_se_cozinha,
                 limpar,
-                preco_se_limpa
+                preco_se_limpa,
+                preco_ate_tres,
+                preco_tres_ate_oito,
+                preco_nove_ate_quinze
             };
 
             try {
@@ -97,14 +122,23 @@ function Termos() {
                 nome,
                 email,
                 senha,
+                telefone,
+                cpf,
                 tipo_usuario,
+
                 endereco,
                 bairro,
                 numero,
                 complemento,
                 cep,
+
+                banco,
+                tipo_conta,
+                titular_conta,
+                pessoa_fisica,
+                pessoa_juridica,
                 agencia,
-                conta
+                conta,
             };
 
             try {

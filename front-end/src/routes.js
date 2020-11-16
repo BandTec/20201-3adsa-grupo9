@@ -21,18 +21,18 @@ export default function Routes(){
     return(
         <BrowserRouter>
             <Switch>
-                <Route path="/" exact component={Home}/>
-                <Route path="/login" component={Login}/>
-                <Route path="/confirmar-perfil" component={ConfirmarPerfil}/>
-                <Route path="/cadastro" component={Cadastro}/>
-                <Route path="/cadastro-perfil-contratante" component={CadastroPerfilContratante}/>
-                <Route path="/cadastro-info-pessoal-contratante" component={CadastroInfoPessoalContratante}/>
-                <Route path="/cadastro-info-bancaria-contratante" component={CadastroInfoBancariaContratante}/>
-                <Route path="/cadastro-info-bancaria-prestador" component={CadastroBancarioPrestador}/>
-                <Route path="/cadastro-endereco-prestador" component={CadastroEnderecoPrestador}/>
-                <Route path="/termos" component={Termos}/>
-                <Route path="/perfil-prestador" component={InfoPerfilPrestador}/>
-                <Route path="/info-perfil-contratante" component={InfoPerfilContratante}/>
+                <Route path="/" exact component={Home} />
+                <Route path="/login" component={Login} />
+                <Route path="/confirmar-perfil" component={ConfirmarPerfil} />
+                <Route path="/cadastro" component={Cadastro} />
+                <Route path="/cadastro-perfil-contratante" component={CadastroPerfilContratante} />
+                <Route path="/cadastro-info-pessoal-contratante" component={CadastroInfoPessoalContratante} />
+                <Route path="/cadastro-info-bancaria-contratante" component={CadastroInfoBancariaContratante} />
+                <Route path="/cadastro-info-bancaria-prestador" component={CadastroBancarioPrestador} />
+                <Route path="/cadastro-endereco-prestador" component={CadastroEnderecoPrestador} />
+                <Route path="/termos" component={Termos} />
+                <Route path="/perfil-prestador" component={InfoPerfilPrestador} />
+                <Route path="/info-perfil-contratante" component={InfoPerfilContratante} />
                 <Route path="/info-contratacao" component={InfoContratacao} />
                 <Route path="/contrato-servico" component={ContratoServico} />
                 <Route path="/cadastro-perfil" component={CadastroPerfilPrestador} />
