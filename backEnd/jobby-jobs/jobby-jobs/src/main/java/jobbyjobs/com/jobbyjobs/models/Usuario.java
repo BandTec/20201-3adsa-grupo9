@@ -26,6 +26,10 @@ public class Usuario {
     @NotNull
     private String CPF;
 
+    @Column(name = "usuario_telefone", length = 11)
+    @NotNull
+    private String telefone;
+
     @Column(name = "tipo_usuario")
     private Integer tipoUsuario;
 
@@ -93,6 +97,14 @@ public class Usuario {
         this.usuarioConta = usuarioConta;
     }
 
+
+    public String getTelefone() {
+        return telefone;
+    }
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
     @Override
     public String toString() {
         return "\n Usuario: " +
@@ -101,6 +113,7 @@ public class Usuario {
                 "\n Email: " + email +
                 "\n Senha: " + senha +
                 "\n CPF: " + CPF +
+                "\n Telefone: " + telefone +
                 "\n Tipo usuario: " + tipoUsuario +
                 "\n Endereco: " + endereco +
                 "\n Usuario conta: " + usuarioConta;

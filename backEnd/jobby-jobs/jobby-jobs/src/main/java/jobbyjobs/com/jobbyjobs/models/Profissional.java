@@ -21,6 +21,30 @@ public class Profissional {
     @Column(name = "valor_fixo", nullable = false)
     private double valorFixo;
 
+    @Column(name = "qtd_dias_trabalha", nullable = false)
+    private int qtdDiasTrabalha;
+
+    @Column(name = "segunda", nullable = false)
+    private String segunda;
+
+    @Column(name = "terca", nullable = false)
+    private String terca;
+
+    @Column(name = "quarta", nullable = false)
+    private String quarta;
+
+    @Column(name = "quinta", nullable = false)
+    private String quinta;
+
+    @Column(name = "sexta", nullable = false)
+    private String sexta;
+
+    @Column(name = "sabado", nullable = false)
+    private String sabado;
+
+    @Column(name = "domingo", nullable = false)
+    private String domingo;
+
     @ManyToOne
     private Baba baba;
 
@@ -62,6 +86,62 @@ public class Profissional {
         this.valorFixo = valorFixo;
     }
 
+    public int getQtdDiasTrabalha() {
+        return qtdDiasTrabalha;
+    }
+    public void setQtdDiasTrabalha(int qtdDiasTrabalha) {
+        this.qtdDiasTrabalha = qtdDiasTrabalha;
+    }
+
+    public String getSegunda() {
+        return segunda;
+    }
+    public void setSegunda(String segunda) {
+        this.segunda = segunda;
+    }
+
+    public String getTerca() {
+        return terca;
+    }
+    public void setTerca(String terca) {
+        this.terca = terca;
+    }
+
+    public String getQuarta() {
+        return quarta;
+    }
+    public void setQuarta(String quarta) {
+        this.quarta = quarta;
+    }
+
+    public String getQuinta() {
+        return quinta;
+    }
+    public void setQuinta(String quinta) {
+        this.quinta = quinta;
+    }
+
+    public String getSexta() {
+        return sexta;
+    }
+    public void setSexta(String sexta) {
+        this.sexta = sexta;
+    }
+
+    public String getSabado() {
+        return sabado;
+    }
+    public void setSabado(String sabado) {
+        this.sabado = sabado;
+    }
+
+    public String getDomingo() {
+        return domingo;
+    }
+    public void setDomingo(String domingo) {
+        this.domingo = domingo;
+    }
+
     public Baba getBaba() {
         return baba;
     }
@@ -78,12 +158,20 @@ public class Profissional {
 
     @Override
     public String toString() {
-        return "\n Profissional: " +
-                "\n Id: " + id +
-                "\n Profissao: " + profissao +
+        return "Profissional: " +
+                "\n  Id:" + id +
+                "\n Profissao: '" + profissao +
                 "\n CobrarPorHora: " + cobrarPorHora +
                 "\n ValorHora: " + valorHora +
                 "\n ValorFixo: " + valorFixo +
+                "\n QtdDiasTrabalha: " + qtdDiasTrabalha +
+                "\n Segunda: " + segunda +
+                "\n Terca: " + terca +
+                "\n Quarta: " + quarta +
+                "\n Quinta: " + quinta +
+                "\n Sexta: " + sexta +
+                "\n Sabado: " + sabado +
+                "\n Domingo: " + domingo +
                 "\n Baba: " + baba +
                 "\n Usuario: " + usuario;
     }

@@ -1,8 +1,8 @@
 package jobbyjobs.com.jobbyjobs;
 
-public  interface calcularSalario {
-    public Double calcularSalarioTrabalhador(int id, int qtdHoras, Double valorMetro, Double qtdMetro);
+import org.springframework.http.ResponseEntity;
 
-    public Double calcularSalarioBaba(int id, int idadeMedia, int qtdCriancas, int qtdHoras);
+public  interface calcularSalario {
+    public ResponseEntity calcularSalarioBaba(int id, int idadeMedia, int qtdCriancas, int qtdHoras);
 
 }
