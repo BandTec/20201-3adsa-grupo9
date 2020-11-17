@@ -15,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.http.HttpStatus;
+
 
 import javax.validation.Valid;
 
@@ -34,6 +36,9 @@ public class TrabalhadorController implements calcularSalario {
 
     @Autowired
     private NotificacaoRepository notificacaoRepository;
+
+    @Autowired
+    private ViaCepService service;
 
 
 
@@ -157,6 +162,12 @@ public class TrabalhadorController implements calcularSalario {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/cep/{cep}")
+    public ResponseEntity getCep(@PathVariable  String cep) {
+        RespostaCep respostaCep = service.getCep(cep);
+        return ResponseEntity.ok(respostaCep);
     }
 
 }

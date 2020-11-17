@@ -66,11 +66,12 @@ function CadastroEnderecoPrestador() {
                 <form onSubmit={handleCadastroTresPrestador}>
                     <label className='titulo' >Informe seu CEP: </label>
                     <input type="text" id="cep" name="cep" placeholder="Digite seu CEP"
-                        onBlur={e => {
-                            var uri = `/ws/${document.getElementById("cep").value}/json`;
-                            const response = api.get(uri);
-                            document.getElementById("endereco").value = response.endereco;
-                            document.getElementById("bairro").value = response.bairro;
+                        onBlur={ async e => {
+                            var uri = `/trabalhadores/cep/${document.getElementById("cep").value}`;
+                            const response = await api.get(uri);
+                            document.getElementById("endereco").value = response.data.logradouro;
+                            document.getElementById("bairro").value = response.data.bairro;
+                            document.getElementById("complemento").value = response.data.complemento;
                         }} />
 
                     <label className='titulo' >Endereço: </label>
