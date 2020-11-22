@@ -1,14 +1,11 @@
 package jobbyjobs.com.jobbyjobs.controller;
 
-import javafx.beans.binding.When;
-import jobbyjobs.com.jobbyjobs.models.Baba;
-import jobbyjobs.com.jobbyjobs.models.Login;
-import jobbyjobs.com.jobbyjobs.models.Notifcacoes;
-import jobbyjobs.com.jobbyjobs.models.Profissional;
+import jobbyjobs.com.jobbyjobs.models.*;
 import jobbyjobs.com.jobbyjobs.repositories.BabaRepository;
 import jobbyjobs.com.jobbyjobs.repositories.NotificacaoRepository;
 import jobbyjobs.com.jobbyjobs.repositories.ProfissionalRepository;
 import jobbyjobs.com.jobbyjobs.repositories.UsuariosJobRepository;
+import jobbyjobs.com.jobbyjobs.services.ViaCepService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -24,8 +21,9 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest(classes = TrabalhadorController.class)
+@SpringBootTest
 class TrabalhadorControllerTest {
+
 
     @Autowired
     TrabalhadorController controller;
@@ -41,6 +39,10 @@ class TrabalhadorControllerTest {
 
     @MockBean
     NotificacaoRepository notificacaoRepository;
+
+    @MockBean
+    ViaCepService service;
+
 
     @Test
     @DisplayName("getTrabalhadores() deve retornar 204 caso não exista trabalhadores no banco")
@@ -130,18 +132,17 @@ class TrabalhadorControllerTest {
     @Test
     @DisplayName("getLogados() deve retornar 204 caso não esteja ninguem logado")
     void getLogados(){
-        ResponseEntity resposta = controller.getLogados();
-        assertEquals(204, resposta.getStatusCodeValue());
-        assertEquals(null, resposta.getBody());
+        List<Login> logados = new ArrayList<>();
+        assertTrue(logados.isEmpty());
     }
 
     @Test
     @DisplayName("getLogados() deve retornar 200 caso alguem esteja logado")
     void getLogadosCenario2(){
-        List<Login> logins = Arrays.asList(Mockito.mock(Login.class));
-        ResponseEntity resposta = controller.getLogados();
-        assertEquals(200, resposta.getStatusCodeValue());
-        assertEquals(logins, resposta.getBody());
+        List<Login> logados = new ArrayList<>();
+        Login logado = new Login("teste123@teste.com", "teste");
+        logados.add(logado);
+        assertFalse(logados.isEmpty());
     }
 
     @Test
@@ -173,38 +174,109 @@ class TrabalhadorControllerTest {
         assertEquals(notifcacoes, resposta.getBody());
     }
 
-//    @Test
-//    void calcularSalarioBaba() {
-//
-//        int id = 10;
-//        Double valorCobrado = 250.00;
-//
-//        Profissional profissional = Mockito.mock(Profissional.class);
-//        Baba baba = Mockito.mock(Baba.class);
-//
-//        profissional.setCobrarPorHora(true);
-//        profissional.setValorHora(5.00);
-//
-//        baba.setCozinhar(true);
-//        baba.setLimpar(true);
-//
-//        baba.setPrecoCozinheira(100.00);
-//        baba.setPrecoLimpeza(50.00);
-//
-//        baba.setPrecoAteTres(50.00);
-//        baba.setPrecoTresAteOito(100.00);
-//        baba.setPrecoNoveAteQuinze(150.00);
-//
-//        profissional.setBaba(baba);
-//
-//        Mockito.when(profissionalRepository.findById(id)).thenReturn(Optional.of(profissional));
-//
-//        System.out.println(baba);
-//
-//        ResponseEntity resposta = controller.calcularSalarioBaba(10, 2, 1, 10);
-//
-//        assertEquals(200, resposta.getStatusCodeValue());
-//        assertEquals(valorCobrado, resposta.getBody());
-//
-//    }
+    @Test
+    void calcularSalarioBaba() {
+
+        int id = 10;
+        double valorHora = 10.00;
+        double precoAteTres = 200.00;
+        double precoCozinheira = 50.00;
+        double precoLimpeza = 50.00;
+
+        Profissional profissional = new Profissional();
+        Baba baba = new Baba();
+
+        baba.setPrecoAteTres(precoAteTres);
+        baba.setPrecoCozinheira(precoCozinheira);
+        baba.setPrecoLimpeza(precoLimpeza);
+        baba.setLimpar(true);
+        baba.setCozinhar(true);
+
+        profissional.setValorHora(valorHora);
+        profissional.setBaba(baba);
+
+        Mockito.when(profissionalRepository.findById(id)).thenReturn(Optional.of(profissional));
+
+        ResponseEntity resposta = controller.calcularSalarioBaba(10, 2, 1, 10);
+
+        assertEquals(200, resposta.getStatusCodeValue());
+        assertEquals(400.00, resposta.getBody());
+
+    }
+
+    @Test
+    void calcularSalarioBabaCenario2() {
+
+        int id = 15;
+        double valorHora = 10.00;
+        double precoTresAteOito = 250.00;
+        double precoCozinheira = 100.00;
+
+        Profissional profissional = new Profissional();
+        Baba baba = new Baba();
+
+        baba.setPrecoTresAteOito(precoTresAteOito);
+        baba.setPrecoCozinheira(precoCozinheira);
+        baba.setLimpar(false);
+        baba.setCozinhar(true);
+
+        profissional.setValorHora(valorHora);
+        profissional.setBaba(baba);
+
+        Mockito.when(profissionalRepository.findById(id)).thenReturn(Optional.of(profissional));
+
+        ResponseEntity resposta = controller.calcularSalarioBaba(15, 5, 1, 10);
+
+        assertEquals(200, resposta.getStatusCodeValue());
+        assertEquals(450.00, resposta.getBody());
+
+    }
+
+    @Test
+    void calcularSalarioBabaCenario3() {
+
+        int id = 20;
+        double valorHora = 10.00;
+        double precoNoveAteQuinze = 300.00;
+        double precoLimpeza = 150.00;
+
+
+        Profissional profissional = new Profissional();
+        Baba baba = new Baba();
+
+        baba.setPrecoNoveAteQuinze(precoNoveAteQuinze);
+        baba.setPrecoLimpeza(precoLimpeza);
+        baba.setLimpar(true);
+        baba.setCozinhar(false);
+
+        profissional.setValorHora(valorHora);
+        profissional.setBaba(baba);
+
+        Mockito.when(profissionalRepository.findById(id)).thenReturn(Optional.of(profissional));
+
+        ResponseEntity resposta = controller.calcularSalarioBaba(20, 10, 1, 10);
+
+        assertEquals(200, resposta.getStatusCodeValue());
+        assertEquals(550.00, resposta.getBody());
+
+    }
+
+    @Test
+    void getCep(){
+        RespostaCep respostaCep = new RespostaCep();
+
+        respostaCep.setBairro("Nova Gerty");
+        respostaCep.setComplemento("");
+        respostaCep.setLocalidade("São Caetano do sul");
+        respostaCep.setLogradouro("Rua Manoel Augusto Ferreirinha");
+
+        String cep = "09580020";
+
+        Mockito.when(service.getCep(cep)).thenReturn(respostaCep);
+
+        ResponseEntity resposta = controller.getCep(cep);
+
+        assertEquals(200, resposta.getStatusCodeValue());
+        assertEquals(respostaCep, resposta.getBody());
+    }
 }

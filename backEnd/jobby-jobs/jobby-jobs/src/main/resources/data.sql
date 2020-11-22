@@ -4,15 +4,15 @@ insert into endereco
 (null, 'Manuel Augusto Ferreirinha', 'Nova Gety', 1200, null, '09580020');
 
 insert into usuario_conta
-(id_usuario_conta, agencia, numero_conta) values
-(null, 010, 909028),
-(null, 077, 101025);
+(id_usuario_conta, agencia, numero_conta, titular_conta, banco, tipo_conta, pessoa_fisica, pessoa_juridica) values
+(null, 010, 909028, 'Matheus Fernandes', 'Itau', 'Conta corrente', true, false),
+(null, 077, 101025, 'Bruna Garcia', 'Banco do Brasil', 'Conta corrente', false, true);
 
 insert into usuario
 (id_usuario, usuario_nome, usuario_email, usuario_senha,
- usuario_cpf, tipo_usuario, endereco_id_endereco, usuario_conta_id_usuario_conta) values
- (null, 'Matheus Fernandes Costa', 'fernandesmatheus369@gmail.com', 'palmeiras100', '51217820809',1, 1, 1),
- (null, 'Bruna Garcia Delfino', 'bruninhalinda@gmail.com', 'digisystems', '18999237307', 2, 2, 2);
+ usuario_cpf, usuario_telefone, tipo_usuario, endereco_id_endereco, usuario_conta_id_usuario_conta) values
+ (null, 'Matheus Fernandes Costa', 'fernandesmatheus369@gmail.com', 'palmeiras100', '51217820809', '11905007000',1, 1, 1),
+ (null, 'Bruna Garcia Delfino', 'bruninhalinda@gmail.com', 'digisystems', '18999237307', '11940029822', 2, 2, 2);
 
  insert into baba
  (id_baba, cozinhar, limpar, preco_se_cozinha, preco_se_limpa,
