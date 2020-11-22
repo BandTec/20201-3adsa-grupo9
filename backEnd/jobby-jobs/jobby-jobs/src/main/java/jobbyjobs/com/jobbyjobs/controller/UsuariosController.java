@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import jobbyjobs.com.jobbyjobs.services.ApiGoogle;
 import jobbyjobs.com.jobbyjobs.models.*;
 import jobbyjobs.com.jobbyjobs.repositories.BabaRepository;
 import jobbyjobs.com.jobbyjobs.repositories.NotificacaoRepository;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+
+import static org.springframework.http.ResponseEntity.*;
 
 @CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @RestController
@@ -36,26 +39,28 @@ public class UsuariosController {
     private ViaCepService service;
 
     @GetMapping
-    public ResponseEntity getUsuarios(@RequestParam(required = false) Integer id){
-        if(usuarioRepository.count() == 0){
-            return ResponseEntity.noContent().build();
-        } else if (id == null){
-            return ResponseEntity.ok(usuarioRepository.findAll());
-        } else {
-            return ResponseEntity.ok(usuarioRepository.findById(id));
-        }
+    public ResponseEntity getUsuarios(){
+        List<Usuario> usuarios = usuarioRepository.findAll();
+        return usuarios.isEmpty()
+                ? noContent().build()
+                : ok(usuarios);
+    }
+
+    @GetMapping("{/id}")
+    public ResponseEntity getUserById(@PathVariable Integer id){
+        return of(usuarioRepository.findById(id));
     }
 
     @PostMapping
     public ResponseEntity registrarUsuarios(@RequestBody @Valid Usuario novoUsuario) {
         usuarioRepository.save(novoUsuario);
-        return ResponseEntity.created(null).build();
+        return created(null).build();
     }
 
     @GetMapping("/cep/{cep}")
     public ResponseEntity getCep(@PathVariable  String cep) {
         RespostaCep respostaCep = service.getCep(cep);
-        return ResponseEntity.ok(respostaCep);
+        return ok(respostaCep);
     }
 
     @PostMapping("/login")
@@ -63,10 +68,10 @@ public class UsuariosController {
         for (Usuario u: usuarioRepository.findAll()){
             if (l.getEmail().equals(u.getEmail()) && l.getSenha().equals(u.getSenha())){
                 logados.add(l);
-                return ResponseEntity.ok("Login Aceito!");
+                return ok("Login Aceito!");
             }
         }
-        return ResponseEntity.status(404).body("E-mail ou senha incorretos.");
+        return status(404).body("E-mail ou senha incorretos.");
     }
 
     @GetMapping("/logoff")
@@ -76,15 +81,15 @@ public class UsuariosController {
             if(logado.getEmail().equals(email)){
                 System.out.println("entrou");
                 logados.remove(i);
-                return ResponseEntity.ok().build();
+                return ok().build();
             }
         }
-        return ResponseEntity.status(404).build();
+        return status(404).build();
     }
 
     @GetMapping("/logados")
     public ResponseEntity getLogados() {
-        return this.logados.isEmpty() ? ResponseEntity.status(204).build() : ResponseEntity.ok(this.logados);
+        return this.logados.isEmpty() ? status(204).build() : ok(this.logados);
     }
 
     @GetMapping("/pedir-orcamento/{id}")
@@ -98,12 +103,11 @@ public class UsuariosController {
             notifcacoes.setMsg(msg);
             notifcacoes.setBabaNotificada(b);
             notificacaoRepository.save(notifcacoes);
-            return ResponseEntity.ok().build();
+            return ok().build();
         } else {
-            return ResponseEntity.notFound().build();
+            return notFound().build();
         }
     }
-
 
 
 

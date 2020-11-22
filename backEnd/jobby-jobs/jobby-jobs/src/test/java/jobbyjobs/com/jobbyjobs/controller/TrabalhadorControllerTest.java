@@ -45,11 +45,9 @@ class TrabalhadorControllerTest {
 
 
     @Test
-    @DisplayName("getTrabalhadores() deve retornar 204 caso não exista trabalhadores no banco")
+    @DisplayName("Deve retornar 204 caso não exista trabalhadores no banco")
     void getTrabalhadores() {
         List<Profissional> profissionais = new ArrayList<>();
-        int id = 10;
-
         Mockito.when(profissionalRepository.findAll()).thenReturn(profissionais);
 
         ResponseEntity resposta = controller.getTrabalhadores();
@@ -59,7 +57,7 @@ class TrabalhadorControllerTest {
     }
 
     @Test
-    @DisplayName("getTrabalhadores() deve retornar 200 caso exista trabalhadores no banco")
+    @DisplayName("Deve retornar 200 caso exista trabalhadores no banco")
     void getTrabalhadoresCenario2() {
         List<Profissional> profissionais = Arrays.asList(Mockito.mock(Profissional.class));
 
@@ -72,7 +70,7 @@ class TrabalhadorControllerTest {
     }
 
     @Test
-    @DisplayName("getTrabalhadorById() deve retornar 200 caso exista um trabalhador especifico no banco")
+    @DisplayName("Deve retornar 200 caso exista um trabalhador especifico no banco")
     void getTrabalhadorById() {
         int id = 10;
         Profissional profissional = Mockito.mock(Profissional.class);
@@ -86,7 +84,7 @@ class TrabalhadorControllerTest {
     }
 
     @Test
-    @DisplayName("getTrabalhadorById() deve retornar 404 caso não exista um trabalhador especifico no banco")
+    @DisplayName("Deve retornar 404 caso não exista um trabalhador especifico no banco")
     void getTrabalhadorByIdCenario2() {
         int id = 10;
         Mockito.when(profissionalRepository.findById(id)).thenReturn(Optional.empty());
@@ -98,6 +96,7 @@ class TrabalhadorControllerTest {
     }
 
     @Test
+    @DisplayName("Deve retornar 201 após ter criado um registro de trabalhador")
     void registrarTrabalhador() {
 
         Profissional profissional = Mockito.mock(Profissional.class);
@@ -111,6 +110,7 @@ class TrabalhadorControllerTest {
     }
 
     @Test
+    @DisplayName("Deve retornar 201 após ter criado um registro de trabalhador (cenario 2)")
     void registrarTrabalhadorCenario2() {
 
         Profissional profissional = Mockito.mock(Profissional.class);
@@ -130,14 +130,68 @@ class TrabalhadorControllerTest {
     }
 
     @Test
-    @DisplayName("getLogados() deve retornar 204 caso não esteja ninguem logado")
+    @DisplayName("Deve retornar 200 e a informação de login aceito")
+    void fazerLogin() {
+        Usuario usuario = new Usuario();
+        usuario.setEmail("teste123@teste.com");
+        usuario.setSenha("senha");
+        List<Usuario> usuarios = new ArrayList<>();
+        usuarios.add(usuario);
+
+        Login login = new Login("teste123@teste.com", "senha");
+
+        Mockito.when(userRepository.findAll()).thenReturn(usuarios);
+        ResponseEntity resposta = controller.fazerLogin(login);
+
+        assertEquals(200, resposta.getStatusCodeValue());
+        assertEquals("Login Aceito!", resposta.getBody());
+    }
+
+    @Test
+    @DisplayName("Deve retornar 404 pois a senha estará incorreta")
+    void fazerLoginCenario2() {
+        Usuario usuario = new Usuario();
+        usuario.setEmail("teste123@teste.com");
+        usuario.setSenha("senha");
+        List<Usuario> usuarios = new ArrayList<>();
+        usuarios.add(usuario);
+
+        Login login = new Login("teste123@teste.com", "teste");
+
+        Mockito.when(userRepository.findAll()).thenReturn(usuarios);
+        ResponseEntity resposta = controller.fazerLogin(login);
+
+        assertEquals(404, resposta.getStatusCodeValue());
+        assertEquals("E-mail ou senha incorretos.", resposta.getBody());
+    }
+
+    @Test
+    @DisplayName("Deve retornar 404 pois o email estará incorreto")
+    void fazerLoginCenario3() {
+        Usuario usuario = new Usuario();
+        usuario.setEmail("teste123@teste.com");
+        usuario.setSenha("senha");
+        List<Usuario> usuarios = new ArrayList<>();
+        usuarios.add(usuario);
+
+        Login login = new Login("teste123@teste.com.br", "senha");
+
+        Mockito.when(userRepository.findAll()).thenReturn(usuarios);
+        ResponseEntity resposta = controller.fazerLogin(login);
+
+        assertEquals(404, resposta.getStatusCodeValue());
+        assertEquals("E-mail ou senha incorretos.", resposta.getBody());
+    }
+
+    @Test
+    @DisplayName("Deve retornar 204 caso não esteja ninguem logado")
     void getLogados(){
         List<Login> logados = new ArrayList<>();
         assertTrue(logados.isEmpty());
     }
 
     @Test
-    @DisplayName("getLogados() deve retornar 200 caso alguem esteja logado")
+    @DisplayName("Deve retornar 200 caso alguem esteja logado")
     void getLogadosCenario2(){
         List<Login> logados = new ArrayList<>();
         Login logado = new Login("teste123@teste.com", "teste");
@@ -146,7 +200,7 @@ class TrabalhadorControllerTest {
     }
 
     @Test
-    @DisplayName("getNotificacoes() deve retornar 404 caso não exista uma baba especifico no banco")
+    @DisplayName("Deve retornar 404 caso não exista uma baba especifico no banco")
     void getNotificacoes() {
 
         int id = 10;
@@ -159,7 +213,7 @@ class TrabalhadorControllerTest {
     }
 
     @Test
-    @DisplayName("getNotificacoes() deve retornar 200 caso exista uma baba especifico no banco")
+    @DisplayName("Deve retornar 200 caso exista uma baba especifico no banco")
     void getNotificacoesCenario2() {
         Baba baba = Mockito.mock(Baba.class);
         List<Notifcacoes> notifcacoes = Arrays.asList(Mockito.mock(Notifcacoes.class));
@@ -175,6 +229,7 @@ class TrabalhadorControllerTest {
     }
 
     @Test
+    @DisplayName("Deve retornar 200 e calcular o salario corretamente da baba que cozinha e limpa")
     void calcularSalarioBaba() {
 
         int id = 10;
@@ -205,6 +260,7 @@ class TrabalhadorControllerTest {
     }
 
     @Test
+    @DisplayName("Deve retornar 200 e calcular o salario corretamente da baba que só cozinha")
     void calcularSalarioBabaCenario2() {
 
         int id = 15;
@@ -233,6 +289,7 @@ class TrabalhadorControllerTest {
     }
 
     @Test
+    @DisplayName("Deve retornar 200 e calcular o salario corretamente da baba que só limpa")
     void calcularSalarioBabaCenario3() {
 
         int id = 20;
@@ -262,6 +319,7 @@ class TrabalhadorControllerTest {
     }
 
     @Test
+    @DisplayName("Deve retornar 200 e as informações do cep passado no parametro")
     void getCep(){
         RespostaCep respostaCep = new RespostaCep();
 

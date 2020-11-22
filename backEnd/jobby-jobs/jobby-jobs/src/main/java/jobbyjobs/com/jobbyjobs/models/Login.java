@@ -17,4 +17,19 @@ public class Login {
     public String getSenha() {
         return senha;
     }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    @Override
+    public String toString() {
+        return "\n Login: " +
+                "\n Email: " + email +
+                "\n Senha: " + senha;
+    }
 }
