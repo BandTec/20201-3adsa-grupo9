@@ -9,7 +9,7 @@ import ClariceImage from '../../assets/img/imagens/clarice.jfif';
 import PedroImage from '../../assets/img/imagens/Pedro.jfif';
 import starIcon from '../../assets/img/icons/star.png';
 import babaIcon from '../../assets/img/imagens/baba 1.png';
-import babaImage from '../../assets/img/imagens/images.jfif';
+import babaImage from '../../assets/img/imagens/babaS.jfif';
 import faxineiroImage from '../../assets/img/imagens/faxineiro.jpg';
 
 

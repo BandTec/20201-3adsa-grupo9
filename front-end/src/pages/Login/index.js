@@ -57,7 +57,7 @@ function Login(){
                             onChange={ e => setSenha(e.target.value)}/>
                     </div>
                     <div className="Centralizar">
-                        <button className="ButtonLinkSquare" type="submit">Entrar</button>
+                        <button style={{width:'80%', height:'45%'}} className="ButtonLinkSquare" type="submit">Entrar</button>
                     </div>
                 </form>
             </div>

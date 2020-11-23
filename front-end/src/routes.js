@@ -17,6 +17,8 @@ import CadastroPerfilPrestador from './pages/CadastroPerfilPrestador';
 import CadastroEnderecoPrestador from './pages/CadastroEnderecoPrestador';
 import CadastroBancarioPrestador from './pages/CadastroBancarioPrestador';
 import DashboardPrestador from './pages/DashboardPrestador';
+import DashboardContratante from './pages/DashboardContratante';
+import InfosPrestadorLogado from './pages/InfosPrestadorLogado';
 
 export default function Routes(){
     return(
@@ -38,6 +40,8 @@ export default function Routes(){
                 <Route path="/contrato-servico" component={ContratoServico} />
                 <Route path="/cadastro-perfil" component={CadastroPerfilPrestador} />
                 <Route path="/dashboard-prestador" component={DashboardPrestador} />
+                <Route path="/dashboard-contratante" component={DashboardContratante} />
+                <Route path="/info-prestador-logado" component={InfosPrestadorLogado} />
             </Switch>
         </BrowserRouter>
     );

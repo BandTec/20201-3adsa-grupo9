@@ -1,14 +1,10 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-
 import './banner-perfil.css';
-
 import LeftArrow from '../../assets/img/icons/left-arrow.png';
-
 import UserWithoutPic from '../../assets/img/imagens/user-without-pic.png';
 
 function BannerPerfilLateral(){
-
     const history = useHistory();
 
     function voltar(){
