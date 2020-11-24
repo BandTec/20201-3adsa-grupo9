@@ -1,0 +1,16 @@
+.BoletoBancarioContainer{
+    font-family: 'Aldrich',sans-serif;
+    margin: 2%;
+    margin-left: 50px;
+}
+
+.BoletoBancarioContainer h2{
+    font-size: 20px;
+    font-weight: 400;
+    margin-left: 25px;
+    margin-bottom: 120px;
+}
+.BoletoBancarioContainer h4{
+    font-size: 30px;
+    margin-left: 320px;
+}

@@ -8,7 +8,7 @@
     background: var(--light-blue);
 
     z-index: 100;
-    position: absolute;
+    position: fixed;
     
     float: right;
 
@@ -18,7 +18,7 @@
 }
 
 .LogoDireita img{
-    width: 200px;
+    width: 300px;
 }
 
 .LogoEsquerda{
