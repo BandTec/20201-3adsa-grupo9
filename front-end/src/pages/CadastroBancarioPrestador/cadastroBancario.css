@@ -23,10 +23,8 @@
 .CadastroInfoBancariaPrestadorContainer input{
     border: 1px solid black;
     background-color: var(--grey);
-
     margin-bottom: 2%;
     margin-right: -22%;
-
     height: 40px;
     width: 50%;
 }
@@ -37,7 +35,7 @@
   margin-bottom: 2%;
   margin-right: -22%;
   height: 40px;
-  width: 20%;
+  width: 30%;
 }
 
 .Checkbox{
@@ -47,9 +45,8 @@
 .CadastroInfoBancariaPrestadorContainer .inputDigito{
   border: 1px solid black;
   background-color: var(--grey);
-  margin-left: 30%;
   height: 40px;
-  width: 20%;
+  width: 30%;
 }
 
 .esquerda{

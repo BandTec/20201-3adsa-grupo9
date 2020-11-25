@@ -166,11 +166,14 @@ function CadastroPerfilPrestador() {
             </div>
 
 
-            <div style={{ margin: '5%' }}></div>
 
-            <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--blue)", marginRight: "5%", color: "var(--white)", marginLeft: "15%" }} onClick={handleCadastroDoisPrestador}>Próximo passo</Link>
+            <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--blue)", marginRight: "7%", color: "var(--white)", marginLeft: "19%" }} onClick={handleCadastroDoisPrestador}>Próximo passo</Link>
             <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--pink)", color: "var(--white)" }} to='/cadastro'>Revisar dados anteriores</Link>
+
+            <div style={{ margin: '5%' }}></div>
         </div>
+
+        
     )
 }
 

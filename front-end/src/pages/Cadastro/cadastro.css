@@ -5,7 +5,7 @@ margin: 2%;
 .CadastroContainer h1{
     font-family: 'Aldrich',sans-serif;
     color: var(--black);
-    font-size: 25px;
+    font-size: 35px;
     text-align: center;
 }
 .CadastroContainer h2{
@@ -64,21 +64,8 @@ margin: 2%;
 	font-size:15px;
 }
 
-
 input[type=password], select {
-   width: 40%; 
-   padding: 12px 20px; 
-   margin: 8px 0; 
-   display: inline-block; 
-   border: 1px solid var(--black); 
-   box-sizing: border-box; 
-   display: block; 
-   margin-left: 30%; 
-}
-
-
-input [type=number], select {
-  width: 30%; 
+  width: 40%; 
   padding: 12px 20px; 
   margin: 8px 0; 
   display: inline-block; 
@@ -87,6 +74,18 @@ input [type=number], select {
   display: block; 
   margin-left: 30%; 
 }
+
+input [type=number], select {
+  width: 40%; 
+  padding: 12px 20px; 
+  margin: 8px 0; 
+  display: inline-block; 
+  border: 1px solid var(--black); 
+  box-sizing: border-box; 
+  display: block; 
+  margin-left: 30%; 
+}
+
 
 .steps {
   min-height: 90px;

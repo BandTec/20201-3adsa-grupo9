@@ -59,13 +59,13 @@ function CadastroEnderecoPrestador() {
             </div>
 
 
-            <h1 style={{ color: 'var(--black)', marginTop: '9%' }}>Cadastro de endereço</h1>
+            <h1 style={{ color: 'var(--black)', marginTop: '5%' }}>Cadastro de endereço</h1>
             <h2>Este é o passo 3</h2>
 
-            <div className='form'>
+            <div style={{marginLeft:'35%', marginTop:'3%'}} className='form'>
                 <form onSubmit={handleCadastroTresPrestador}>
-                    <label className='titulo' >Informe seu CEP: </label>
-                    <input type="text" id="cep" name="cep" placeholder="Digite seu CEP"
+                    <label style={{margin:'1%'}}>Informe seu CEP: </label>
+                    <input style={{margin:'1%', width:'50%'}} type="text" id="cep" name="cep" placeholder="Digite seu CEP"
                         onBlur={ async e => {
                             var uri = `/trabalhadores/cep/${document.getElementById("cep").value}`;
                             const response = await api.get(uri);
@@ -74,25 +74,28 @@ function CadastroEnderecoPrestador() {
                             document.getElementById("complemento").value = response.data.complemento;
                         }} />
 
-                    <label className='titulo' >Endereço: </label>
-                    <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço" />
+                    <label style={{margin:'1%'}}>Endereço: </label>
+                    <input style={{margin:'1%', width:'50%'}}  type="text" id="endereco" name="endereco" placeholder="Digite seu endereço" />
 
-                    <label className='titulo' >Bairro: </label>
-                    <input type="text" id="bairro" name="bairro" placeholder="Digite seu bairro" />
+                    <label style={{margin:'1%'}}>Bairro: </label>
+                    <input  style={{margin:'1%', width:'50%'}} type="text" id="bairro" name="bairro" placeholder="Digite seu bairro" />
 
-                    <label className='titulo' >Número: </label>
-                    <input type="text" id="numero" name="numero" placeholder="Digite o número da casa" />
+                    <label style={{margin:'1%'}}>Número: </label>
+                    <input  style={{margin:'1%', width:'50%'}} type="text" id="numero" name="numero" placeholder="Digite o número da casa" />
 
-                    <label className='titulo' >Complemento: </label>
-                    <input type="text" id="complemento" name="complemento" placeholder="Complemento" />
+                    <label style={{margin:'1%'}}>Complemento: </label>
+                    <input  style={{margin:'1%', width:'50%'}} type="text" id="complemento" name="complemento" placeholder="Complemento" />
 
-                    <button className="ButtonLinkSquareCadastro" style={{ background: "var(--blue)", marginRight: "5%", color: "var(--white)", marginLeft: "20%" }} type="submit" >Próximo passo</button>
+
+                    <button className="ButtonLinkSquareCadastro" style={{ background: "var(--blue)", color: "var(--white)",padding:'25px', marginTop:'7%', marginLeft:'-23.2%', textAlign: 'center'}} type="submit" >Próximo passo</button>
                 </form>
             </div>
+               
+            <div style={{marginTop: '-3.7%', marginLeft: "50%"}} >
+            <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--pink)", color: "var(--white)"}} to='/cadastro-perfil'>Revisar dados anteriores</Link>
+            </div> 
 
-            <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--pink)", color: "var(--white)" }} to='/cadastro-perfil'>Revisar dados anteriores</Link>
-
-
+        <div style={{padding:'3%'}} />
 
         </div>
     )

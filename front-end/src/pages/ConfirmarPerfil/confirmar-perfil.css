@@ -1,9 +1,5 @@
 .ConfirmContainer{
     top: 0%;
-
-    margin-top: var(--bodyMarginTop);
-    margin-left: 5%;
-
     max-width: 100%;
 }
 
@@ -13,9 +9,9 @@
 }
 
 .Titulo{
-    margin-top: 15%;
+    margin-top: 12%;
     margin-bottom: 5%;
-
+    margin-left: 12%;
     font-weight: 400;
     font-size: xx-large;
 }
@@ -36,7 +32,7 @@
     margin-top: 5%;
     font-style: normal;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 20px;
     text-align: center;
     outline: none;
     text-decoration: none;

@@ -20,7 +20,7 @@ function Login(){
     return(
         <div>
             <div className="ConfirmContainer">
-                <Link to="/"><img className="Return" src={LeftArrow} alt="Ícone de seta para a esquerda para voltar para a tela innicial"/></Link>
+                <Link to="/"><img style={{marginTop:'5%'}} className="Return" src={LeftArrow} alt="Ícone de seta para a esquerda para voltar para a tela innicial"/></Link>
                     <h3 className="Titulo">Que tipo de usuário você é?</h3>
                     <div className="Botoes">
                         <Link className="ButtonSquareConfirmarPerfil" style={{ background: "var(--pink)" }} onClick={setPerfilBaba} to="/cadastro">Babá</Link>

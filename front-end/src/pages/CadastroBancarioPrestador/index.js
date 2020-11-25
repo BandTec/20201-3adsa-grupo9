@@ -91,27 +91,27 @@ function CadastroBancarioPrestador() {
                     <div>
                         <h4>Banco:</h4>
                         <label>
-                            <input type="text" id="banco" name="banco" />
+                            <input  id="banco" name="banco" />
                         </label>
                     </div>
                     <div>
                         <h4>Tipo de conta:</h4>
                         <label>
-                            <input type="text" id="tipo-conta" name="tipo-conta" />
+                            <input  id="tipo-conta" name="tipo-conta" />
                         </label>
                     </div>
                     <div>
                         <h4>Titular da conta:</h4>
                         <label>
-                            <input type="text" id="titular-conta" name="titular-conta" />
+                            <input id="titular-conta" name="titular-conta" />
                         </label>
                     </div>
 
                     <div>
                         <h4>Tipo de documento:</h4>
                         <label>
-                            <input className="Checkbox" id="pessoa-fisica" type="checkbox" onClick={pessoaFisicaCheckbox} />Pessoa física <br />
-                            <input className="Checkbox" id="pessoa-juridica" type="checkbox" onClick={pessoaJuridicaCheckbox} />Pessoa jurídica <br />
+                            <input style={{width:'30px'}}  id="pessoa-fisica" type="checkbox" onClick={pessoaFisicaCheckbox} /><div style={{marginLeft:'3%', marginTop:'-4.4%'}}> Pessoa física </div> <br />
+                            <input style={{width:'30px'}}  id="pessoa-juridica" type="checkbox" onClick={pessoaJuridicaCheckbox} /> <div style={{marginLeft:'3%', marginTop:'-4%'}}>Pessoa jurídica</div><br />
                         </label>
                     </div>
 
@@ -120,7 +120,7 @@ function CadastroBancarioPrestador() {
                             <input className='inputAgencia' type="number" id="agencia" name="agencia" />
                         </label>
 
-                        <h4 className='esquerda'>Digito*:</h4>
+                        <h4>Digito*:</h4>
                         <label>
                             <input className='inputDigito' type="number" id="digito-agencia" name="digito" />
                         </label>
@@ -130,14 +130,14 @@ function CadastroBancarioPrestador() {
                             <input className='inputAgencia' type="number" id="conta" name="conta" />
                         </label>
 
-                        <h4 className='esquerda' >Digito*:</h4>
+                        <h4>Digito*:</h4>
                         <label>
                             <input className='inputDigito' type="number" id="digito-conta" name="digito" />
                         </label>
 
                     <div className="BotoesLoginForm">
-                        <button className="ButtonLinkSquareCadastro" style={{ background: "var(--blue)", color: "var(--white)", marginLeft: "15%", padding:'25px', marginTop:'10%'}} type="submit" >Confirmar dados</button>
-                        <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--pink)", color: "var(--white)" }} to="/cadastro-endereco-prestador">Revisar dados anteriores</Link>
+                        <button className="ButtonLinkSquareCadastro" style={{ background: "var(--blue)", color: "var(--white)", marginLeft: "15%", padding:'25px'}} type="submit" >Confirmar dados</button>
+                        <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--pink)", color: "var(--white)"}} to="/cadastro-endereco-prestador">Revisar dados anteriores</Link>
                     </div>
                 </form>
             </div>

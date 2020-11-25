@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import './termos.css';
-import Logo from '../../assets/img/logo/logo-removebg.png';
+import Logo from '../../assets/img/logo/logo-preto-removebg.png';
 import api from '../../services/api';
 
 function Termos() {

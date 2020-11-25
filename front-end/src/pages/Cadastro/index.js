@@ -3,12 +3,7 @@ import './cadastro.css';
 import GoogleIcon from '../../assets/img/icons/Gmail.png';
 import FaceIcon from '../../assets/img/icons/facebook.png';
 import { useHistory } from 'react-router-dom';
-// import InputMask from 'react-input-mask';
 
-
-// const InputTelefone = (props) => (
-//     <InputMask mask="(99)99999-9999" value={props.value} onChange={props.onChange} />
-//   );
 
 function Cadastro() {
 
@@ -77,7 +72,7 @@ function Cadastro() {
 
             <form style={{ marginTop: "8%" }} onSubmit={handleCadastroUmPrestador}>
                 <div className="input-container">
-                    <input type="text" required="" placeholder="Digite seu nome completo" 
+                    <input required="" placeholder="Digite seu nome completo" 
                     name="nome" 
                     value={nome} 
                     onChange={ e => setNome(e.target.value)}/>
@@ -85,7 +80,7 @@ function Cadastro() {
                 </div>
 
                 <div className="input-container">
-                    <input type="text" required="" placeholder="Digite seu e-mail" 
+                    <input  required="" placeholder="Digite seu e-mail" 
                     name="email" 
                     value={email} 
                     onChange={ e => setEmail(e.target.value)}/>
@@ -111,10 +106,7 @@ function Cadastro() {
                 <button className="ButtonLinkSquareCadastro" style={{ background: "var(--pink)", color: "var(--white)", marginLeft: '35%', padding:'25px'}} type="submit">Próximo passo</button>
             </form>
 
-
-            <button src={GoogleIcon} alt="Icone do google" className='buttonGoogle'></button>
-            <button src={FaceIcon} alt="Icone do fabebook" className='buttonFace'></button>
-
+            <div style={{padding:'3%'}} />
 
         </div>
     )
