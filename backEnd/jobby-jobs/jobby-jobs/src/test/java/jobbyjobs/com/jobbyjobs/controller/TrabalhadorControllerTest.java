@@ -6,6 +6,8 @@ import jobbyjobs.com.jobbyjobs.repositories.NotificacaoRepository;
 import jobbyjobs.com.jobbyjobs.repositories.ProfissionalRepository;
 import jobbyjobs.com.jobbyjobs.repositories.UsuariosJobRepository;
 import jobbyjobs.com.jobbyjobs.services.ViaCepService;
+import jobbyjobs.com.jobbyjobs.utilities.CalculoOrcamento;
+import jobbyjobs.com.jobbyjobs.utilities.Login;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -251,8 +253,13 @@ class TrabalhadorControllerTest {
         profissional.setBaba(baba);
 
         Mockito.when(profissionalRepository.findById(id)).thenReturn(Optional.of(profissional));
+        CalculoOrcamento calculoOrcamento = new CalculoOrcamento();
+        calculoOrcamento.setQtdCriancasZeroAteTres(1);
+        calculoOrcamento.setQtdCriancasTresAteOito(0);
+        calculoOrcamento.setQtdCriancasNoveAteQuinze(0);
+        calculoOrcamento.setQtdHoras(10);
 
-        ResponseEntity resposta = controller.calcularSalarioBaba(10, 2, 1, 10);
+        ResponseEntity resposta = controller.calcularSalarioBaba(10, calculoOrcamento);
 
         assertEquals(200, resposta.getStatusCodeValue());
         assertEquals(400.00, resposta.getBody());
@@ -280,8 +287,13 @@ class TrabalhadorControllerTest {
         profissional.setBaba(baba);
 
         Mockito.when(profissionalRepository.findById(id)).thenReturn(Optional.of(profissional));
+        CalculoOrcamento calculoOrcamento = new CalculoOrcamento();
+        calculoOrcamento.setQtdCriancasZeroAteTres(0);
+        calculoOrcamento.setQtdCriancasTresAteOito(1);
+        calculoOrcamento.setQtdCriancasNoveAteQuinze(0);
+        calculoOrcamento.setQtdHoras(10);
 
-        ResponseEntity resposta = controller.calcularSalarioBaba(15, 5, 1, 10);
+        ResponseEntity resposta = controller.calcularSalarioBaba(15, calculoOrcamento);
 
         assertEquals(200, resposta.getStatusCodeValue());
         assertEquals(450.00, resposta.getBody());
@@ -310,8 +322,13 @@ class TrabalhadorControllerTest {
         profissional.setBaba(baba);
 
         Mockito.when(profissionalRepository.findById(id)).thenReturn(Optional.of(profissional));
+        CalculoOrcamento calculoOrcamento = new CalculoOrcamento();
+        calculoOrcamento.setQtdCriancasZeroAteTres(0);
+        calculoOrcamento.setQtdCriancasTresAteOito(0);
+        calculoOrcamento.setQtdCriancasNoveAteQuinze(1);
+        calculoOrcamento.setQtdHoras(10);
 
-        ResponseEntity resposta = controller.calcularSalarioBaba(20, 10, 1, 10);
+        ResponseEntity resposta = controller.calcularSalarioBaba(20, calculoOrcamento);
 
         assertEquals(200, resposta.getStatusCodeValue());
         assertEquals(550.00, resposta.getBody());

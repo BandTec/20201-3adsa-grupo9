@@ -1,4 +1,4 @@
-package jobbyjobs.com.jobbyjobs.models;
+package jobbyjobs.com.jobbyjobs.utilities;
 
 public class Login {
 

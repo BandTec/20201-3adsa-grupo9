@@ -11,6 +11,8 @@ import jobbyjobs.com.jobbyjobs.repositories.NotificacaoRepository;
 import jobbyjobs.com.jobbyjobs.repositories.ProfissionalRepository;
 import jobbyjobs.com.jobbyjobs.repositories.UsuariosJobRepository;
 import jobbyjobs.com.jobbyjobs.services.ViaCepService;
+import jobbyjobs.com.jobbyjobs.utilities.CalculoOrcamento;
+import jobbyjobs.com.jobbyjobs.utilities.Login;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -97,37 +99,37 @@ public class TrabalhadorController implements calcularSalario {
     }
 
 
-    @GetMapping("salario-baba")
+    @PostMapping("calcular-orcamento")
     @Override
     public ResponseEntity calcularSalarioBaba(
-        @RequestParam(required = true) int id,
-        @RequestParam(required = true) int idadeMedia,
-        @RequestParam(required = false) int qtdCriancas,
-        @RequestParam(required = true) int qtdHoras){
-        Optional<Profissional> t = profissionalRepository.findById(id);
+            @RequestParam(required = true) int id,
+            @RequestBody CalculoOrcamento calculoOrcamento){
+        Optional<Profissional> p = profissionalRepository.findById(id);
 
         Double valorCobrado = 0.0;
-        if(idadeMedia >= 0 && idadeMedia <= 3){
-            valorCobrado += (t.get().getValorHora() * qtdHoras) + t.get().getBaba().getPrecoAteTres();
+        valorCobrado += p.get().getValorHora() * calculoOrcamento.getQtdHoras();
+
+        if(calculoOrcamento.getQtdCriancasZeroAteTres() != 0){
+            valorCobrado += (p.get().getBaba().getPrecoAteTres() * calculoOrcamento.getQtdCriancasZeroAteTres());
         }
-        else if(idadeMedia >= 4 && idadeMedia <= 8){
-            valorCobrado += (t.get().getValorHora() * qtdHoras) + t.get().getBaba().getPrecoTresAteOito();
+        if(calculoOrcamento.getQtdCriancasTresAteOito() != 0){
+            valorCobrado += (p.get().getBaba().getPrecoTresAteOito() * calculoOrcamento.getQtdCriancasTresAteOito());
         }
-        else if(idadeMedia >= 9 && idadeMedia <= 15){
-            valorCobrado += (t.get().getValorHora() * qtdHoras) +  t.get().getBaba().getPrecoNoveAteQuinze();
+        if(calculoOrcamento.getQtdCriancasNoveAteQuinze() != 0){
+            valorCobrado += (p.get().getBaba().getPrecoNoveAteQuinze() * calculoOrcamento.getQtdCriancasNoveAteQuinze());
         }
 
-        if ( t.get().getBaba().getCozinhar() &&  t.get().getBaba().getLimpar()){
-            valorCobrado += t.get().getBaba().getPrecoCozinheira() + t.get().getBaba().getPrecoLimpeza();
+        if ( p.get().getBaba().getCozinhar() &&  p.get().getBaba().getLimpar()){
+            valorCobrado += p.get().getBaba().getPrecoCozinheira() + p.get().getBaba().getPrecoLimpeza();
         }
-        else if (t.get().getBaba().getCozinhar()){
-            valorCobrado += t.get().getBaba().getPrecoCozinheira();
+        else if (p.get().getBaba().getCozinhar()){
+            valorCobrado += p.get().getBaba().getPrecoCozinheira();
         }
-        else if (t.get().getBaba().getLimpar()){
-            valorCobrado +=  t.get().getBaba().getPrecoLimpeza();
+        else if (p.get().getBaba().getLimpar()){
+            valorCobrado +=  p.get().getBaba().getPrecoLimpeza();
         }
 
-        return ok(valorCobrado * qtdCriancas);
+        return ok(valorCobrado);
 
     }
 

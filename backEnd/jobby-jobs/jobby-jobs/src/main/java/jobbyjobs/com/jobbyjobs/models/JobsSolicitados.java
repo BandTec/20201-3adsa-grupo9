@@ -13,17 +13,14 @@ public class JobsSolicitados {
     @Column(name = "qtd_horas_trabalho", nullable = false)
     private Integer qtdHorasTrabalho;
 
-    @Column(name = "valor_da_hora", nullable = true, precision = 2)
-    private Double valorHora;
-
-    @Column(name = "valor_fixo", nullable = true, precision = 2)
-    private Double valorFixo;
-
     @Column(name = "valor_total", nullable = false, precision = 2)
     private Double valorTotal;
 
     @ManyToOne
-    private Usuario usuario;
+    private Usuario usuarioSolicitante;
+
+    @ManyToOne
+    private Baba babaSolicitada;
 
     public Integer getIdJob() {
         return idJob;
@@ -39,20 +36,6 @@ public class JobsSolicitados {
         this.qtdHorasTrabalho = qtdHorasTrabalho;
     }
 
-    public Double getValorHora() {
-        return valorHora;
-    }
-    public void setValorHora(Double valorHora) {
-        this.valorHora = valorHora;
-    }
-
-    public Double getValorFixo() {
-        return valorFixo;
-    }
-    public void setValorFixo(Double valorFixo) {
-        this.valorFixo = valorFixo;
-    }
-
     public Double getValorTotal() {
         return valorTotal;
     }
@@ -60,11 +43,18 @@ public class JobsSolicitados {
         this.valorTotal = valorTotal;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Usuario getUsuarioSolicitante() {
+        return usuarioSolicitante;
     }
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuarioSolicitante(Usuario usuario) {
+        this.usuarioSolicitante = usuario;
+    }
+
+    public Baba getBabaSolicitada() {
+        return babaSolicitada;
+    }
+    public void setBabaSolicitada(Baba baba) {
+        this.babaSolicitada = baba;
     }
 
     @Override
@@ -72,9 +62,8 @@ public class JobsSolicitados {
         return "\n JobsSolicitados: " +
                 "\n IdJob: " + idJob +
                 "\n QtdHorasTrabalho: " + qtdHorasTrabalho +
-                "\n ValorHora: " + valorHora +
-                "\n ValorFixo " + valorFixo +
                 "\n ValorTotal: " + valorTotal +
-                "\n Usuario: " + usuario;
+                "\n Usuario: " + usuarioSolicitante +
+                "\n Baba: " + babaSolicitada;
     }
 }

@@ -4,18 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import jobbyjobs.com.jobbyjobs.services.ApiGoogle;
 import jobbyjobs.com.jobbyjobs.models.*;
-import jobbyjobs.com.jobbyjobs.repositories.BabaRepository;
-import jobbyjobs.com.jobbyjobs.repositories.NotificacaoRepository;
-import jobbyjobs.com.jobbyjobs.repositories.UsuariosJobRepository;
+import jobbyjobs.com.jobbyjobs.objects.FilaObj;
+import jobbyjobs.com.jobbyjobs.objects.PilhaObj;
+import jobbyjobs.com.jobbyjobs.repositories.*;
 import jobbyjobs.com.jobbyjobs.services.ViaCepService;
+import jobbyjobs.com.jobbyjobs.utilities.AvaliarBaba;
+import jobbyjobs.com.jobbyjobs.utilities.FazerPedido;
+import jobbyjobs.com.jobbyjobs.utilities.Login;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.*;
 
+
 import javax.validation.Valid;
+import javax.xml.ws.Response;
 
 import static org.springframework.http.ResponseEntity.*;
 
@@ -24,7 +28,7 @@ import static org.springframework.http.ResponseEntity.*;
 @RequestMapping("/usuarios")
 public class UsuariosController {
 
-   List<Login> logados = new ArrayList<>();
+    List<Login> logados = new ArrayList<>();
 
     @Autowired
     private UsuariosJobRepository usuarioRepository;
@@ -36,10 +40,16 @@ public class UsuariosController {
     private BabaRepository babaRepository;
 
     @Autowired
+    private AvaliacoesRepository avaliacoesRepository;
+
+    @Autowired
+    private JobsSolicitadosRepository jobsSolicitadosRepository;
+
+    @Autowired
     private ViaCepService service;
 
     @GetMapping
-    public ResponseEntity getUsuarios(){
+    public ResponseEntity getUsuarios() {
         List<Usuario> usuarios = usuarioRepository.findAll();
         return usuarios.isEmpty()
                 ? noContent().build()
@@ -47,7 +57,7 @@ public class UsuariosController {
     }
 
     @GetMapping("{/id}")
-    public ResponseEntity getUserById(@PathVariable Integer id){
+    public ResponseEntity getUserById(@PathVariable Integer id) {
         return of(usuarioRepository.findById(id));
     }
 
@@ -58,15 +68,15 @@ public class UsuariosController {
     }
 
     @GetMapping("/cep/{cep}")
-    public ResponseEntity getCep(@PathVariable  String cep) {
+    public ResponseEntity getCep(@PathVariable String cep) {
         RespostaCep respostaCep = service.getCep(cep);
         return ok(respostaCep);
     }
 
     @PostMapping("/login")
     public ResponseEntity fazerLogin(@RequestBody Login l) {
-        for (Usuario u: usuarioRepository.findAll()){
-            if (l.getEmail().equals(u.getEmail()) && l.getSenha().equals(u.getSenha())){
+        for (Usuario u : usuarioRepository.findAll()) {
+            if (l.getEmail().equals(u.getEmail()) && l.getSenha().equals(u.getSenha())) {
                 logados.add(l);
                 return ok("Login Aceito!");
             }
@@ -76,9 +86,9 @@ public class UsuariosController {
 
     @GetMapping("/logoff")
     public ResponseEntity fazerLogoff(@RequestParam(required = true) String email) {
-        for (int i = 0; i < logados.size(); i++){
+        for (int i = 0; i < logados.size(); i++) {
             Login logado = logados.get(i);
-            if(logado.getEmail().equals(email)){
+            if (logado.getEmail().equals(email)) {
                 System.out.println("entrou");
                 logados.remove(i);
                 return ok().build();
@@ -98,7 +108,7 @@ public class UsuariosController {
         Notifcacoes notifcacoes = new Notifcacoes();
         Optional<Baba> babaExistente = babaRepository.findById(id);
 
-        if (babaExistente.isPresent()){
+        if (babaExistente.isPresent()) {
             Baba b = babaExistente.get();
             notifcacoes.setMsg(msg);
             notifcacoes.setBabaNotificada(b);
@@ -108,6 +118,63 @@ public class UsuariosController {
             return notFound().build();
         }
     }
+
+    @PostMapping("/avaliar")
+    public ResponseEntity avaliarBaba(
+            @RequestBody AvaliarBaba obj,
+            @RequestParam(required = true) String email,
+            @RequestParam(required = true) Integer idBaba
+    ){
+        Avaliacoes avaliacao = new Avaliacoes();
+        avaliacao.setMsg_avaliativa(obj.getMsg());
+        avaliacao.setNota(obj.getNota());
+
+        Optional<Baba> babaEncontrada = babaRepository.findById(idBaba);
+        Optional<Usuario> usuarioEncontrado = usuarioRepository.findByEmail(email);
+
+        if(usuarioEncontrado.isPresent()){
+            Usuario user = usuarioEncontrado.get();
+            if(babaEncontrada.isPresent()){
+                Baba b = babaEncontrada.get();
+                avaliacao.setBabaAvaliada(b);
+                avaliacao.setUsuarioAvaliador(user);
+                avaliacoesRepository.save(avaliacao);
+                return created(null).build();
+            }
+        }
+
+        return notFound().build();
+    }
+
+    @PostMapping("/fazer-pedido")
+    public ResponseEntity fazerPedidoBaba(
+            @RequestParam(required = true) Integer idBaba,
+            @RequestBody FazerPedido pedir
+            ){
+        Optional<Baba> babaExistente = babaRepository.findById(idBaba);
+        Optional<Usuario> usuarioSolicitante = usuarioRepository.findById(pedir.getIdUsuario());
+
+        if(babaExistente.isPresent()){
+            Baba baba = babaExistente.get();
+            Usuario user = usuarioSolicitante.get();
+
+            JobsSolicitados jobsSolicitado = new JobsSolicitados();
+            jobsSolicitado.setValorTotal(pedir.getValorTotal());
+            jobsSolicitado.setQtdHorasTrabalho(pedir.getQtdHorasTrabalho());
+            jobsSolicitado.setBabaSolicitada(baba);
+            jobsSolicitado.setUsuarioSolicitante(user);
+
+            jobsSolicitadosRepository.save(jobsSolicitado);
+            return ok("Pedido realizado com sucesso!");
+        }
+        return notFound().build();
+    }
+
+//    @GetMapping("/api-mapa")
+//    public ResponseEntity api() {
+//       return ok(ApiGoogle.calcular("Rua Augusta, 500, Sao Paulo - SP",
+//                "Avenida Liberdade, 800, Sao Paulo - SP"));
+//    }
 
 
 

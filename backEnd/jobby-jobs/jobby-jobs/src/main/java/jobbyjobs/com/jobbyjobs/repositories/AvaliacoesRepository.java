@@ -1,16 +1,14 @@
 package jobbyjobs.com.jobbyjobs.repositories;
 
 import jobbyjobs.com.jobbyjobs.models.Avaliacoes;
-import jobbyjobs.com.jobbyjobs.models.JobsSolicitados;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface JobsSolicitadosRepository extends JpaRepository<JobsSolicitados,Integer> {
+public interface AvaliacoesRepository extends JpaRepository<Avaliacoes, Integer> {
 
-    List<JobsSolicitados> findByBabaSolicitadaId(int id);
-
+    List<Avaliacoes> findByBabaAvaliadaId(int id);
 
 }

@@ -5,6 +5,7 @@ import jobbyjobs.com.jobbyjobs.repositories.BabaRepository;
 import jobbyjobs.com.jobbyjobs.repositories.NotificacaoRepository;
 import jobbyjobs.com.jobbyjobs.repositories.UsuariosJobRepository;
 import jobbyjobs.com.jobbyjobs.services.ViaCepService;
+import jobbyjobs.com.jobbyjobs.utilities.Login;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
