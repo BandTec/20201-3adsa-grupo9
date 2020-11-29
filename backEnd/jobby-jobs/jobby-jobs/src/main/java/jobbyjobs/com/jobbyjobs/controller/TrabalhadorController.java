@@ -6,10 +6,8 @@ import java.util.Optional;
 
 import jobbyjobs.com.jobbyjobs.calcularSalario;
 import jobbyjobs.com.jobbyjobs.models.*;
-import jobbyjobs.com.jobbyjobs.repositories.BabaRepository;
-import jobbyjobs.com.jobbyjobs.repositories.NotificacaoRepository;
-import jobbyjobs.com.jobbyjobs.repositories.ProfissionalRepository;
-import jobbyjobs.com.jobbyjobs.repositories.UsuariosJobRepository;
+import jobbyjobs.com.jobbyjobs.objects.FilaObj;
+import jobbyjobs.com.jobbyjobs.repositories.*;
 import jobbyjobs.com.jobbyjobs.services.ViaCepService;
 import jobbyjobs.com.jobbyjobs.utilities.CalculoOrcamento;
 import jobbyjobs.com.jobbyjobs.utilities.Login;
@@ -41,11 +39,40 @@ public class TrabalhadorController implements calcularSalario {
     private NotificacaoRepository notificacaoRepository;
 
     @Autowired
+    private JobsSolicitadosRepository solicitadosRepository;
+
+    @Autowired
     private ViaCepService service;
 
-
+    private FilaObj<JobsSolicitados> solicitacoes = new FilaObj(10);
 
     private List<Login> logados = new ArrayList<>();
+
+    @GetMapping("/solicitacoes/{id}")
+    public ResponseEntity getSolicitacoes(@PathVariable Integer id){
+       Thread threadGetSolicitacoes= new Thread(){
+           @Override
+           public void run(){
+               if (!solicitadosRepository.findByBabaSolicitadaId(id).isEmpty()){
+                   for(JobsSolicitados j: solicitadosRepository.findByBabaSolicitadaId(id)){
+                       solicitacoes.insert(j);
+                   }
+               }
+           }
+       };
+       threadGetSolicitacoes.run();
+
+       if (solicitacoes.isEmpty()){
+           return noContent().build();
+       } else{
+           List<JobsSolicitados> solicitadosExibe = new ArrayList<>();
+           while (!solicitacoes.isEmpty()){
+               solicitadosExibe.add(solicitacoes.poll());
+           }
+           return ok(solicitadosExibe);
+       }
+
+    }
 
     @GetMapping
     public ResponseEntity getTrabalhadores(){
