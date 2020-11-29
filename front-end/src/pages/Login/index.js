@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api';
 import './login.css';
-import UserIcon from '../../assets/img/imagens/A119.jpeg';
+import UserIcon from '../../assets/img/imagens/baba-login-removebg.png';
 
 
 function Login(){
@@ -41,7 +41,7 @@ function Login(){
         <div className="LoginPage">
             <div>
                 <form style={{margin:'20%'}} className="Formulario" onSubmit={handleLogin}>
-                    <div>
+                    <div style={{marginLeft:'-40%'}}>
                         <h4>Login</h4>
                             <input style={{width:'250px', marginLeft:'-20%'}} type="text" 
                             name="email" 
@@ -49,7 +49,7 @@ function Login(){
                             onChange={ e => setEmail(e.target.value)}/>
                     </div>
 
-                    <div>
+                    <div style={{marginLeft:'-40%'}}>
                         <h4>Senha</h4>
                             <input style={{width:'250px', marginLeft:'-20%'}} type="password" 
                             name="senha"
@@ -57,7 +57,7 @@ function Login(){
                             onChange={ e => setSenha(e.target.value)}/>
                     </div>
                     <div className="Centralizar">
-                        <button style={{width:'80%', height:'45%'}} className="ButtonLinkSquare" type="submit">Entrar</button>
+                        <button style={{width:'80%', height:'45%', marginLeft:'-60%'}} className="ButtonLinkSquare" type="submit">Entrar</button>
                     </div>
                 </form>
             </div>
@@ -65,14 +65,15 @@ function Login(){
     <div class="img">
       <div class="img__text m--up">
         <h2>Novo(a) aqui?</h2>
-        <p>Inscreva-se e descubra uma grande quantidade de novas oportunidades!</p>
-        <Link className="botaoImg" to="/escolher-perfil">Cadastre-se</Link>
+        <p style={{margin:'5%'}}>Inscreva-se e descubra uma grande quantidade de novas oportunidades!</p>
+        <Link className="botaoImg" to="/confirmar-perfil">Cadastre-se</Link>
+        <div className="sombra"><img className="loginImg" src={UserIcon} /></div>
       </div>
     </div>
   </div>
 
             <div  className="ForgotPass">
-                <Link to="">Esqueci minha senha</Link>
+                <Link style={{color:'var(--white)', marginLeft:'-30%'}} to="">Esqueci minha senha</Link>
             </div>
 
         </div>

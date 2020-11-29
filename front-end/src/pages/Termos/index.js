@@ -11,6 +11,8 @@ function Termos() {
 
     async function redirect() {
 
+
+
         // TODO - REVISAR IMEDIATAMENTE AS PAGINAS, O BACK END E DEIXA-LOS DE ACORDO COM O BANCO
         // Informacoes perfil usuario
         const tipo_usuario = localStorage.getItem("tipo-usuario");
@@ -175,7 +177,7 @@ function Termos() {
 
             <div style={{ margin: '10%' }}>
                 <Link className="botao_termo" onClick={redirect} >Li e concordo com os termos de uso</Link>
-                <Link className="botao" to="/">Voltar</Link>
+                <Link className="botao">Voltar</Link>
             </div>
 
         </div>

@@ -65,12 +65,6 @@ function InfosPrestadorLogado(){
 
 <Link to='/contrato-servico' className="ButtonLinkSquareCadastro" style={{ background: "var(--pink)", color: "var(--white)", marginLeft: '45%', padding:'15px', marginTop:'10%', fontSize: '12px'}}>INFORMAÇÕES DE CONTRATAÇÃO DO SERVIÇO</Link>
 
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-
-
 
         </div>
     )

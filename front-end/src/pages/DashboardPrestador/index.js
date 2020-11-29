@@ -63,7 +63,7 @@ return(
             
      </div>
 
-     <div className='clientes'>
+     <div style={{marginTop:'2%'}} className='clientes'>
          <img className='imgClarice' src={ClariceImage} />
 
          <p>Clarice 2,1km</p>
