@@ -7,7 +7,6 @@ import BoletoBancario from '../../assets/img/icons/barcode.png';
 import Elo from '../../assets/img/icons/elo.png';
 import Visa from '../../assets/img/icons/Visa.png';
 import Mastercard from '../../assets/img/icons/Mastercard.png';
-
 import BannerLogoLateral from '../../components/BannerLogoLateral';
 
 function FormaPagamento(){ 
@@ -30,7 +29,7 @@ function FormaPagamento(){
                 <label for="scales"><img style={{marginBottom:'-4%'}} src={Mastercard}/></label>
             </div>
             <div style={{ margin: '10%' }}></div>
-            <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--blue)", color: "var(--white)", marginLeft: '20%', padding:'15px', fontWeight:'400'}} type="submit">Próximo passo</Link>
+            <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--blue)", color: "var(--white)", marginLeft: '20%', padding:'15px', fontWeight:'400'}} to='' type="submit">Próximo passo</Link>
             <BannerLogoLateral className={"LogoDireita"}/>
         </div>
     );

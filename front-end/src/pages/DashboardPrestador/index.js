@@ -14,7 +14,6 @@ import faxineiroImage from '../../assets/img/imagens/faxineiro.jpg';
 
 
 function DashboardPrestador(){
-
 return(
     <div className="DashboardPrestadorContainer">
 

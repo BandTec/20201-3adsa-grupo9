@@ -22,6 +22,7 @@ import InfosPrestadorLogado from './pages/InfosPrestadorLogado';
 import FormaPagamento from './pages/FormaPagamento';
 import PagamentoCartao from './pages/PagamentoCartao';
 import BoletoBancario from './pages/BoletoBancario';
+import Avaliacao from './pages/Avaliacao';
 
 export default function Routes(){
     return(
@@ -48,6 +49,7 @@ export default function Routes(){
                 <Route path="/forma-pagamento" component={FormaPagamento} />
                 <Route path="/pagamento-cartao" component={PagamentoCartao} />
                 <Route path="/pagamento-boleto" component={BoletoBancario} />
+                <Route path="/avaliacao" component={Avaliacao} />
             </Switch>
         </BrowserRouter>
     );
