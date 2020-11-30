@@ -31,18 +31,9 @@ function DashboardContrantante(){
             <Link to=""> <img style={{ height: "40px", paddingTop: "3px" }} src={NotificacaoIcon} alt="Ícone de pesquisa" /></Link>
         </nav> 
 
-        <div className='barraBusca'>
-           <Link> <img src={FiltroIcon} className='filtro'></img></Link>
-        <div id='busca'>
-        <form className="search">
-        <input className='inputBusca'  type="text" placeholder="Digite o que você procura">
-        </input>
-        </form>
-        </div>
-        </div>
 
 
-        <div className='perfilPrestadorContainer'>
+        <div style={{marginTop:'10%'}} className='perfilPrestadorContainer'>
             <div className='barra'>
                 <img className='BabaSImage' alt='baba com criança no colo' src={babaImage} />
                 <p>SUELLEN SILVA - 2,6KM </p>

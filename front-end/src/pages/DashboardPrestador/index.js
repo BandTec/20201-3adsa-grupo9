@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 import Logo from '../../assets/img/logo/logo-removebg.png';
 import NotificacaoIcon from '../../assets/img/icons/61073.png';
 import PaulaImage from '../../assets/img/imagens/Paula.png';
-import ClariceImage from '../../assets/img/imagens/clarice.jfif';
-import PedroImage from '../../assets/img/imagens/Pedro.jfif';
+import ClariceImage from '../../assets/img/imagens/clarice.jpg';
+import PedroImage from '../../assets/img/imagens/pedro.jpg';
 import starIcon from '../../assets/img/icons/star.png';
 import babaIcon from '../../assets/img/imagens/baba 1.png';
-import babaImage from '../../assets/img/imagens/babaS.jfif';
-import faxineiroImage from '../../assets/img/imagens/faxineiro.jpg';
+import babaImage from '../../assets/img/icons/babaS.png';
+import faxineiroImage from '../../assets/img/imagens/faxineiro.png';
 
 
 function DashboardPrestador(){
@@ -33,11 +33,6 @@ return(
             <Link to=""> <img style={{ height: "40px", paddingTop: "3px" }} src={NotificacaoIcon} alt="Ícone de pesquisa" /></Link>
         </nav>  
 
-           
-        <div className="container">
-  <input type="text" placeholder="Pesquise aqui..." />
-  <div className="search"></div>
-  </div>
 
      <div className='clientes'>
          <img className='imgPaula' src={PaulaImage} />
@@ -52,7 +47,7 @@ return(
 
             <h2>Ultimas classificações de Paula:</h2>
             <img className='iconeBaba' src={babaIcon} alt="icone de baba com criança" />
-            <div className='containerClassificacao'>
+            <div style={{marginLeft:'80.5%', marginTop:'-4%'}} className='containerClassificacao'>
             <img className="estrela" src={starIcon} alt="imagem de estrela" />
             <img className="estrela" src={starIcon} alt="imagem de estrela" />
             <img className="estrela" src={starIcon} alt="imagem de estrela" />
@@ -75,7 +70,7 @@ return(
 
             <h2>Ultimas classificações de Clarice:</h2>
             <img className='iconeBaba' src={babaImage} alt="icone de baba com criança" />
-            <div className='containerClassificacao'>
+            <div style={{marginLeft:'81%', marginTop:'-4%'}} className='containerClassificacao'>
             <img className="estrela" src={starIcon} alt="imagem de estrela" />
             <img className="estrela" src={starIcon} alt="imagem de estrela" />
             <img className="estrela" src={starIcon} alt="imagem de estrela" />
@@ -85,7 +80,7 @@ return(
             
      </div>
 
-     <div className='clientes'>
+     <div  style={{marginTop:'2%'}} className='clientes'>
          <img className='imgPedro' src={PedroImage} />
 
          <p>Pedro 2,7km</p>
@@ -97,7 +92,7 @@ return(
 
             <h2>Ultimas classificações de Pedro:</h2>
             <img className='iconeBaba' src={faxineiroImage} alt="icone de baba com criança" />
-            <div className='containerClassificacao'>
+            <div style={{marginLeft:'81%', marginTop:'-4%'}} className='containerClassificacao'>
             <img className="estrela" src={starIcon} alt="imagem de estrela" />
             <img className="estrela" src={starIcon} alt="imagem de estrela" />
             <img className="estrela" src={starIcon} alt="imagem de estrela" />
