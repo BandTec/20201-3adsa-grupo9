@@ -115,12 +115,16 @@ function CadastroPerfilPrestador() {
                     <h3>O seu serviço inclui cozinhar?</h3>
                     <button className='botaoSim' onClick={setCozinharSim}>Sim </button>
                     <button className='botaoNao' onClick={setCozinharNao}>Não</button>
+                    <input style={{marginTop:'2%', width:'20%', marginLeft:'40%'}} type="text" id="precoCozinhar" placeholder="Qual o valor que voce cobra?" />
                 </div>
+
+                    
 
                 <div className='limpeza'>
                     <h3>O seu serviço inclui limpeza?</h3>
                     <button className='botaoSim' onClick={setLimpezaSim}>Sim </button>
                     <button className='botaoNao' onClick={setLimpezaNao}>Não</button>
+                    <input style={{marginTop:'2%', width:'20%', marginLeft:'40%'}} type="text" id="precoLimpeza" placeholder="Qual o valor que voce cobra?" />
                 </div>
 
                 <div className='QtdSemana'>
@@ -159,11 +163,31 @@ function CadastroPerfilPrestador() {
 
                     <input type="checkbox" id="domingo" />
                     <label style={{margin:'1%'}} for="scales">Domingo-feira</label>
-
-
                 </div>
+                   
+                <h3 style={{fontSize:'18px', margin:'5%'}}>Preço cobrado por faixa etária:</h3>  
+                <h3 style={{margin:'-1%'}}>Crianças até 3 anos</h3>
+                <input style={{marginTop:'2%', width:'20%', marginLeft:'40%'}} type="text" id="preco3Anos" placeholder="Qual o valor que voce cobra?" />
+
+                <h3 style={{margin:'1%'}}>Crianças de 3 anos a 8 anos</h3>
+                <input style={{marginTop:'2%', width:'20%', marginLeft:'40%'}} type="text" id="precoMaior3" placeholder="Qual o valor que voce cobra?" />
+
+                <h3>Crianças de 8 anos a 15 anos</h3>
+                <input style={{marginTop:'2%', width:'20%', marginLeft:'40%'}} type="text" id="precoMaior8" placeholder="Qual o valor que voce cobra?" />
+                 
+                <h3 style={{margin:'2%'}}>Qual forma deseja cobrar pelo serviço?</h3>
+
+                <input style={{marginLeft:'40%'}} type="checkbox" id="cobrarHora" />
+                <label style={{margin:'1%'}} for="scales">Cobrar por hora</label>
+                <input style={{marginTop:'2%', width:'20%', marginLeft:'40%'}} type="text" id="precoHora" placeholder="Qual o valor que voce cobra?" />
+                <input style={{marginLeft:'40%'}} type="checkbox" id="cobrarFixo" />
+                <label style={{margin:'1%'}} for="scales">Cobrar por preço fixo</label>
+                <input style={{marginTop:'2%', width:'20%', marginLeft:'40%'}} type="text" id="precoFixo" placeholder="Qual o valor que voce cobra?" />
 
             </div>
+
+           
+           <div style={{padding:'30%'}} />
 
 
 

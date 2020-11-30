@@ -33,7 +33,7 @@ function CadastroInfoPessoalContratante() {
                     <Link to="/"><img className="Return" src={LeftWhiteArrow} alt="Ícone de seta para a esquerda para voltar para a tela innicial" /></Link>
                     <form onSubmit={handleCadastroDoisContratante}>
                         <div className="input-container">
-                            <input type="text" id="cep" name="cep"
+                            <input style={{ marginLeft:'35%'}} type="text" id="cep" name="cep"
                                 onBlur={ async e => {
                                     var uri = `/usuarios/cep/${document.getElementById("cep").value}`;
                                     const response = await api.get(uri);
@@ -41,26 +41,26 @@ function CadastroInfoPessoalContratante() {
                                     document.getElementById("bairro").value = response.data.bairro;
                                     document.getElementById("complemento").value = response.data.complemento;
                                 }} /> <img src={InfoIcon} alt="Ícone de interrogação indicando ajuda" />
-                            <label>Informe seu CEP:</label>
+                            <label style={{marginTop:'-0.5%', marginLeft:'5%', color:'var(--white)'}}>Informe seu CEP:</label>
                         </div>
                         <div className="input-container">
-                            <input type="text" id="endereco" name="endereco" />
-                            <label>Endereço:</label>
+                            <input style={{margin:'-3%', marginLeft:'35%'}} type="text" id="endereco" name="endereco" />
+                            <label style={{marginTop:'-0.5%', marginLeft:'5%', color:'var(--white)'}}>Endereço:</label>
                         </div>
                         <div className="input-container">
-                            <input type="text" id="bairro" name="bairro" />
-                            <label>Bairro:</label>
+                            <input style={{margin:'5%', marginLeft:'35%'}} type="text" id="bairro" name="bairro" />
+                            <label style={{marginTop:'-0.5%', marginLeft:'5%', color:'var(--white)'}}>Bairro:</label>
                         </div>
                         <div className="input-container">
-                            <input type="text" id="numero" name="numero" />
-                            <label>Número</label>
+                            <input style={{margin:'-2%', marginLeft:'35%'}} type="text" id="numero" name="numero" />
+                            <label style={{marginTop:'-0.5%', marginLeft:'5%', color:'var(--white)'}}>Número</label>
                         </div>
                         <div className="input-container">
-                            <input type="text" id="complemento" name="complemento" />
-                            <label>Complemento:</label>
+                            <input style={{margin:'5%', marginLeft:'35%'}} type="text" id="complemento" name="complemento" />
+                            <label style={{marginTop:'-0.5%', marginLeft:'5%', color:'var(--white)'}}>Complemento:</label>
                         </div>
                         <div className="BotoesLoginForm">
-                            <button className="ButtonLinkSquareCadastro" style={{ background: "var(--blue", marginRight: " 5%", color: "var(--white)" }} type="submit" >Continuar cadastro</button>
+                            <button className="ButtonLinkSquareCadastro" style={{ background: "var(--blue", marginRight: " 5%", color: "var(--white)" , padding:'25px'}} type="submit" >Continuar cadastro</button>
                             <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--pink)", color: "var(--white)" }}>Revisar dados anteriores</Link>
                         </div>
                     </form>

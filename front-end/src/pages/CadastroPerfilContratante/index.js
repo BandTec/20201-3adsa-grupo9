@@ -34,39 +34,39 @@ function CadastroPerfilContratante() {
         <div>
             <div className="CadastroPerfilContratanteContainer">
                 <div className="CadastroPerfilContratanteContent">
-                    <Link to="/"><img className="Return" src={LeftWhiteArrow} alt="Ícone de seta para a esquerda para voltar para a tela innicial" /></Link>
+                    <Link to="/"><img className="Return" style={{marginTop:'2%'}} src={LeftWhiteArrow} alt="Ícone de seta para a esquerda para voltar para a tela innicial" /></Link>
                     <form onSubmit={handleCadastroUmContratante}>
                         <div className="input-container">
-                            <input type="text"
+                            <input style={{margin:'2%', marginLeft:'35%'}} type="text"
                                 name="nome"
                                 value={nome}
                                 onChange={e => setNome(e.target.value)} />
-                            <label>Nome completo</label>
+                            <label style={{marginTop:'-0.5%', marginLeft:'5%'}}>Nome completo</label>
                         </div>
                         <div className="input-container">
-                            <input type="text"
+                            <input style={{margin:'1%', marginLeft:'35%'}} type="text"
                                 name="email"
                                 value={email}
                                 onChange={e => setEmail(e.target.value)} />
-                            <label>Email</label>
+                            <label style={{marginTop:'-0.5%', marginLeft:'5%'}}>Email</label>
                         </div>
                         <div className="input-container">
-                            <input type="text"
+                            <input style={{margin:'2%', marginLeft:'35%'}} type="text"
                                 name="telefone"
                                 value={telefone}
                                 onChange={e => setTelefone(e.target.value)} />
-                            <label>Telefone</label>
+                            <label style={{marginTop:'-0.5%', marginLeft:'5%'}}>Telefone</label>
                         </div>
                         <div className="input-container">
-                            <input type="password"
+                            <input style={{margin:'2%', marginLeft:'35%'}} type="password"
                                 name="senha"
                                 value={senha}
                                 onChange={e => setSenha(e.target.value)} />
-                            <label>Senha</label>
+                            <label style={{marginTop:'-0.5%', marginLeft:'5%'}}>Senha</label>
                         </div>
-                        <div className="BotoesLoginForm">
-                            <button className="ButtonLinkSquareCadastro" style={{ background: "var(--blue", marginRight: " 5%", color: "var(--white)" }} type="submit" >Cadastrar-se</button>
-                            <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--pink)" }} to="/login">Login</Link>
+                        <div style={{margin:'5%'}} className="BotoesLoginForm">
+                            <button className="ButtonLinkSquareCadastro" style={{ background: "var(--blue", marginRight: " 5%", color: "var(--white)", padding:'25px'}} type="submit" >Cadastrar-se</button>
+                            <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--pink)", color: "var(--white)" }} to="/login">Login</Link>
                         </div>
                     </form>
                     <div className="BotoesCadastroPlataformas">
