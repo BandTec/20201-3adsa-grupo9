@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import jobbyjobs.com.jobbyjobs.ListaObj;
 import jobbyjobs.com.jobbyjobs.models.*;
 import jobbyjobs.com.jobbyjobs.objects.FilaObj;
 import jobbyjobs.com.jobbyjobs.objects.PilhaObj;
@@ -145,6 +146,35 @@ public class UsuariosController {
 
         return notFound().build();
     }
+
+    @GetMapping ("/empilhar/{idBaba}")
+    public ResponseEntity empilharBaba(
+
+            @PathVariable Integer idBaba
+      ){
+        List<Avaliacoes> avaliacoes = avaliacoesRepository.findByBabaAvaliadaId(idBaba);
+
+        if(avaliacoes.isEmpty()) {
+            return noContent().build();
+        }else{
+            PilhaObj<Avaliacoes> pilhaObj = new PilhaObj<>(100);
+
+            int contador = 0;
+
+            for (Avaliacoes a: avaliacoes){
+                pilhaObj.push(a);
+                contador ++;
+            }
+
+            List<Avaliacoes> avaliacoesPilha = new ArrayList<>();
+
+            while(!pilhaObj.isEmpty()){
+                for (int i = 0; i < contador; i++){
+                    avaliacoesPilha.add(pilhaObj.pop());
+                }
+            }
+            return ok(avaliacoesPilha);
+    }}
 
     @PostMapping("/fazer-pedido")
     public ResponseEntity fazerPedidoBaba(
