@@ -197,14 +197,14 @@ class UsuariosControllerTest {
     @DisplayName("Deve retornar 200 se exitir uma baba com certo id, para ser notificada")
     void pedirOrcamentoBaba() {
         int id = 10;
-        Notifcacoes notifcacoes = Mockito.mock(Notifcacoes.class);
+        Notificacoes notificacoes = Mockito.mock(Notificacoes.class);
         Baba baba = Mockito.mock(Baba.class);
 
-        notifcacoes.setMsg("Pedido de orçamento requisitado");
-        notifcacoes.setBabaNotificada(baba);
+        notificacoes.setMsg("Pedido de orçamento requisitado");
+        notificacoes.setBabaNotificada(baba);
 
         Mockito.when(babaRepository.findById(id)).thenReturn(Optional.of(baba));
-        Mockito.when(notificacaoRepository.save(notifcacoes)).thenReturn(notifcacoes);
+        Mockito.when(notificacaoRepository.save(notificacoes)).thenReturn(notificacoes);
         ResponseEntity resposta = controller.pedirOrcamentoBaba(id);
 
         assertEquals(200, resposta.getStatusCodeValue());

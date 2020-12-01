@@ -165,8 +165,8 @@ public class TrabalhadorController implements calcularSalario {
         Optional<Baba> babaExistente = babaRepository.findById(id);
 
         if (babaExistente.isPresent()) {
-            List<Notifcacoes> notifcacoes  = notificacaoRepository.findByBabaNotificadaId(id);
-            return ok(notifcacoes);
+            List<Notificacoes> notificacoes  = notificacaoRepository.findByBabaNotificadaId(id);
+            return ok(notificacoes);
         } else {
             return notFound().build();
         }

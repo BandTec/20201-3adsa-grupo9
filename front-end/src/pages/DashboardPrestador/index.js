@@ -40,9 +40,9 @@ function DashboardPrestador() {
     const handleClick = async (event) => {
         setAnchorEl(event.currentTarget);
         // const response = await api.get("/trabalhadores/notificacoes/1");
-        // const response = await api.get("/trabalhadores/solicitacoes/1");
+        const response = await api.get("/trabalhadores/solicitacoes/1");
         // console.log(response);
-        // console.log(response.data);
+        console.log(response.data);
     };
 
     const handleClose = () => {

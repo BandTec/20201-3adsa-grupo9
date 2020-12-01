@@ -218,16 +218,16 @@ class TrabalhadorControllerTest {
     @DisplayName("Deve retornar 200 caso exista uma baba especifico no banco")
     void getNotificacoesCenario2() {
         Baba baba = Mockito.mock(Baba.class);
-        List<Notifcacoes> notifcacoes = Arrays.asList(Mockito.mock(Notifcacoes.class));
+        List<Notificacoes> notificacoes = Arrays.asList(Mockito.mock(Notificacoes.class));
         int id = 10;
 
         Mockito.when(babaRepository.findById(id)).thenReturn(Optional.of(baba));
-        Mockito.when(notificacaoRepository.findByBabaNotificadaId(id)).thenReturn(notifcacoes);
+        Mockito.when(notificacaoRepository.findByBabaNotificadaId(id)).thenReturn(notificacoes);
 
         ResponseEntity resposta = controller.getNotificacoes(id);
 
         assertEquals(200, resposta.getStatusCodeValue());
-        assertEquals(notifcacoes, resposta.getBody());
+        assertEquals(notificacoes, resposta.getBody());
     }
 
     @Test

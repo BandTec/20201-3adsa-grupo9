@@ -106,14 +106,14 @@ public class UsuariosController {
     @GetMapping("/pedir-orcamento/{id}")
     public ResponseEntity pedirOrcamentoBaba(@PathVariable int id) {
         String msg = "Pedido de orçamento requisitado";
-        Notifcacoes notifcacoes = new Notifcacoes();
+        Notificacoes notificacoes = new Notificacoes();
         Optional<Baba> babaExistente = babaRepository.findById(id);
 
         if (babaExistente.isPresent()) {
             Baba b = babaExistente.get();
-            notifcacoes.setMsg(msg);
-            notifcacoes.setBabaNotificada(b);
-            notificacaoRepository.save(notifcacoes);
+            notificacoes.setMsg(msg);
+            notificacoes.setBabaNotificada(b);
+            notificacaoRepository.save(notificacoes);
             return ok().build();
         } else {
             return notFound().build();

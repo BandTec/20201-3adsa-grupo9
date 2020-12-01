@@ -3,7 +3,7 @@ package jobbyjobs.com.jobbyjobs.models;
 import javax.persistence.*;
 
 @Entity
-public class Notifcacoes {
+public class Notificacoes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

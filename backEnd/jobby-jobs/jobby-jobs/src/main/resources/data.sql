@@ -19,3 +19,10 @@ insert into usuario
   prec_idade_ate_tres, preco_idade_tres_ate_oito, preco_idade_nove_ate_quinze) values
   (null, true, true, 50.00, 50.00 , 75.00, 45.00, 25.00);
 
+insert into notificacoes 
+(msg_notificacao, baba_notificada_id_baba) values 
+('Pessoa te respondeu.', 1);
+
+insert into jobs_solicitados 
+(qtd_horas_trabalho, valor_total, baba_solicitada_id_baba, usuario_solicitante_id_usuario) values 
+(5, 200, 1, 1), (5, 200, 1, 2);
