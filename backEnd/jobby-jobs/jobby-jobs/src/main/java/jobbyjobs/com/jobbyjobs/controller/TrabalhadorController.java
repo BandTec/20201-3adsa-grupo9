@@ -13,6 +13,7 @@ import jobbyjobs.com.jobbyjobs.utilities.CalculoOrcamento;
 import jobbyjobs.com.jobbyjobs.utilities.Login;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -44,9 +45,19 @@ public class TrabalhadorController implements calcularSalario {
     @Autowired
     private ViaCepService service;
 
-    private FilaObj<JobsSolicitados> solicitacoes = new FilaObj(10);
+    private final FilaObj<JobsSolicitados> solicitacoes = new FilaObj(10);
+    List<JobsSolicitados> solicitadosExibe = new ArrayList<>();
 
-    private List<Login> logados = new ArrayList<>();
+    private final List<Login> logados = new ArrayList<>();
+
+    @Scheduled(fixedRate = 5000)
+    public FilaObj<JobsSolicitados> verificarFila(){
+        if (solicitacoes.isEmpty()){
+            return null;
+        } else{
+            return solicitacoes;
+        }
+    }
 
     @GetMapping("/solicitacoes/{id}")
     public ResponseEntity getSolicitacoes(@PathVariable Integer id){
@@ -60,18 +71,19 @@ public class TrabalhadorController implements calcularSalario {
                }
            }
        };
-       threadGetSolicitacoes.run();
 
-       if (solicitacoes.isEmpty()){
-           return noContent().build();
-       } else{
-           List<JobsSolicitados> solicitadosExibe = new ArrayList<>();
-           while (!solicitacoes.isEmpty()){
-               solicitadosExibe.add(solicitacoes.poll());
-           }
-           return ok(solicitadosExibe);
-       }
+        threadGetSolicitacoes.start();
 
+        FilaObj<JobsSolicitados> retorno = verificarFila();
+
+        if(retorno == null){
+            return noContent().build();
+        } else {
+            while (!solicitacoes.isEmpty()){
+                solicitadosExibe.add(solicitacoes.poll());
+            }
+            return ok(solicitadosExibe);
+        }
     }
 
     @GetMapping
