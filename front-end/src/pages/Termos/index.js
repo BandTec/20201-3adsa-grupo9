@@ -2,8 +2,9 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import './termos.css';
-import Logo from '../../assets/img/logo/logo-preto-removebg.png';
 import api from '../../services/api';
+
+import Logo from '../../assets/img/logo/logo-preto-removebg.png';
 
 function Termos() {
 
@@ -42,17 +43,17 @@ function Termos() {
 
             // Informacoes baba
             const cozinhar = localStorage.getItem("cozinhar");
-            const preco_se_cozinha = 0.00; // ESTE CAMPO NÃO TEM NA PAGINA
+            const preco_se_cozinha = 0.00;
             const limpar = localStorage.getItem("limpar");
-            const preco_se_limpa = 0.00; // ESTE CAMPO NÃO TEM NA PAGINA
-            const preco_ate_tres = 0.00; // ESTE CAMPO NÃO TEM NA PAGINA
-            const preco_tres_ate_oito = 0.00; // ESTE CAMPO NÃO TEM NA PAGINA
-            const preco_nove_ate_quinze = 0.00; // ESTE CAMPO NÃO TEM NA PAGINA
-            
+            const preco_se_limpa = 0.00;
+            const preco_ate_tres = 0.00;
+            const preco_tres_ate_oito = 0.00;
+            const preco_nove_ate_quinze = 0.00;
+
             // Informacoes profissional
-            const cobra_por_hora = false; // ESTE CAMPO NÃO TEM NA PAGINA
-            const valor_hora = 0.00; // ESTE CAMPO NÃO TEM NA PAGINA
-            const valor_fixo = 0.00; // ESTE CAMPO NÃO TEM NA PAGINA
+            const cobra_por_hora = false;
+            const valor_hora = 0.00;
+            const valor_fixo = 0.00;
             const qtd_dias_trabalha = localStorage.getItem("qtdSelectDias"); // ESTE CAMPO NÃO TEM NO BANCO
             const segunda = localStorage.getItem("segunda"); // ESTE CAMPO NÃO TEM NO BANCO
             const terca = localStorage.getItem("terca"); // ESTE CAMPO NÃO TEM NO BANCO
@@ -61,7 +62,7 @@ function Termos() {
             const sexta = localStorage.getItem("sexta"); // ESTE CAMPO NÃO TEM NO BANCO
             const sabado = localStorage.getItem("sabado"); // ESTE CAMPO NÃO TEM NO BANCO
             const domingo = localStorage.getItem("domingo"); // ESTE CAMPO NÃO TEM NO BANCO
-            
+
             const data = {
                 nome,
                 email,
@@ -105,11 +106,13 @@ function Termos() {
                 preco_nove_ate_quinze
             };
 
+            console.log(data);
+
             try {
                 const response = await api.post('/trabalhadores', data);
-                
+
                 alert("Cadastro realizado com sucesso!\nVocê será redirecionado para a página de Login");
-                
+
                 history.push('/login');
                 // to="/login"
 
@@ -143,11 +146,13 @@ function Termos() {
                 conta,
             };
 
+            console.log(data);
+
             try {
                 const response = await api.post('/usuarios', data);
-                
+
                 alert("Cadastro realizado com sucesso!\nVocê será redirecionado para a página de Login");
-                
+
                 history.push('/login');
                 // to="/login"
 

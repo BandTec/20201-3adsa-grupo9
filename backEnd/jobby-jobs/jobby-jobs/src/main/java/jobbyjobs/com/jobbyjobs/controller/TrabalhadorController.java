@@ -99,6 +99,12 @@ public class TrabalhadorController implements calcularSalario {
         return of(profissionalRepository.findById(id));
     }
 
+    // TODO - Fazer um endpoint para pesquisar um usuario pelo email
+    @GetMapping("/email/{email}")
+    public Integer getUserByEmail(@PathVariable String email){
+        return (userRepository.findByEmail(email).get().getTipoUsuario());
+    }
+
     @PostMapping
     public ResponseEntity registrarTrabalhador(@RequestBody @Valid Profissional p) {
         if(p.getProfissao().equals("Baba")){
@@ -114,7 +120,8 @@ public class TrabalhadorController implements calcularSalario {
         for (Usuario u: userRepository.findAll()){
             if (l.getEmail().equals(u.getEmail()) && l.getSenha().equals(u.getSenha())){
                 logados.add(l);
-                return ok("Login Aceito!");
+                // return ok("Login Aceito!");
+                return ok(u.getTipoUsuario());
             }
         }
         return status(404).body("E-mail ou senha incorretos.");

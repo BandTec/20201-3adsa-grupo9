@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Popover from '@material-ui/core/Popover';
 import Card from '@material-ui/core/Card';
@@ -59,10 +59,15 @@ function DashboardPrestador() {
 
     // Parametros card
 
+    async function getId(){
+        const resposta = await api.get('trabalhadores/email/' + localStorage.getItem("email"));
+        localStorage.setItem('id', resposta.data);
+    }
+
     return (
         <div className="DashboardPrestadorContainer">
 
-            <nav className="Menu">
+            <nav className="Menu" onLoad={getId}>
                 <Link to="/">
                     <img className="Logo" src={Logo} alt="Logo da empresa Jobby Jobs" />
                 </Link>
