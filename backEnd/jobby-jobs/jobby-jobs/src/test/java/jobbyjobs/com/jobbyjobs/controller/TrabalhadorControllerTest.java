@@ -52,7 +52,7 @@ class TrabalhadorControllerTest {
         List<Profissional> profissionais = new ArrayList<>();
         Mockito.when(profissionalRepository.findAll()).thenReturn(profissionais);
 
-        ResponseEntity resposta = controller.getTrabalhadores();
+        ResponseEntity resposta = controller.getTrabalhadores(null);
 
         assertEquals(204, resposta.getStatusCodeValue());
         assertEquals(null, resposta.getBody());
@@ -65,7 +65,7 @@ class TrabalhadorControllerTest {
 
         Mockito.when(profissionalRepository.findAll()).thenReturn(profissionais);
 
-        ResponseEntity resposta = controller.getTrabalhadores();
+        ResponseEntity resposta = controller.getTrabalhadores(null);
 
         assertEquals(200, resposta.getStatusCodeValue());
         assertEquals(profissionais, resposta.getBody());

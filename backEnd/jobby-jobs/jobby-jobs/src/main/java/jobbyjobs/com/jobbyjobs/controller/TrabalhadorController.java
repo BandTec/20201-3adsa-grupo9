@@ -87,11 +87,36 @@ public class TrabalhadorController implements calcularSalario {
     }
 
     @GetMapping
-    public ResponseEntity getTrabalhadores(){
-        List<Profissional> profissionais = profissionalRepository.findAll();
-        return profissionais.isEmpty()
-            ? noContent().build()
-            : ok(profissionais);
+    public ResponseEntity getTrabalhadores(
+            @RequestParam(required = false) String zonaRegional ){
+
+        List<Integer> idsDosUsuarios = new ArrayList<>();
+        List<Profissional> profissionais = new ArrayList<>();
+
+        if(zonaRegional != null){
+             List<Usuario> usuarios = userRepository.findByEnderecoZonaRegional(zonaRegional);
+             if(usuarios.isEmpty()){
+                 return noContent().build();
+             } else{
+                for(Usuario u: usuarios){
+                    if(u.getTipoUsuario() == 1){
+                        idsDosUsuarios.add(u.getId());
+                    }
+                }
+
+                for(Integer idUser: idsDosUsuarios){
+                    profissionais.add(profissionalRepository.findByUsuarioId(idUser));
+                }
+
+                return ok(profissionais);
+             }
+
+        } else {
+            profissionais = profissionalRepository.findAll();
+            return profissionais.isEmpty()
+                    ? noContent().build()
+                    : ok(profissionais);
+        }
     }
 
     @GetMapping("{/id}")

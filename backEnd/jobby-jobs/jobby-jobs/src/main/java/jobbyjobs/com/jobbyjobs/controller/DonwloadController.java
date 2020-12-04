@@ -1,19 +1,20 @@
 package jobbyjobs.com.jobbyjobs.controller;
 
-import jobbyjobs.com.jobbyjobs.GravaCsv;
-import jobbyjobs.com.jobbyjobs.GravaTxt;
-import jobbyjobs.com.jobbyjobs.ListaObj;
+import jobbyjobs.com.jobbyjobs.utilities.GravaCsv;
+import jobbyjobs.com.jobbyjobs.utilities.GravaTxt;
+import jobbyjobs.com.jobbyjobs.objects.ListaObj;
 import jobbyjobs.com.jobbyjobs.models.Usuario;
 import jobbyjobs.com.jobbyjobs.repositories.UsuariosJobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @RestController
@@ -56,6 +57,13 @@ public class DonwloadController {
 
         return new ResponseEntity(
                 GravaCsv.gravaCsv(usuarios,"lista-de-usuarios"), headers, HttpStatus.OK);
+    }
+
+    @PostMapping("/importar")
+    public ResponseEntity enviar(@RequestBody byte[] conteudoArquivo) throws IOException {
+        Path path = Paths.get("nova-leitura.txt");
+        Files.write(path, conteudoArquivo);
+        return ResponseEntity.created(null).build();
     }
 
 }

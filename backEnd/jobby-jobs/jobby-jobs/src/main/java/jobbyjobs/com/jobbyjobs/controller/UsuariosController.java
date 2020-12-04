@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import jobbyjobs.com.jobbyjobs.ListaObj;
 import jobbyjobs.com.jobbyjobs.models.*;
-import jobbyjobs.com.jobbyjobs.objects.FilaObj;
 import jobbyjobs.com.jobbyjobs.objects.PilhaObj;
 import jobbyjobs.com.jobbyjobs.repositories.*;
 import jobbyjobs.com.jobbyjobs.services.ViaCepService;
@@ -20,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 
 
 import javax.validation.Valid;
-import javax.xml.ws.Response;
 
 import static org.springframework.http.ResponseEntity.*;
 

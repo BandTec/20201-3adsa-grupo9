@@ -7,6 +7,7 @@ public class Profissional {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_profissional")
     private Integer id;
 
     @Column(name = "nome_profissao", length = 40, nullable = false)

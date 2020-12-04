@@ -1,5 +1,6 @@
-package jobbyjobs.com.jobbyjobs;
+package jobbyjobs.com.jobbyjobs.utilities;
 
+import jobbyjobs.com.jobbyjobs.objects.ListaObj;
 import jobbyjobs.com.jobbyjobs.models.Usuario;
 
 import java.io.BufferedWriter;

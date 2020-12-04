@@ -1,4 +1,4 @@
-package jobbyjobs.com.jobbyjobs;
+package jobbyjobs.com.jobbyjobs.objects;
 
 public class ListaObj<T> {
 

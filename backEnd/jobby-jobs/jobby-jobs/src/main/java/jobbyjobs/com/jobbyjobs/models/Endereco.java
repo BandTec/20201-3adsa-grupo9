@@ -24,6 +24,9 @@ public class Endereco {
     @Column(name = "complemento", length=11)
     private String complemento;
 
+    @Column(name = "zona_regional", length = 20)
+    private String zonaRegional;
+
     @Column(name = "cep", length=9)
     @NotNull
     private String CEP;
@@ -70,6 +73,13 @@ public class Endereco {
         this.CEP = CEP;
     }
 
+    public String getZonaRegional() {
+        return zonaRegional;
+    }
+    public void setZonaRegional(String zonaRegional) {
+        this.zonaRegional = zonaRegional;
+    }
+
     @Override
     public String toString() {
         return "\n Endereco: " +
@@ -78,6 +88,7 @@ public class Endereco {
                 "\n Bairro: " + bairro +
                 "\n Numero: " + numero +
                 "\n Complemento: " + complemento +
+                "\n Zona Regional: " + zonaRegional +
                 "\n CEP: " + CEP ;
     }
 }
