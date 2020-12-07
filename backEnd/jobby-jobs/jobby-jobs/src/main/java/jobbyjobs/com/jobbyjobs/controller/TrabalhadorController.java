@@ -51,6 +51,7 @@ public class TrabalhadorController implements calcularSalario {
     private final List<Login> logados = new ArrayList<>();
 
     @Scheduled(fixedRate = 5000)
+    @GetMapping("/notificacoes-alert")
     public FilaObj<JobsSolicitados> verificarFila(){
         if (solicitacoes.isEmpty()){
             return null;
@@ -79,6 +80,9 @@ public class TrabalhadorController implements calcularSalario {
         if(retorno == null){
             return noContent().build();
         } else {
+            //Garante que vai trazer apenas os dados que exitem no banco
+            solicitadosExibe.clear();
+
             while (!solicitacoes.isEmpty()){
                 solicitadosExibe.add(solicitacoes.poll());
             }
@@ -124,7 +128,6 @@ public class TrabalhadorController implements calcularSalario {
         return of(profissionalRepository.findById(id));
     }
 
-    // TODO - Fazer um endpoint para pesquisar um usuario pelo email
     @GetMapping("/email/{email}")
     public Integer getUserByEmail(@PathVariable String email){
         return (userRepository.findByEmail(email).get().getTipoUsuario());

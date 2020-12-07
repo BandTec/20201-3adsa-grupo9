@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './dashboardContratante.css';
+import MenuLogado from '../../components/MenuLogado';
+import Footer from '../../components/Footer';
 import api from '../../services/api';
 
 import Logo from '../../assets/img/logo/logo-removebg.png';
-import NotificacaoIcon from '../../assets/img/icons/61073.png';
 import FiltroIcon from '../../assets/img/icons/filtro.png';
 import BabaLimpeza from '../../assets/img/icons/baba-limpeza.png';
 import BabaHomem from '../../assets/img/icons/paulo.jpg';
@@ -16,31 +17,10 @@ import starIcon from '../../assets/img/icons/star.png';
 
 function DashboardContrantante() {
 
-    async function getId(){
-        const resposta = await api.get('trabalhadores/email/' + localStorage.getItem("email"));
-        localStorage.setItem('id', resposta.data);
-    }
-
     return (
         <div className='DashboardContratanteContainer'>
 
-            <nav className="Menu" onLoad={getId}>
-                <Link to="/">
-                    <img className="Logo" src={Logo} alt="Logo da empresa Jobby Jobs" />
-                </Link>
-
-                <Link className="ButtonLink" to="">Serviços</Link>
-
-                <Link className="ButtonLink" to="">Quem somos</Link>
-
-                <Link className="ButtonLink" to=""> Como funciona?</Link>
-
-                <Link className="ButtonLink" to="/perfil-prestador">Perfil</Link>
-
-                <Link to=""> <img style={{ height: "40px", paddingTop: "3px" }} src={NotificacaoIcon} alt="Ícone de pesquisa" /></Link>
-            </nav>
-
-
+            <MenuLogado />
 
             <div style={{ marginTop: '10%' }} className='perfilPrestadorContainer'>
                 <div className='barra'>
@@ -91,6 +71,8 @@ function DashboardContrantante() {
                     </ul>
                 </div>
             </div>
+
+            <Footer />
 
         </div>
     )

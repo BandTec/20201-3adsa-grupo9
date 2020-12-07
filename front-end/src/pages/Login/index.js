@@ -27,10 +27,12 @@ function Login() {
             console.log(response);
             localStorage.setItem('email', email);
             if (response.data === 1) {
+                localStorage.setItem('tipo-usuario', response.data);
                 alert('Login efetuado com sucesso.');
                 history.push('/dashboard-prestador');
             }
             else if (response.data === 2) {
+                localStorage.setItem('tipo-usuario', response.data);
                 alert('Login efetuado com sucesso.');
                 history.push('/dashboard-contratante');
             }

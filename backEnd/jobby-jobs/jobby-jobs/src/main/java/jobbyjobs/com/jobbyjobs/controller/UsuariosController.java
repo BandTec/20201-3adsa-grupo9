@@ -59,7 +59,6 @@ public class UsuariosController {
         return of(usuarioRepository.findById(id));
     }
 
-    // TODO - Fazer um endpoint para pesquisar um usuario pelo email
     @GetMapping("/email/{email}")
     public Integer getUserByEmail(@PathVariable String email){
         return (usuarioRepository.findByEmail(email).get().getId());

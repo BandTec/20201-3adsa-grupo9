@@ -1,17 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import Popover from '@material-ui/core/Popover';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import { makeStyles } from '@material-ui/core/styles';
-import CardActions from '@material-ui/core/CardActions';
 
 import './dashboard.css';
-import api from '../../services/api';
+import MenuLogado from '../../components/MenuLogado';
 import Footer from '../../components/Footer';
 
-import Logo from '../../assets/img/logo/logo-removebg.png';
-import NotificacaoIcon from '../../assets/img/icons/61073.png';
 import PaulaImage from '../../assets/img/imagens/Paula.png';
 import ClariceImage from '../../assets/img/imagens/clarice.jpg';
 import PedroImage from '../../assets/img/imagens/pedro.jpg';
@@ -20,134 +13,12 @@ import babaIcon from '../../assets/img/imagens/baba 1.png';
 import babaImage from '../../assets/img/icons/babaS.png';
 import faxineiroImage from '../../assets/img/imagens/faxineiro.png';
 
-const useStyles = makeStyles({
-    root: {
-        minWidth: 350,
-    },
-    title: {
-        fontSize: 14,
-    },
-    pos: {
-        marginBottom: 100,
-    },
-});
-
 function DashboardPrestador() {
-
-    // Parametros do popouver
-    const [anchorEl, setAnchorEl] = React.useState(null);
-
-    const handleClick = async (event) => {
-        setAnchorEl(event.currentTarget);
-        // const response = await api.get("/trabalhadores/notificacoes/1");
-        const response = await api.get("/trabalhadores/solicitacoes/1");
-        // console.log(response);
-        console.log(response.data);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-
-    const open = Boolean(anchorEl);
-    const id = open ? 'simple-popover' : undefined;
-
-    // Parametros do popouver
-
-    // Parametros card
-    const classes = useStyles();
-
-    // Parametros card
-
-    async function getId(){
-        const resposta = await api.get('trabalhadores/email/' + localStorage.getItem("email"));
-        localStorage.setItem('id', resposta.data);
-    }
 
     return (
         <div className="DashboardPrestadorContainer">
 
-            <nav className="Menu" onLoad={getId}>
-                <Link to="/">
-                    <img className="Logo" src={Logo} alt="Logo da empresa Jobby Jobs" />
-                </Link>
-
-                <Link className="ButtonLink" to="">Serviços</Link>
-
-                <Link className="ButtonLink" to="">Quem somos</Link>
-
-                <Link className="ButtonLink" to=""> Como funciona?</Link>
-
-                <Link className="ButtonLink" to="/perfil-prestador">Perfil</Link>
-
-                <Link id={id} onClick={handleClick}> <img style={{ height: "40px", paddingTop: "3px" }} src={NotificacaoIcon} alt="Ícone de notificação" /></Link>
-
-                <Popover
-                    id={id}
-                    open={open}
-                    anchorEl={anchorEl}
-                    onClose={handleClose}
-                    anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'left',
-                    }}
-                    transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'left',
-                    }}
-                >
-                    <Card className={classes.root} style={{ margin: "10px" }} variant="outlined">
-                        <CardContent>
-                            <img className='imgPaula' style={{ width: "50px", float: "left" }} src={PaulaImage} />
-                            <p style={{ float: "right" }}>Fulano te respondeu.</p>
-                        </CardContent>
-                        <CardActions>
-                            <button style={{ marginLeft: "20px" }} >Ver conversa</button>
-                        </CardActions>
-                    </Card>
-
-                    <Card className={classes.root} style={{ margin: "10px" }} variant="outlined">
-                        <CardContent>
-                            <img className='imgPaula' style={{ width: "50px", float: "left" }} src={PaulaImage} />
-                            <p style={{ float: "right" }}>Fulano pediu um orçamento.</p>
-                        </CardContent>
-                        <CardActions>
-                            <button style={{ marginLeft: "20px" }} >Ver conversa</button>
-                        </CardActions>
-                    </Card>
-
-                    <Card className={classes.root} style={{ margin: "10px" }} variant="outlined">
-                        <CardContent>
-                            <img className='imgPaula' style={{ width: "50px", float: "left" }} src={PaulaImage} />
-                            <p style={{ float: "right" }}>Fulano aceitou sua proposta.</p>
-                        </CardContent>
-                        <CardActions>
-                            <button style={{ marginLeft: "20px" }} >Ver conversa</button>
-                        </CardActions>
-                    </Card>
-
-                    <Card className={classes.root} style={{ margin: "10px" }} variant="outlined">
-                        <CardContent>
-                            <img className='imgPaula' style={{ width: "50px", float: "left" }} src={PaulaImage} />
-                            <p style={{ float: "right" }}>Fulano enviou uma mensagem.</p>
-                        </CardContent>
-                        <CardActions>
-                            <button style={{ marginLeft: "20px" }} >Ver conversa</button>
-                        </CardActions>
-                    </Card>
-
-                    <Card className={classes.root} style={{ margin: "10px" }} variant="outlined">
-                        <CardContent>
-                            <img className='imgPaula' style={{ width: "50px", float: "left" }} src={PaulaImage} />
-                            <p style={{ float: "right" }}>Fulano aceitou sua proposta.</p>
-                        </CardContent>
-                        <CardActions>
-                            <button style={{ marginLeft: "20px" }} >Ver conversa</button>
-                        </CardActions>
-                    </Card>
-                </Popover>
-            </nav>
-
+            <MenuLogado />
 
             <div className='clientes'>
                 <img className='imgPaula' src={PaulaImage} />
@@ -217,10 +88,6 @@ function DashboardPrestador() {
             </div>
 
             <Footer />
-
-
-
-
 
         </div>
     )
