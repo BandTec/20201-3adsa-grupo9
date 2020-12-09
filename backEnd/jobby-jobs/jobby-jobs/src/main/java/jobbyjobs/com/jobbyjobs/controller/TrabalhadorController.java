@@ -34,6 +34,12 @@ public class TrabalhadorController implements calcularSalario {
     private UsuariosJobRepository userRepository;
 
     @Autowired
+    private EnderecoRepository enderecoRepository;
+
+    @Autowired
+    private UsuarioContaRepository usuarioContaRepository;
+
+    @Autowired
     private BabaRepository babaRepository;
 
     @Autowired
@@ -138,6 +144,10 @@ public class TrabalhadorController implements calcularSalario {
         if(p.getProfissao().equals("Baba")){
             babaRepository.save(p.getBaba());
         }
+        Usuario usuarioCadastrado = p.getUsuario();
+        enderecoRepository.save(usuarioCadastrado.getEndereco());
+        usuarioContaRepository.save(usuarioCadastrado.getUsuarioConta());
+        userRepository.save(usuarioCadastrado);
         profissionalRepository.save(p);
         return status(201).build();
     }

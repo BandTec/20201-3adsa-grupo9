@@ -35,6 +35,12 @@ public class UsuariosController {
     private NotificacaoRepository notificacaoRepository;
 
     @Autowired
+    private EnderecoRepository enderecoRepository;
+
+    @Autowired
+    private UsuarioContaRepository usuarioContaRepository;
+
+    @Autowired
     private BabaRepository babaRepository;
 
     @Autowired
@@ -66,6 +72,8 @@ public class UsuariosController {
 
     @PostMapping
     public ResponseEntity registrarUsuarios(@RequestBody @Valid Usuario novoUsuario) {
+        enderecoRepository.save(novoUsuario.getEndereco());
+        usuarioContaRepository.save(novoUsuario.getUsuarioConta());
         usuarioRepository.save(novoUsuario);
         return created(null).build();
     }
