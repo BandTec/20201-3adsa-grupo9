@@ -13,7 +13,7 @@ public class Profissional {
     @Column(name = "nome_profissao", length = 40, nullable = false)
     private String profissao;
 
-    @Column(name = "cobrar_cor_hora", nullable = false)
+    @Column(name = "cobrar_por_hora", nullable = false)
     private Boolean cobrarPorHora;
 
     @Column(name = "valor_hora", nullable = false)

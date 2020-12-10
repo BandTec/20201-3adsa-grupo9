@@ -20,9 +20,9 @@ function CadastroBancarioContratante() {
         localStorage.setItem("conta", document.getElementById("conta").value);
         localStorage.setItem("digito-conta", document.getElementById("digito-conta").value);
 
-        localStorage.setItem("prev-page", "/cadastro-info-bancaria-prestador");
+        localStorage.setItem("prev-page", "/cadastro-info-bancaria-contratante");
 
-        if( (localStorage.getItem("pessoa-fisica") == "true") || (localStorage.getItem("pessoa-juridica") == "true")) {
+        if( (localStorage.getItem("pessoa-fisica") === "true") || (localStorage.getItem("pessoa-juridica") === "true")) {
             history.push('/termos');
             // to="/termos"
         }

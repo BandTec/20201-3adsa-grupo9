@@ -20,7 +20,7 @@ insert into usuario
   (null, true, true, 50.00, 50.00 , 75.00, 45.00, 25.00);
 
   insert into profissional
-  (id_profissional, nome_profissao, cobrar_cor_hora, valor_hora, valor_fixo, qtd_dias_trabalha,
+  (id_profissional, nome_profissao, cobrar_por_hora, valor_hora, valor_fixo, qtd_dias_trabalha,
    segunda, terca, quarta, quinta, sexta, sabado, domingo, baba_id_baba, usuario_id_usuario) values
    (null, 'Baba', true, 10.0, 0.00, 3, true, false, true, false, true, false, false, 1, 1);
 

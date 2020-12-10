@@ -10,51 +10,55 @@ function Termos() {
 
     const history = useHistory();
 
+    function voltar() {
+        history.goBack();
+    };
+
     async function redirect() {
-
-
 
         // TODO - REVISAR IMEDIATAMENTE AS PAGINAS, O BACK END E DEIXA-LOS DE ACORDO COM O BANCO
         // Informacoes perfil usuario
-        const tipo_usuario = localStorage.getItem("tipo-usuario");
+        const tipoUsuario = Number(localStorage.getItem("tipo-usuario"));
         const nome = localStorage.getItem("nome");
         const email = localStorage.getItem("email");
         const senha = localStorage.getItem("senha");
-        const telefone = localStorage.getItem("telefone"); // ESTE CAMPO NÃO TEM NO BANCO
+        const telefone = Number(localStorage.getItem("telefone")); // ESTE CAMPO NÃO TEM NO BANCO
         const cpf = 11111111111; // ESTE CAMPO NÃO TEM NA TELA
 
         //Informacoes bancarias usuario
         const banco = localStorage.getItem("banco"); // ESTE CAMPO NÃO TEM NO BANCO
-        const tipo_conta = localStorage.getItem("tipo-conta"); // ESTE CAMPO NÃO TEM NO BANCO
-        const titular_conta = localStorage.getItem("titular-conta"); // ESTE CAMPO NÃO TEM NO BANCO
+        const tipoConta = localStorage.getItem("tipo-conta"); // ESTE CAMPO NÃO TEM NO BANCO
+        const titularConta = localStorage.getItem("titular-conta"); // ESTE CAMPO NÃO TEM NO BANCO
         const pessoa_fisica = localStorage.getItem("pessoa-fisica"); // ESTE CAMPO NÃO TEM NO BANCO
         const pessoa_juridica = localStorage.getItem("pessoa-juridica"); // ESTE CAMPO NÃO TEM NO BANCO
-        const agencia = (localStorage.getItem("agencia") + "-" + localStorage.getItem("digito-agencia"));
-        const conta = (localStorage.getItem("conta") + "-" + localStorage.getItem("digito-conta"));
+        const agencia = (localStorage.getItem("agencia") + "" + localStorage.getItem("digito-agencia"));
+        const conta = (localStorage.getItem("conta") + "" + localStorage.getItem("digito-conta"));
 
         // Informacoes endereco
-        const endereco = localStorage.getItem("endereco");
+        const rua = localStorage.getItem("endereco");
         const bairro = localStorage.getItem("bairro");
         const numero = localStorage.getItem("numero");
         const complemento = localStorage.getItem("complemento");
         const cep = localStorage.getItem("cep");
+        const zonaRegional = "Zona Leste"; // Verificar se e possivel pegar pela api viaCep
 
-        if (localStorage.getItem("prev-page") == "/cadastro-info-bancaria-prestador") {
+        if (localStorage.getItem("prev-page") === "/cadastro-info-bancaria-prestador") {
 
             // Informacoes baba
             const cozinhar = localStorage.getItem("cozinhar");
-            const preco_se_cozinha = 0.00;
+            const precoCozinheira = parseFloat(localStorage.getItem("precoCozinhar"));
             const limpar = localStorage.getItem("limpar");
-            const preco_se_limpa = 0.00;
-            const preco_ate_tres = 0.00;
-            const preco_tres_ate_oito = 0.00;
-            const preco_nove_ate_quinze = 0.00;
+            const precoLimpeza = parseFloat(localStorage.getItem("precoLimpeza"));
+            const precoAteTres = parseFloat(localStorage.getItem("precoAteTres"));
+            const precoTresAteOito = parseFloat(localStorage.getItem("precoTresAteOito"));
+            const precoNoveAteQuinze = parseFloat(localStorage.getItem("precoNoveAteQuinze"));
+            let profissao = "Baba";
 
             // Informacoes profissional
-            const cobra_por_hora = false;
-            const valor_hora = 0.00;
-            const valor_fixo = 0.00;
-            const qtd_dias_trabalha = localStorage.getItem("qtdSelectDias"); // ESTE CAMPO NÃO TEM NO BANCO
+            const cobrarPorHora = false;
+            const valorHora = parseFloat(localStorage.getItem("precoHora"));
+            const valorFixo = parseFloat(localStorage.getItem("precoFixo"));
+            const qtdDiasTrabalha = Number(localStorage.getItem("qtdSelectDias")); // ESTE CAMPO NÃO TEM NO BANCO
             const segunda = localStorage.getItem("segunda"); // ESTE CAMPO NÃO TEM NO BANCO
             const terca = localStorage.getItem("terca"); // ESTE CAMPO NÃO TEM NO BANCO
             const quarta = localStorage.getItem("quarta"); // ESTE CAMPO NÃO TEM NO BANCO
@@ -63,32 +67,13 @@ function Termos() {
             const sabado = localStorage.getItem("sabado"); // ESTE CAMPO NÃO TEM NO BANCO
             const domingo = localStorage.getItem("domingo"); // ESTE CAMPO NÃO TEM NO BANCO
 
+            if (tipoUsuario === 1) profissao = "Baba";
+
             const data = {
-                nome,
-                email,
-                senha,
-                telefone,
-                cpf,
-                tipo_usuario,
-
-                endereco,
-                bairro,
-                numero,
-                complemento,
-                cep,
-
-                banco,
-                tipo_conta,
-                titular_conta,
-                pessoa_fisica,
-                pessoa_juridica,
-                agencia,
-                conta,
-
-                cobra_por_hora,
-                valor_hora,
-                valor_fixo,
-                qtd_dias_trabalha,
+                cobrarPorHora,
+                valorHora,
+                valorFixo,
+                qtdDiasTrabalha,
                 segunda,
                 terca,
                 quarta,
@@ -96,14 +81,41 @@ function Termos() {
                 sexta,
                 sabado,
                 domingo,
-
-                cozinhar,
-                preco_se_cozinha,
-                limpar,
-                preco_se_limpa,
-                preco_ate_tres,
-                preco_tres_ate_oito,
-                preco_nove_ate_quinze
+                profissao,
+                usuario: {
+                    nome,
+                    email,
+                    senha,
+                    telefone,
+                    cpf,
+                    tipoUsuario,
+                    endereco: {
+                        rua,
+                        bairro,
+                        numero,
+                        complemento,
+                        cep,
+                        zonaRegional
+                    },
+                    usuarioConta: {
+                        banco,
+                        tipoConta,
+                        titularConta,
+                        pessoa_fisica,
+                        pessoa_juridica,
+                        agencia,
+                        conta
+                    }
+                },
+                baba: {
+                    cozinhar,
+                    precoCozinheira,
+                    limpar,
+                    precoLimpeza,
+                    precoAteTres,
+                    precoTresAteOito,
+                    precoNoveAteQuinze
+                }
             };
 
             console.log(data);
@@ -129,21 +141,24 @@ function Termos() {
                 senha,
                 telefone,
                 cpf,
-                tipo_usuario,
-
-                endereco,
-                bairro,
-                numero,
-                complemento,
-                cep,
-
-                banco,
-                tipo_conta,
-                titular_conta,
-                pessoa_fisica,
-                pessoa_juridica,
-                agencia,
-                conta,
+                tipoUsuario,
+                endereco: {
+                    rua,
+                    bairro,
+                    numero,
+                    complemento,
+                    cep,
+                    zonaRegional,
+                },
+                usuarioConta: {
+                    agencia,
+                    conta,
+                    titularConta,
+                    banco,
+                    tipoConta,
+                    pessoa_fisica,
+                    pessoa_juridica
+                }
             };
 
             console.log(data);
@@ -182,7 +197,7 @@ function Termos() {
 
             <div style={{ margin: '10%' }}>
                 <Link className="botao_termo" onClick={redirect} >Li e concordo com os termos de uso</Link>
-                <Link className="botao">Voltar</Link>
+                <Link className="botao" onClick={voltar} >Voltar</Link>
             </div>
 
         </div>
