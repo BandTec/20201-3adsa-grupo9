@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './avaliacao.css'
 import { makeStyles } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
-import avaliacaoGif from '../../assets/img/icons/avaliacao.gif';
-import { yellow } from '@material-ui/core/colors';
+import AvaliacaoIcon from '../../assets/img/icons/avaliacao.svg';
+
 
 
 function Avaliacao(){
@@ -39,8 +38,9 @@ function Avaliacao(){
 
             <div class="modal">
   <p className="message">Hey, antes de ir que tal dar uma avalição sobre o serviço?</p>
+  <img style={{width:'80px', margin:'10px'}} src={AvaliacaoIcon} />
 
-  <p className="message">Como voce classifica o serviço?</p>
+  <p className="message">Como você classifica o serviço?</p>
   <div className="estrelasAvaliacao">
       <div className={classes.root}>
       <Rating
@@ -60,7 +60,7 @@ function Avaliacao(){
 
 
 
-  <p style={{margin:'4%'}} className="message">Gostariamos de saber como foi sua experiencia: </p>
+  <p style={{margin:'2%'}} className="message">Gostariamos de saber como foi sua experiência: </p>
   <input className="comentarioAvaliacao"></input>
   <div className="options">
 

@@ -232,17 +232,15 @@ function CadastroPerfilPrestador() {
                 <label style={{ margin: '1%' }} for="scales">Cobrar por preço fixo</label>
                 <input style={{ marginTop: '2%', width: '20%', marginLeft: '40%' }} type="text" id="precoFixo" placeholder="Qual o valor que voce cobra?" />
 
-            </div>
+                 <div style={{padding:'3%'}} />
 
-
-            <div style={{ padding: '30%' }} />
-
-
-
-            <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--blue)", marginRight: "7%", color: "var(--white)", marginLeft: "19%" }} onClick={handleCadastroDoisPrestador}>Próximo passo</Link>
+                <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--blue)", marginRight: "7%", color: "var(--white)", marginLeft: "19%"}} onClick={handleCadastroDoisPrestador}>Próximo passo</Link>
             <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--pink)", color: "var(--white)" }} to='/cadastro'>Revisar dados anteriores</Link>
+                
+            <div style={{padding:'3%'}} />
 
-            <div style={{ margin: '5%' }}></div>
+            </div>
+            
         </div>
 
 

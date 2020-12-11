@@ -87,6 +87,18 @@ function CadastroEnderecoPrestador() {
                     <input  style={{margin:'1%', width:'50%'}} type="text" id="complemento" name="complemento" placeholder="Complemento" />
 
 
+                    <div className='zona'>
+                    <label style={{margin:'1%'}}>Selecione a zona que você se encontra: </label>
+                    <select className='select' id='selectZona'>
+                        <option value='0'>Selecione uma opção: </option>
+                        <option value='1'>Zona Sul</option>
+                        <option value='2'>Zona Leste</option>
+                        <option value='3'>Zona Oeste</option>
+                        <option value='4'>Zona Norte</option>
+                    </select>
+                </div>
+
+
                     <button className="ButtonLinkSquareCadastro" style={{ background: "var(--blue)", color: "var(--white)",padding:'25px', marginTop:'7%', marginLeft:'-23.2%', textAlign: 'center'}} type="submit" >Próximo passo</button>
                 </form>
             </div>

@@ -96,3 +96,8 @@
   -webkit-border-radius: 10px ;
   -ms-border-radius: 10px ;
 }
+
+.select{
+  width: 350px;
+  margin-left: 1%;
+}

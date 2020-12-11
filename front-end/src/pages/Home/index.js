@@ -67,7 +67,7 @@ function Home(){
                         <div className='blobs01'> 
                         <img style={{borderRadius: '50%', width: '90%', height: '90%', marginLeft:'4%', marginTop: '6%'}} src={ClienteImg01} alt='mulher sorrindo' />
                         </div>
-                        <h1 style={{color: 'var(--white)', fontSize: '20px', margin:'4%'}}>ANA</h1>
+                        <h1 style={{color: 'var(--white)', fontSize: '20px', margin:'4%', marginLeft:'45%'}}>ANA</h1>
                         <p style={{color: 'var(--white)', fontSize: '15px', textAlign: 'center'}}>"Plataforma muito boa, intuitiva e com ótimos profissionais."</p>
                         </div>
 
@@ -75,7 +75,7 @@ function Home(){
                         <div className='blobs02'> 
                         <img style={{borderRadius: '50%', width: '90%', height: '90%', marginLeft:'4%', marginTop: '6%'}} src={ClienteImg02} alt='homem sorrindo' />
                         </div>
-                        <h1 style={{color: 'var(--white)', fontSize: '20px', margin:'4%'}}>MARCOS</h1>
+                        <h1 style={{color: 'var(--white)', fontSize: '20px', margin:'4%', marginLeft:'40%'}}>MARCOS</h1>
                         <p style={{color: 'var(--white)', fontSize: '15px', textAlign: 'center'}}>“Após a solicitação dos profissionais, entraram em contato rapidamente, super atenciosos.”</p>
                         </div>
 
@@ -83,7 +83,7 @@ function Home(){
                         <div className='blobs03'> 
                         <img style={{borderRadius: '50%', width: '90%', height: '90%', marginLeft:'4%', marginTop: '6%'}} src={ClienteImg03} alt='mulher sorrindo'/>
                         </div>
-                        <h1 style={{color: 'var(--white)', fontSize: '20px', margin:'4%'}}>LIVIA</h1>
+                        <h1 style={{color: 'var(--white)', fontSize: '20px', margin:'4%', marginLeft:'45%'}}>LIVIA</h1>
                         <p style={{color: 'var(--white)', fontSize: '15px', textAlign: 'center'}}>“Excelente, serviço impecável, cuidadoso e atencioso. Eu recomendo!”</p>
                         </div>
 

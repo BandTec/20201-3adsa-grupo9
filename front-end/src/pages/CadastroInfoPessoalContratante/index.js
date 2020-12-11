@@ -41,24 +41,37 @@ function CadastroInfoPessoalContratante() {
                                     document.getElementById("bairro").value = response.data.bairro;
                                     document.getElementById("complemento").value = response.data.complemento;
                                 }} /> <img src={InfoIcon} alt="Ícone de interrogação indicando ajuda" />
-                            <label style={{marginTop:'-0.5%', marginLeft:'5%', color:'var(--white)'}}>Informe seu CEP:</label>
+                            <label style={{marginTop:'-0.5%', marginLeft:'5%', color:'var(--black)'}}>Informe seu CEP:</label>
                         </div>
                         <div className="input-container">
                             <input style={{margin:'-3%', marginLeft:'35%'}} type="text" id="endereco" name="endereco" />
-                            <label style={{marginTop:'-0.5%', marginLeft:'5%', color:'var(--white)'}}>Endereço:</label>
+                            <label style={{marginTop:'-0.5%', marginLeft:'5%', color:'var(--black)'}}>Endereço:</label>
                         </div>
                         <div className="input-container">
                             <input style={{margin:'5%', marginLeft:'35%'}} type="text" id="bairro" name="bairro" />
-                            <label style={{marginTop:'-0.5%', marginLeft:'5%', color:'var(--white)'}}>Bairro:</label>
+                            <label style={{marginTop:'-0.5%', marginLeft:'5%', color:'var(--black)'}}>Bairro:</label>
                         </div>
                         <div className="input-container">
                             <input style={{margin:'-2%', marginLeft:'35%'}} type="text" id="numero" name="numero" />
-                            <label style={{marginTop:'-0.5%', marginLeft:'5%', color:'var(--white)'}}>Número</label>
+                            <label style={{marginTop:'-0.5%', marginLeft:'5%', color:'var(--black)'}}>Número</label>
                         </div>
                         <div className="input-container">
                             <input style={{margin:'5%', marginLeft:'35%'}} type="text" id="complemento" name="complemento" />
-                            <label style={{marginTop:'-0.5%', marginLeft:'5%', color:'var(--white)'}}>Complemento:</label>
+                            <label style={{marginTop:'-0.5%', marginLeft:'5%', color:'var(--black)'}}>Complemento:</label>
                         </div>
+
+                        <div className='zona'>
+                    <label style={{margin:'1%', marginLeft:'35%'}}>Selecione a zona que você se encontra: </label>
+                    <select style={{marginLeft:'35%'}} className='select' id='selectZona'>
+                        <option value='0'>Selecione uma opção: </option>
+                        <option value='1'>Zona Sul</option>
+                        <option value='2'>Zona Leste</option>
+                        <option value='3'>Zona Oeste</option>
+                        <option value='4'>Zona Norte</option>
+                    </select>
+                </div>
+
+
                         <div className="BotoesLoginForm">
                             <button className="ButtonLinkSquareCadastro" style={{ background: "var(--blue", marginRight: " 5%", color: "var(--white)" , padding:'25px'}} type="submit" >Continuar cadastro</button>
                             <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--pink)", color: "var(--white)" }}>Revisar dados anteriores</Link>
