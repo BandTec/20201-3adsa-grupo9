@@ -3,6 +3,7 @@ package jobbyjobs.com.jobbyjobs.models;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "jobsSolicitados")
 public class JobsSolicitados {
 
     @Id

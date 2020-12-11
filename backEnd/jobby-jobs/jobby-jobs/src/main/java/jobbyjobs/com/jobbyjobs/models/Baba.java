@@ -27,7 +27,7 @@ public class Baba{
     @NotNull
     private Double precoLimpeza;
 
-    @Column(name = "prec_idade_ate_tres")
+    @Column(name = "preco_idade_ate_tres")
     @NotNull
     private Double precoAteTres;
 

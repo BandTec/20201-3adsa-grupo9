@@ -132,16 +132,13 @@ public class TrabalhadorController implements CalcularSalario {
     }
 
     @PostMapping
-    public ResponseEntity registrarTrabalhador(@RequestBody @Valid Profissional p) {
-        if(p.getProfissao().equals("Baba")){
-            babaRepository.save(p.getBaba());
-        }
-        Usuario usuarioCadastrado = p.getUsuario();
-        enderecoRepository.save(usuarioCadastrado.getEndereco());
-        usuarioContaRepository.save(usuarioCadastrado.getUsuarioConta());
-        userRepository.save(usuarioCadastrado);
+    public ResponseEntity registrarBaba(@RequestBody @Valid Profissional p) {
+        babaRepository.save(p.getBaba());
+        enderecoRepository.save(p.getUsuario().getEndereco());
+        usuarioContaRepository.save(p.getUsuario().getUsuarioConta());
+        userRepository.save(p.getUsuario());
         profissionalRepository.save(p);
-        return status(201).build();
+        return created(null).build();
     }
 
 

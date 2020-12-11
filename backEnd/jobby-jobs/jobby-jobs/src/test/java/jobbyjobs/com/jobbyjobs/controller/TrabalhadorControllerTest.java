@@ -1,10 +1,7 @@
 package jobbyjobs.com.jobbyjobs.controller;
 
 import jobbyjobs.com.jobbyjobs.models.*;
-import jobbyjobs.com.jobbyjobs.repositories.BabaRepository;
-import jobbyjobs.com.jobbyjobs.repositories.NotificacaoRepository;
-import jobbyjobs.com.jobbyjobs.repositories.ProfissionalRepository;
-import jobbyjobs.com.jobbyjobs.repositories.UsuariosJobRepository;
+import jobbyjobs.com.jobbyjobs.repositories.*;
 import jobbyjobs.com.jobbyjobs.services.RespostaCep;
 import jobbyjobs.com.jobbyjobs.services.ViaCepService;
 import jobbyjobs.com.jobbyjobs.utilities.CalculoOrcamento;
@@ -29,13 +26,19 @@ class TrabalhadorControllerTest {
 
 
     @Autowired
-    TrabalhadorController controller;
+    private TrabalhadorController controller;
 
     @MockBean
-    ProfissionalRepository profissionalRepository;
+    private ProfissionalRepository profissionalRepository;
 
     @MockBean
-    UsuariosJobRepository userRepository;
+    private UsuariosJobRepository userRepository;
+
+    @MockBean
+    private UsuarioContaRepository usuarioContaRepository;
+
+    @MockBean
+    private EnderecoRepository enderecoRepository;
 
     @MockBean
     BabaRepository babaRepository;
@@ -101,33 +104,25 @@ class TrabalhadorControllerTest {
     @Test
     @DisplayName("Deve retornar 201 após ter criado um registro de trabalhador")
     void registrarTrabalhador() {
-
-        Profissional profissional = Mockito.mock(Profissional.class);
-        profissional.setProfissao("Baba");
-
-        Mockito.when(profissional.getProfissao()).thenReturn("Baba");
-
-        ResponseEntity resposta = controller.registrarTrabalhador(profissional);
-        assertEquals(201, resposta.getStatusCodeValue());
-
-    }
-
-    @Test
-    @DisplayName("Deve retornar 201 após ter criado um registro de trabalhador (cenario 2)")
-    void registrarTrabalhadorCenario2() {
-
-        Profissional profissional = Mockito.mock(Profissional.class);
+        Profissional profissional = new Profissional();
+        Usuario usuario = new Usuario();
+        UsuarioConta usuarioConta = new UsuarioConta();
+        Endereco endereco = new Endereco();
         Baba baba = Mockito.mock(Baba.class);
 
-        profissional.setBaba(Mockito.mock(Baba.class));
-        profissional.setProfissao("Baba");
+        usuario.setEndereco(endereco);
+        usuario.setUsuarioConta(usuarioConta);
 
+        profissional.setUsuario(usuario);
 
-        Mockito.when(profissional.getProfissao()).thenReturn("Baba");
-        Mockito.when(profissionalRepository.save(profissional)).thenReturn(profissional);
         Mockito.when(babaRepository.save(baba)).thenReturn(baba);
+        Mockito.when(enderecoRepository.save(profissional.getUsuario().getEndereco())).thenReturn(endereco);
+        Mockito.when(usuarioContaRepository.save(usuarioConta)).thenReturn(usuarioConta);
+        Mockito.when(userRepository.save(usuario)).thenReturn(usuario);
+        Mockito.when(profissionalRepository.save(profissional)).thenReturn(profissional);
 
-        ResponseEntity resposta = controller.registrarTrabalhador(profissional);
+        ResponseEntity resposta = controller.registrarBaba(profissional);
+
         assertEquals(201, resposta.getStatusCodeValue());
 
     }
@@ -138,6 +133,7 @@ class TrabalhadorControllerTest {
         Usuario usuario = new Usuario();
         usuario.setEmail("teste123@teste.com");
         usuario.setSenha("senha");
+        usuario.setTipoUsuario(1);
         List<Usuario> usuarios = new ArrayList<>();
         usuarios.add(usuario);
 
@@ -147,7 +143,7 @@ class TrabalhadorControllerTest {
         ResponseEntity resposta = controller.fazerLogin(login);
 
         assertEquals(200, resposta.getStatusCodeValue());
-        assertEquals("Login Aceito!", resposta.getBody());
+        assertEquals(1, resposta.getBody());
     }
 
     @Test

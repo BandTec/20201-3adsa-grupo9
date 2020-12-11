@@ -1,9 +1,7 @@
 package jobbyjobs.com.jobbyjobs.controller;
 
 import jobbyjobs.com.jobbyjobs.models.*;
-import jobbyjobs.com.jobbyjobs.repositories.BabaRepository;
-import jobbyjobs.com.jobbyjobs.repositories.NotificacaoRepository;
-import jobbyjobs.com.jobbyjobs.repositories.UsuariosJobRepository;
+import jobbyjobs.com.jobbyjobs.repositories.*;
 import jobbyjobs.com.jobbyjobs.services.RespostaCep;
 import jobbyjobs.com.jobbyjobs.services.ViaCepService;
 import jobbyjobs.com.jobbyjobs.utilities.Login;
@@ -21,7 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-@SpringBootTest(classes = UsuariosController.class)
+@SpringBootTest
 class UsuariosControllerTest {
 
     @Autowired
@@ -29,6 +27,12 @@ class UsuariosControllerTest {
 
     @MockBean
     private UsuariosJobRepository usuarioRepository;
+
+    @MockBean
+    private UsuarioContaRepository usuarioContaRepository;
+
+    @MockBean
+    private EnderecoRepository enderecoRepository;
 
     @MockBean
     private NotificacaoRepository notificacaoRepository;
@@ -94,6 +98,10 @@ class UsuariosControllerTest {
     @DisplayName("Deve retornar 201 após ter criado um registro de usuario")
     void registrarUsuarios() {
         Usuario usuario = Mockito.mock(Usuario.class);
+        UsuarioConta usuarioConta = Mockito.mock(UsuarioConta.class);
+        Endereco endereco = Mockito.mock(Endereco.class);
+        Mockito.when(usuarioContaRepository.save(usuarioConta)).thenReturn(usuarioConta);
+        Mockito.when(enderecoRepository.save(endereco)).thenReturn(endereco);
         Mockito.when(usuarioRepository.save(usuario)).thenReturn(usuario);
 
         ResponseEntity resposta = controller.registrarUsuarios(usuario);
@@ -126,6 +134,7 @@ class UsuariosControllerTest {
         Usuario usuario = new Usuario();
         usuario.setEmail("teste123@teste.com");
         usuario.setSenha("senha");
+        usuario.setTipoUsuario(2);
         List<Usuario> usuarios = new ArrayList<>();
         usuarios.add(usuario);
 
@@ -135,7 +144,7 @@ class UsuariosControllerTest {
         ResponseEntity resposta = controller.fazerLogin(login);
 
         assertEquals(200, resposta.getStatusCodeValue());
-        assertEquals("Login Aceito!", resposta.getBody());
+        assertEquals(2, resposta.getBody());
     }
 
     @Test
