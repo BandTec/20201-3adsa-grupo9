@@ -9,50 +9,31 @@
     margin-left: 450px
 }
 
+.PagamentoCartaoContent h1{
+    font-weight: 400;
+    margin-top: 20px;
+    font-size: 31px;
+}
+
 .PagamentoCartaoContent h3{
     font-weight: 400;
     font-size: 32px;
     text-align: center;
-    margin-bottom: 610px;
+    margin-bottom: 590px;
     margin-left: -800px;
 }
 
 .PagamentoCartaoContent h4 {
     font-weight: 400;
-    margin-left: -450px;
+    margin-left: -490px;
     font-size: 25px;
-    margin-top: -582px;
+    margin-top: -562px;
 }
 
 .Cartoes{
     width: 300px;
-    margin-left: -450px;
-}
-
-.FormPagamentoCartao{
-    margin-top: 35px;
-    margin-left:-750px;
-}
-
-
-.FormPagamentoCartao h1{
-    font-size: 20px;
-    font-weight: 400;
-    margin-left: -318px;;
-}
-
-.FormPagamentoCartao input{
-    width: 18%;
-}
-
-.Validade{
-    margin-top: -83.7px;
-    margin-left: 1100PX;
-}
-
-.Validade input{
-    width: 65px;
-    margin-left: -213px;
+    margin-left: -480px;
+    margin-top: -15px;
 }
 
 .Dados{
@@ -74,3 +55,4 @@
     margin: 10px;
     margin-left: 25%;
 }
+

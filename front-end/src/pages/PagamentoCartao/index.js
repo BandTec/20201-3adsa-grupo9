@@ -21,56 +21,57 @@ function PagamentoCartao(){
                     <h4>Escolha o cartão de crédito/débito</h4> 
 
                     <Select  isMulti className="Cartoes" options={tiposCartoes} placeholder="Selcione o tipo de cartão"/>
-
-                   <form className='FormPagamentoCartao' onSubmit={function handleSubmit(){}}>
                         <div>
-                            <h1 style={{marginLeft:'-730px'}}>Número cartão:</h1>
+                            <h1 style={{marginLeft:'-480px', marginTop:'30px'}}>Número cartão:</h1>
                             <label>
-                                <input style={{marginLeft:'300px'}} type="text" name="nome"/>
+                                <input style={{width:'40%', marginLeft:'-480px',marginTop:'15px'}} type="text" name="nome"/>
                             </label>
                         </div>
                         <div className='Validade'>
-                            <h1 style={{marginLeft:'-700px'}}>Data de validade e CVV:</h1>
+                            <h1 style={{marginTop:'-97px'}}>Data de validade e CVV:</h1>
                             <label>
-                                <input style={{marginLeft:'-80px'}} type="text" name="validade" placeholder=" ---"/>
-                                <input style={{marginLeft:'-175px', marginTop:'-50px'}}type="text" name="validade" placeholder="  --"/> 
-                                <input style={{marginLeft:'-275px', marginTop:'-50px'}}type="text" name="validade" placeholder="  --"/> 
+                                <input style={{width:'8%', margin:'2%',marginLeft:'3px', marginTop:'14px'}}type="text" name="validade" placeholder="   --"/> 
+                            </label>
+                            <label>
+                                <input style={{width:'8%', marginLeft:'110x', marginTop:'-52px'}}type="text" name="validade" placeholder="   --"/> 
+                            </label>
+                            <label>
+                                <input style={{width:'8%', marginLeft:'220px', marginTop:'-47px'}} type="text" name="validade" placeholder=" ---"/>
                             </label>
                         </div>
-                        <h3 style={{marginLeft:'-605px', marginTop:'30px', fontSize:'32px'}}>Dados de Cobraça</h3><br/>
+                        <h3 style={{marginRight:'615px', marginTop:'70px', fontSize:'32px'}}>Dados de Cobraça</h3><br/>
                         <div className="Dados">
-                            <h1 style={{marginRight:'490px'}}>Nome:</h1>
+                            <h1 style={{marginTop:'35px' ,marginLeft:'-482px'}}>Nome:</h1>
                             <label>
-                                <input style={{width:'12%', marginLeft:'305px'}} type="text" name="nome" />
+                                <input style={{width:'28%', marginLeft:'-477px', marginTop: '5px'}} type="text" name="nome" />
                             </label>
-                            <h1 style={{marginTop:'-84px', marginRight:'-70px'}}>Sobrenome:</h1>
+                            <h1 style={{marginTop:'-84px', marginLeft:'-180px'}}>Sobrenome:</h1>
                             <label>
-                                <input style={{width:'12%', marginLeft:'560px'}} type="text" name="sobrenome" />
+                                <input style={{width:'30%', marginLeft:'-177px', marginTop:'2px'}} type="text" name="sobrenome" />
                             </label>
-                            <h1 style={{marginTop:'-84px', marginLeft:'340px'}}>Cidade:</h1>
+                            <h1 style={{marginTop:'-84px', marginLeft:'150px'}}>Cidade:</h1>
                             <label>
-                                <input style={{width:'15%', marginLeft:'838px'}} type="text" name="cidade" />
+                                <input style={{width:'27%', marginLeft:'153px', marginTop:'0px'}} type="text" name="cidade" />
                             </label>
-                            <h1 style={{marginTop:'40px', marginLeft:'-560px'}}>Endereço de cobrança:</h1>
+                            <h1 style={{marginTop:'65px', marginLeft:'-480px'}}>Endereço de cobrança:</h1>
                             <label>
-                                <input style={{marginLeft:'305px'}} type="text" name="endereco"/>
+                                <input style={{width:'49%', marginLeft:'-477px', marginTop:'5px'}} type="text" name="endereco"/>
                             </label>
-                            <h1 style={{marginTop:'-85px', marginLeft:'320px'}}>CEP:</h1>
+                            <h1 style={{marginTop:'-85px', marginLeft:'80px'}}>CEP:</h1>
                             <label>
-                                <input style={{width:'17%', marginLeft:'840px'}} type="text" name="CEP"/>
+                                <input style={{width:'35%', marginLeft:'85px', marginTop:'1px'}} type="text" name="CEP"/>
                             </label>
-                            <h1 style={{marginTop:'40px', marginRight:'355px'}}>Número de telefone:</h1>
+                            <h1 style={{marginTop:'50px', marginLeft:'-477px'}}>Número de telefone:</h1>
                             <label>
-                                <input style={{marginLeft:'304px'}} type="text" name="telefone"/>
+                                <input style={{width:'44%' ,marginLeft:'-473px',marginTop:'5px'}} type="text" name="telefone"/>
                             </label>
                         </div>
-                   </form>
                    <label>
-                        <input style={{marginLeft:'-440px', marginTop:'35px'}} type="checkbox"/> Salvar os meus dados de pagamento<br/>
+                        <input style={{marginLeft:'-470px', marginTop:'75px'}} type="checkbox"/> Salvar os meus dados de pagamento<br/>
                    </label>
                     <h1 style={{fontWeight:'400', fontSize:'15px', marginTop:'10px', marginLeft:'-1200px'}}>Você terá a chance de revisar antes de ser finalizado.</h1>
                 </div>
-                <div style={{ margin: '5%' }}></div>
+                <div style={{ margin: '3%' }}></div>
                 <Link className="ButtonLinkSquareCadastro" style={{ background: "var(--pink)", color: "var(--white)", marginLeft: '20%', padding:'15px', fontWeight:'400'}} type="submit">Finalizar Pagamento</Link>
                 <div>
                     <BannerLogoLateral className={"LogoDireita"}/> 
