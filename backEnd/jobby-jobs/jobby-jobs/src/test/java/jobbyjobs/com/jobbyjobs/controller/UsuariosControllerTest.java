@@ -4,6 +4,7 @@ import jobbyjobs.com.jobbyjobs.models.*;
 import jobbyjobs.com.jobbyjobs.repositories.BabaRepository;
 import jobbyjobs.com.jobbyjobs.repositories.NotificacaoRepository;
 import jobbyjobs.com.jobbyjobs.repositories.UsuariosJobRepository;
+import jobbyjobs.com.jobbyjobs.services.RespostaCep;
 import jobbyjobs.com.jobbyjobs.services.ViaCepService;
 import jobbyjobs.com.jobbyjobs.utilities.Login;
 import org.junit.jupiter.api.DisplayName;
@@ -193,34 +194,4 @@ class UsuariosControllerTest {
         assertFalse(logados.isEmpty());
     }
 
-    @Test
-    @DisplayName("Deve retornar 200 se exitir uma baba com certo id, para ser notificada")
-    void pedirOrcamentoBaba() {
-        int id = 10;
-        Notificacoes notificacoes = Mockito.mock(Notificacoes.class);
-        Baba baba = Mockito.mock(Baba.class);
-
-        notificacoes.setMsg("Pedido de orçamento requisitado");
-        notificacoes.setBabaNotificada(baba);
-
-        Mockito.when(babaRepository.findById(id)).thenReturn(Optional.of(baba));
-        Mockito.when(notificacaoRepository.save(notificacoes)).thenReturn(notificacoes);
-        ResponseEntity resposta = controller.pedirOrcamentoBaba(id);
-
-        assertEquals(200, resposta.getStatusCodeValue());
-
-    }
-
-    @Test
-    @DisplayName("Deve retornar 404 se exitir uma baba com certo id, para ser notificada")
-    void pedirOrcamentoBabaCenario2() {
-        int id = 10;
-
-        Mockito.when(babaRepository.findById(id)).thenReturn(Optional.empty());
-        ResponseEntity resposta = controller.pedirOrcamentoBaba(id);
-
-        assertEquals(404, resposta.getStatusCodeValue());
-        assertEquals(null, resposta.getBody());
-
-    }
 }

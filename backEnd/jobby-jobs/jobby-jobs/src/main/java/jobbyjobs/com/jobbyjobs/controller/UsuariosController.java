@@ -7,6 +7,9 @@ import java.util.Optional;
 import jobbyjobs.com.jobbyjobs.models.*;
 import jobbyjobs.com.jobbyjobs.objects.PilhaObj;
 import jobbyjobs.com.jobbyjobs.repositories.*;
+import jobbyjobs.com.jobbyjobs.services.RespostaCep;
+import jobbyjobs.com.jobbyjobs.services.RespostaSms;
+import jobbyjobs.com.jobbyjobs.services.SmsService;
 import jobbyjobs.com.jobbyjobs.services.ViaCepService;
 import jobbyjobs.com.jobbyjobs.utilities.AvaliarBaba;
 import jobbyjobs.com.jobbyjobs.utilities.FazerPedido;
@@ -51,6 +54,9 @@ public class UsuariosController {
 
     @Autowired
     private ViaCepService service;
+
+    @Autowired
+    private SmsService smsService;
 
     @GetMapping
     public ResponseEntity getUsuarios() {
@@ -114,23 +120,6 @@ public class UsuariosController {
         return this.logados.isEmpty() ? status(204).build() : ok(this.logados);
     }
 
-    @GetMapping("/pedir-orcamento/{id}")
-    public ResponseEntity pedirOrcamentoBaba(@PathVariable int id) {
-        String msg = "Pedido de orçamento requisitado";
-        Notificacoes notificacoes = new Notificacoes();
-        Optional<Baba> babaExistente = babaRepository.findById(id);
-
-        if (babaExistente.isPresent()) {
-            Baba b = babaExistente.get();
-            notificacoes.setMsg(msg);
-            notificacoes.setBabaNotificada(b);
-            notificacaoRepository.save(notificacoes);
-            return ok().build();
-        } else {
-            return notFound().build();
-        }
-    }
-
     @PostMapping("/avaliar")
     public ResponseEntity avaliarBaba(
             @RequestBody AvaliarBaba obj,
@@ -158,7 +147,7 @@ public class UsuariosController {
         return notFound().build();
     }
 
-    @GetMapping ("/empilhar/{idBaba}")
+    @GetMapping ("/avaliacoes/{idBaba}")
     public ResponseEntity empilharBaba(
 
             @PathVariable Integer idBaba
@@ -187,6 +176,15 @@ public class UsuariosController {
             return ok(avaliacoesPilha);
     }}
 
+    @PostMapping("/sms")
+    public RespostaSms enviarSms(Long number, String nome) {
+        String key = "25HVE9MLHJ5JN55T4331KM81ZPS489ZVC88SE8A9IKVMRATE88ZI8A81V90NIMGTREC2DF2NOZOBX1G7YRNGJ7X7H9GXUR2AY7P5QV1X8NU5CP9U1N31TE19NSZ864XN";
+        Integer type = 9;
+        String msg = "Você recebeu um pedido de trabalho, realizado por: " +nome+ ", faça login em nossa " +
+                "plataforma para mais informações!";
+        return smsService.enviarSms(key,type, number, msg);
+    }
+
     @PostMapping("/fazer-pedido")
     public ResponseEntity fazerPedidoBaba(
             @RequestParam(required = true) Integer idBaba,
@@ -206,16 +204,15 @@ public class UsuariosController {
             jobsSolicitado.setUsuarioSolicitante(user);
 
             jobsSolicitadosRepository.save(jobsSolicitado);
+//            Long telefone = Long.parseLong(user.getTelefone()+"L");
+//            RespostaSms respostaSms = enviarSms(telefone, user.getNome());
             return ok("Pedido realizado com sucesso!");
         }
         return notFound().build();
     }
 
-//    @GetMapping("/api-mapa")
-//    public ResponseEntity api() {
-//       return ok(ApiGoogle.calcular("Rua Augusta, 500, Sao Paulo - SP",
-//                "Avenida Liberdade, 800, Sao Paulo - SP"));
-//    }
+
+
 
 
 

@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import jobbyjobs.com.jobbyjobs.calcularSalario;
+import jobbyjobs.com.jobbyjobs.CalcularSalario;
 import jobbyjobs.com.jobbyjobs.models.*;
 import jobbyjobs.com.jobbyjobs.objects.FilaObj;
 import jobbyjobs.com.jobbyjobs.repositories.*;
+import jobbyjobs.com.jobbyjobs.services.RespostaCep;
 import jobbyjobs.com.jobbyjobs.services.ViaCepService;
 import jobbyjobs.com.jobbyjobs.utilities.CalculoOrcamento;
 import jobbyjobs.com.jobbyjobs.utilities.Login;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -25,7 +25,7 @@ import static org.springframework.http.ResponseEntity.*;
 @CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @RestController
 @RequestMapping("/trabalhadores")
-public class TrabalhadorController implements calcularSalario {
+public class TrabalhadorController implements CalcularSalario {
 
     @Autowired
     private ProfissionalRepository profissionalRepository;
@@ -56,7 +56,6 @@ public class TrabalhadorController implements calcularSalario {
 
     private final List<Login> logados = new ArrayList<>();
 
-    @Scheduled(fixedRate = 5000)
     @GetMapping("/notificacoes-alert")
     public FilaObj<JobsSolicitados> verificarFila(){
         if (solicitacoes.isEmpty()){
@@ -68,18 +67,11 @@ public class TrabalhadorController implements calcularSalario {
 
     @GetMapping("/solicitacoes/{id}")
     public ResponseEntity getSolicitacoes(@PathVariable Integer id){
-       Thread threadGetSolicitacoes= new Thread(){
-           @Override
-           public void run(){
-               if (!solicitadosRepository.findByBabaSolicitadaId(id).isEmpty()){
-                   for(JobsSolicitados j: solicitadosRepository.findByBabaSolicitadaId(id)){
-                       solicitacoes.insert(j);
-                   }
-               }
+       if (!solicitadosRepository.findByBabaSolicitadaId(id).isEmpty()){
+           for(JobsSolicitados j: solicitadosRepository.findByBabaSolicitadaId(id)){
+               solicitacoes.insert(j);
            }
-       };
-
-        threadGetSolicitacoes.start();
+       }
 
         FilaObj<JobsSolicitados> retorno = verificarFila();
 
@@ -217,22 +209,12 @@ public class TrabalhadorController implements calcularSalario {
 
     }
 
-    @GetMapping("notificacoes/{id}")
-    public ResponseEntity getNotificacoes(@PathVariable Integer id) {
-        Optional<Baba> babaExistente = babaRepository.findById(id);
-
-        if (babaExistente.isPresent()) {
-            List<Notificacoes> notificacoes  = notificacaoRepository.findByBabaNotificadaId(id);
-            return ok(notificacoes);
-        } else {
-            return notFound().build();
-        }
-    }
-
     @GetMapping("/cep/{cep}")
     public ResponseEntity getCep(@PathVariable  String cep) {
         RespostaCep respostaCep = service.getCep(cep);
         return ResponseEntity.ok(respostaCep);
     }
+
+
 
 }

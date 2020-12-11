@@ -5,6 +5,7 @@ import jobbyjobs.com.jobbyjobs.repositories.BabaRepository;
 import jobbyjobs.com.jobbyjobs.repositories.NotificacaoRepository;
 import jobbyjobs.com.jobbyjobs.repositories.ProfissionalRepository;
 import jobbyjobs.com.jobbyjobs.repositories.UsuariosJobRepository;
+import jobbyjobs.com.jobbyjobs.services.RespostaCep;
 import jobbyjobs.com.jobbyjobs.services.ViaCepService;
 import jobbyjobs.com.jobbyjobs.utilities.CalculoOrcamento;
 import jobbyjobs.com.jobbyjobs.utilities.Login;
@@ -199,35 +200,6 @@ class TrabalhadorControllerTest {
         Login logado = new Login("teste123@teste.com", "teste");
         logados.add(logado);
         assertFalse(logados.isEmpty());
-    }
-
-    @Test
-    @DisplayName("Deve retornar 404 caso não exista uma baba especifico no banco")
-    void getNotificacoes() {
-
-        int id = 10;
-        Mockito.when(babaRepository.findById(id)).thenReturn(Optional.empty());
-
-        ResponseEntity resposta = controller.getNotificacoes(id);
-
-        assertEquals(404, resposta.getStatusCodeValue());
-        assertEquals(null, resposta.getBody());
-    }
-
-    @Test
-    @DisplayName("Deve retornar 200 caso exista uma baba especifico no banco")
-    void getNotificacoesCenario2() {
-        Baba baba = Mockito.mock(Baba.class);
-        List<Notificacoes> notificacoes = Arrays.asList(Mockito.mock(Notificacoes.class));
-        int id = 10;
-
-        Mockito.when(babaRepository.findById(id)).thenReturn(Optional.of(baba));
-        Mockito.when(notificacaoRepository.findByBabaNotificadaId(id)).thenReturn(notificacoes);
-
-        ResponseEntity resposta = controller.getNotificacoes(id);
-
-        assertEquals(200, resposta.getStatusCodeValue());
-        assertEquals(notificacoes, resposta.getBody());
     }
 
     @Test
