@@ -16,7 +16,7 @@ insert into usuario
 
  insert into baba
  (id_baba, cozinhar, limpar, preco_se_cozinha, preco_se_limpa,
-  prec_idade_ate_tres, preco_idade_tres_ate_oito, preco_idade_nove_ate_quinze) values
+  preco_idade_ate_tres, preco_idade_tres_ate_oito, preco_idade_nove_ate_quinze) values
   (null, true, true, 50.00, 50.00 , 75.00, 45.00, 25.00);
 
   insert into profissional
