@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import jobbyjobs.com.jobbyjobs.CalcularSalario;
+import jobbyjobs.com.jobbyjobs.utilities.CalcularSalario;
 import jobbyjobs.com.jobbyjobs.models.*;
 import jobbyjobs.com.jobbyjobs.objects.FilaObj;
 import jobbyjobs.com.jobbyjobs.repositories.*;
