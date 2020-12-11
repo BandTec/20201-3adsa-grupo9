@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Popover from '@material-ui/core/Popover';
 import Badge from '@material-ui/core/Badge';
+import { makeStyles } from '@material-ui/core/styles';
 
 import api from '../../services/api';
 import CaixaDeNotificacao from '../MenuLogado/CaixaDeNotificacao';
@@ -11,7 +12,17 @@ import NotificacaoIcon from '../../assets/img/icons/61073.png';
 
 import './menu-logado.css';
 
+//Estilizacao da badge de notificacoes
+const useStyles = makeStyles ({
+    customBadge: {
+        backgroundColor:'#8FFF4F',
+    }
+});
+//Estilizacao da badge de notificacoes
+
 function MenuLogado() {
+
+    const classes = useStyles();
 
     // Parametros da notificacao do card
     const [invisible, setInvisible] = React.useState(false);
@@ -45,11 +56,13 @@ function MenuLogado() {
     };
 
     const open = Boolean(anchorEl);
+
     const id = open ? 'simple-popover' : undefined;
     // Parametros do popouver
 
     // Parametros de rota por tipo de usuario
     const [urlPerfil, setUrlPerfil] = React.useState('');
+
     async function getTipoUsuario() {
         if (localStorage.getItem() === 1) {
             setUrlPerfil("/perfil-prestador");
@@ -79,8 +92,8 @@ function MenuLogado() {
 
             <Link className="ButtonLink" to={urlPerfil}>Perfil</Link>
 
-            {/* Cores da badge: default, error, primary ou secondary */}
-            <Link id={id} onClick={handleClick} > <Badge color="secondary" variant="dot" invisible={invisible} anchorOrigin={{ vertical: 'top', horizontal: 'left', }}> <img style={{ height: "40px", paddingTop: "3px" }} src={NotificacaoIcon} alt="Ícone de notificação" /> </Badge> </Link>
+            {/* Cores da badge: default, error, primary ou secondary color="secondary" */}
+            <Link id={id} onClick={handleClick} > <Badge classes={{ badge: classes.customBadge}} variant="dot" invisible={invisible} anchorOrigin={{ vertical: 'top', horizontal: 'left', }}> <img style={{ height: "40px", paddingTop: "3px" }} src={NotificacaoIcon} alt="Ícone de notificação" /> </Badge> </Link>
 
             <Popover
                 id={id}
