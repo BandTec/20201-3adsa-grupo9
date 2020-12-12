@@ -1,10 +1,13 @@
 package jobbyjobs.com.jobbyjobs.controller;
 
+import jobbyjobs.com.jobbyjobs.models.Endereco;
+import jobbyjobs.com.jobbyjobs.repositories.EnderecoRepository;
 import jobbyjobs.com.jobbyjobs.utilities.GravaCsv;
 import jobbyjobs.com.jobbyjobs.utilities.GravaTxt;
 import jobbyjobs.com.jobbyjobs.objects.ListaObj;
 import jobbyjobs.com.jobbyjobs.models.Usuario;
 import jobbyjobs.com.jobbyjobs.repositories.UsuariosJobRepository;
+import jobbyjobs.com.jobbyjobs.utilities.ImportarArquivo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -15,6 +18,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @RestController
@@ -25,6 +31,9 @@ public class DonwloadController {
 
     @Autowired
     UsuariosJobRepository usuariosJobRepository;
+
+    @Autowired
+    EnderecoRepository enderecoRepository;
 
     @GetMapping(value = "/txt", produces={"application/txt"})
     @ResponseBody
@@ -61,8 +70,17 @@ public class DonwloadController {
 
     @PostMapping("/importar")
     public ResponseEntity enviar(@RequestBody byte[] conteudoArquivo) throws IOException {
-        Path path = Paths.get("nova-leitura.txt");
+        Date dataDeHoje = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat(
+                "ddMMyyyy-HHmmss");
+        String nomeArquivo = "novas-enderecos" + "-" + formatter.format(dataDeHoje) + ".txt";
+        Path path = Paths.get(nomeArquivo);
         Files.write(path, conteudoArquivo);
+        List<Endereco> enderecoAdicionado = ImportarArquivo.leArquivo(nomeArquivo);
+
+        for(Endereco e: enderecoAdicionado){
+            enderecoRepository.save(e);
+        }
         return ResponseEntity.created(null).build();
     }
 

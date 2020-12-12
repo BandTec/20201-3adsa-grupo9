@@ -1,8 +1,10 @@
 package jobbyjobs.com.jobbyjobs.utilities;
 
 
+import jobbyjobs.com.jobbyjobs.models.Endereco;
 import jobbyjobs.com.jobbyjobs.models.Usuario;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,15 +14,15 @@ import java.util.List;
     // CLASSE DE EXEMPLO PARA LEITURA E IMPORTAÇÃO DO ARQUIVO
     public class ImportarArquivo {
 
-        public static List<Usuario> leArquivo(String nomeArq) {
+        public static List<Endereco> leArquivo(String nomeArq) {
 
             BufferedReader entrada = null;
             String registro;
             String tipoRegistro;
-            String marcaCamiseta, modalidadeCamiseta, timeCamiseta;
-            Double valorCamiseta;
+            String rua, bairro, complemento, zonaRegional, cep;
+            Integer numero;
             int contRegistro=0;
-            List<Usuario> camisetasEstoquesNovas = new ArrayList<>();
+            List<Endereco> enderecos = new ArrayList<>();
 
             try {
                 entrada = new BufferedReader(new FileReader(nomeArq));
@@ -36,13 +38,13 @@ import java.util.List;
 
                     if (tipoRegistro.equals("00")) {
                         System.out.println("Header");
-                        System.out.println("Tipo de arquivo: " + registro.substring(3, 29));
-                        System.out.println("Data/hora de geração do arquivo: " + registro.substring(30,40));
-                        System.out.println("Versão do layout: " + registro.charAt(42));
+                        System.out.println("Tipo de arquivo: " + registro.substring(3, 23));
+                        System.out.println("Data/hora de geração do arquivo: " + registro.substring(25,35));
+                        System.out.println("Versão do layout: " + registro.charAt(37));
                     }
                     else if (tipoRegistro.equals("01")) {
                         System.out.println("\nTrailer");
-                        int qtdRegistro = Integer.parseInt(registro.substring(3,8));
+                        int qtdRegistro = Integer.parseInt(registro.substring(8));
                         if (qtdRegistro == contRegistro) {
                             System.out.println("Quantidade de registros gravados compatível com quantidade lida");
                         }
@@ -53,17 +55,31 @@ import java.util.List;
                     else if (tipoRegistro.equals("02")) {
                         if (contRegistro == 0) {
                             System.out.println();
-                            System.out.printf("%-5s %-8s %-50s %-40s\n", "MARCA","MODALIDADE","TIME","VALOR");
-
                         }
 
-                        marcaCamiseta = registro.substring(3,12);
-                        modalidadeCamiseta = registro.substring(13,22);
-                        timeCamiseta = registro.substring(23,47);
-                        valorCamiseta = Double.parseDouble(registro.substring(49,54).replace(',','.'));
+                        rua = registro.substring(3,47); // tamanho 45
+                        bairro = registro.substring(48,62); // tamanho 15
+                        numero = Integer.parseInt(registro.substring(63,67)); // tamanho 4
+                        complemento = registro.substring(67,76); // tamanho 10
+                        zonaRegional = registro.substring(77,87); // tamanho 10
+                        cep = registro.substring(87,95); // tamanho 8
 
+                        Endereco e = new Endereco();
+                        e.setRua(rua);
+                        e.setBairro(bairro);
+                        e.setNumero(numero);
+                        e.setComplemento(complemento);
+                        e.setZonaRegional(zonaRegional);
+                        e.setCEP(cep);
 
-                        System.out.printf("%-5s %-8s %-50s %-40.2f\n", marcaCamiseta, modalidadeCamiseta, timeCamiseta,valorCamiseta);
+                        enderecos.add(e);
+
+                        System.out.println("Rua: " + rua);
+                        System.out.println("Bairro: " + bairro);
+                        System.out.println("Numero: " + numero);
+                        System.out.println("Complemento: " + complemento);
+                        System.out.println("Zona Regional: " + zonaRegional);
+                        System.out.println("CEP: " + cep);
                         contRegistro++;
                     }
                     else {
@@ -78,7 +94,7 @@ import java.util.List;
                 System.err.printf("Erro ao ler arquivo: %s.\n", e.getMessage());
             }
 
-            return camisetasEstoquesNovas;
+            return enderecos;
 
         }
     }
