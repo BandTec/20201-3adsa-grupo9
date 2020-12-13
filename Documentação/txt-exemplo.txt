@@ -1,4 +1,4 @@
 00-CADASTRO-DE-ENDEREÇOS-11/12/2020-01
 02-Rua Manuel Augusto Ferreirinha               Boa Vista      1300apto13    Zona Sul  09580020
-02-Avenida Paulista                             Jardins        0950 apto82   Zona Leste08654039
+02-Avenida Paulista                             Jardins        0950apto82    Zona Leste08654039
 01-000002
