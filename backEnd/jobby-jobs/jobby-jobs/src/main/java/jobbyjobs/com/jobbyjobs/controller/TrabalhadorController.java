@@ -51,7 +51,7 @@ public class TrabalhadorController implements CalcularSalario {
     @Autowired
     private ViaCepService service;
 
-    private final FilaObj<JobsSolicitados> solicitacoes = new FilaObj(10);
+    private final FilaObj<JobsSolicitados> solicitacoes = new FilaObj(100);
     List<JobsSolicitados> solicitadosExibe = new ArrayList<>();
 
     private final List<Login> logados = new ArrayList<>();
@@ -67,23 +67,25 @@ public class TrabalhadorController implements CalcularSalario {
 
     @GetMapping("/solicitacoes/{id}")
     public ResponseEntity getSolicitacoes(@PathVariable Integer id){
-       if (!solicitadosRepository.findByBabaSolicitadaId(id).isEmpty()){
-           for(JobsSolicitados j: solicitadosRepository.findByBabaSolicitadaId(id)){
-               solicitacoes.insert(j);
-           }
-       }
 
-        FilaObj<JobsSolicitados> retorno = verificarFila();
+        List<JobsSolicitados> jobsExistentes = solicitadosRepository.findByBabaSolicitadaId(id);
 
-        if(retorno == null){
+        if(jobsExistentes.isEmpty()){
             return noContent().build();
         } else {
-            //Garante que vai trazer apenas os dados que exitem no banco
-            solicitadosExibe.clear();
-
-            while (!solicitacoes.isEmpty()){
-                solicitadosExibe.add(solicitacoes.poll());
+            for (JobsSolicitados j : jobsExistentes){
+                solicitacoes.insert(j);
             }
+        }
+
+        solicitadosExibe.clear();
+        while (!solicitacoes.isEmpty()){
+            solicitadosExibe.add(solicitacoes.poll());
+        }
+
+        if(solicitadosExibe.isEmpty()){
+            return noContent().build();
+        } else {
             return ok(solicitadosExibe);
         }
     }

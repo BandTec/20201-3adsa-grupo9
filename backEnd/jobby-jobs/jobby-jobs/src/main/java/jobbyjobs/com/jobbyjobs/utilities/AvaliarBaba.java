@@ -4,6 +4,8 @@ public class AvaliarBaba {
 
     private String msg;
     private Integer nota;
+    private String emailAvaliador;
+    private Integer babaAvaliada;
 
     public String getMsg() {
         return msg;
@@ -17,6 +19,20 @@ public class AvaliarBaba {
     }
     public void setNota(Integer nota) {
         this.nota = nota;
+    }
+
+    public String getEmailAvaliador() {
+        return emailAvaliador;
+    }
+    public void setEmailAvaliador(String emailAvaliador) {
+        this.emailAvaliador = emailAvaliador;
+    }
+
+    public Integer getBabaAvaliada() {
+        return babaAvaliada;
+    }
+    public void setBabaAvaliada(Integer babaAvaliada) {
+        this.babaAvaliada = babaAvaliada;
     }
 
     @Override

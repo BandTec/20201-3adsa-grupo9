@@ -122,16 +122,14 @@ public class UsuariosController {
 
     @PostMapping("/avaliar")
     public ResponseEntity avaliarBaba(
-            @RequestBody AvaliarBaba obj,
-            @RequestParam(required = true) String email,
-            @RequestParam(required = true) Integer idBaba
+            @RequestBody AvaliarBaba obj
     ){
         Avaliacoes avaliacao = new Avaliacoes();
         avaliacao.setMsg_avaliativa(obj.getMsg());
         avaliacao.setNota(obj.getNota());
 
-        Optional<Baba> babaEncontrada = babaRepository.findById(idBaba);
-        Optional<Usuario> usuarioEncontrado = usuarioRepository.findByEmail(email);
+        Optional<Baba> babaEncontrada = babaRepository.findById(obj.getBabaAvaliada());
+        Optional<Usuario> usuarioEncontrado = usuarioRepository.findByEmail(obj.getEmailAvaliador());
 
         if(usuarioEncontrado.isPresent()){
             Usuario user = usuarioEncontrado.get();
