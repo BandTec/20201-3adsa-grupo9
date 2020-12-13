@@ -24,7 +24,6 @@ function Login() {
 
         try {
             const response = await api.post('usuarios/login', data);
-            console.log(response);
             localStorage.setItem('email', email);
             if (response.data === 1) {
                 localStorage.setItem('tipo-usuario', response.data);

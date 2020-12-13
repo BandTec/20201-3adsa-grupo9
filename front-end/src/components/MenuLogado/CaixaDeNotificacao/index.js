@@ -24,52 +24,27 @@ const useStyles = makeStyles({
 
 function CaixaDeNotificacao() {
 
-    const [notificacoes, setNotificacoes] = useState([]);
+    const [notificacoes, setNotificacoes] = useState([{}]);
+
 
     useEffect(() => {
-        // const response = api.get('/trabalhadores/solicitacoes/' + localStorage.getItem("id") );
-        // console.log(response.data);
         async function atualizaDadosTrabalhador() {
-            // const response = await api.get('/trabalhadores/solicitacoes/' + localStorage.getItem("id"));
             const response = await api.get('/trabalhadores/solicitacoes/' + localStorage.getItem("id"));
-            // console.log(response.data);
-            // console.log(response.data.length);
-            for( let i = 0; i<=response.data.length; i++){
-                // console.log(response.data[i].usuarioSolicitante.nome);
-                setNotificacoes([...notificacoes, {
-                    nome: response.data[i].usuarioSolicitante.nome,
-                    id: response.data[i].usuarioSolicitante.id
-                }]);
-            }
-            // console.log(response.data[0].usuarioSolicitante.nome);
-            // setNotificacoes([...notificacoes, response.data]);
+            console.log(response);
+
+            setNotificacoes(
+                response.data.map(m => ({
+                    nome: m.usuarioSolicitante.nome,
+                    id: m.usuarioSolicitante.id,
+                }))
+            );
+
             console.log(notificacoes);
         }
 
-        async function atualizaDadosContratante() {
-            // TODO - Verificar se havera o mesmo metodo para o contratante
-            const response = await api.get('/usuarios/solicitacoes/' + localStorage.getItem("id"));
-            setNotificacoes(response.data);
-            console.log(response.data);
-        }
-
+        // Sempre quando o objeto e iniciado, ele executa a seguinte funcao
         atualizaDadosTrabalhador();
-
-        // if( localStorage.getItem('tipo-usuario') === 2){
-        //     atualizaDadosTrabalhador();
-        // }
-        // else{
-        //     atualizaDadosContratante();
-        // }
     }, []);
-
-    // async function atualizaDados(){
-    //     const response = await api.get("/trabalhadores/notificacoes/1");
-    // const response = await api.get('/trabalhadores/solicitacoes/' + localStorage.getItem("id") );
-    //     console.log(response);
-    //     console.log(response.data);
-    // return response.data;
-    // }
 
     // Parametros card
     const classes = useStyles();
@@ -87,12 +62,13 @@ function CaixaDeNotificacao() {
             )}
 
             {/* regra responsavel por gerar os cards com as notificacoes */}
-            {notificacoes.map( (idJob, index) => {
+            {notificacoes.map( data => {
                 return (
-                    <Card className={classes.root} style={{ margin: "10px" }} variant="outlined" key={index}>
+                    // Card com informacoes do back-end
+                    <Card className={classes.root} style={{ margin: "10px" }} variant="outlined">
                         <CardContent>
                             <img className='imgPaula' style={{ width: "50px", float: "left" }} src={PaulaImage} alt="Imagem do perfil que lhe enviou notificação." />
-                            <p style={{ float: "right" }}>{} te respondeu.</p>
+                            <p style={{ float: "right" }}>{data.nome} te respondeu.</p>
                         </CardContent>
                         <CardActions>
                             <Link to="#" style={{ marginLeft: "20px" }} >Ver conversa</Link>

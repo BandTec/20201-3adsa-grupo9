@@ -29,7 +29,7 @@ function MenuLogado() {
 
     // Funcao que verifica se houveram novos chamados
     useEffect(() => {
-        const timer = setTimeout(async () => {
+        const timer = setInterval(async () => {
             // TODO - Verificar se havera o mesmo metodo para o contratante
             const response = await api.get("/trabalhadores/notificacoes-alert");
             // console.log(response.data);
@@ -40,7 +40,7 @@ function MenuLogado() {
             else {
                 setInvisible(false);
             }
-        }, 1000);
+        }, 5000);
     }, []);
     // Parametros da notificacao do card
 

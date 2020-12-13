@@ -31,3 +31,7 @@ insert into notificacoes
 insert into jobs_solicitados 
 (qtd_horas_trabalho, valor_total, baba_solicitada_id_baba, usuario_solicitante_id_usuario) values 
 (5, 200, 1, 1), (5, 200, 1, 2);
+
+insert into avaliacoes 
+(msg_avaliativa, nota_baba, baba_avaliada_id_baba, usuario_avaliador_id_usuario) values 
+('Mensagem de avaliação de teste', 3, 1, 2);
