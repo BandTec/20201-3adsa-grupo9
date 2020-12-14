@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom';
 import Rating from '@material-ui/lab/Rating';
@@ -10,7 +10,7 @@ import './avaliacao.css'
 import api from '../../services/api';
 
 function Avaliacao() {
-  
+
   const history = useHistory();
 
   // Parametros dos campos de avaliacao

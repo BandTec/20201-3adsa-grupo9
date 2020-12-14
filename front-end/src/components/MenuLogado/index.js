@@ -5,7 +5,7 @@ import Badge from '@material-ui/core/Badge';
 import { makeStyles } from '@material-ui/core/styles';
 
 import api from '../../services/api';
-import CaixaDeNotificacao from '../MenuLogado/CaixaDeNotificacao';
+import CaixaDeNotificacao from './CaixaDeNotificacao';
 
 import Logo from '../../assets/img/logo/logo-removebg.png';
 import NotificacaoIcon from '../../assets/img/icons/61073.png';
