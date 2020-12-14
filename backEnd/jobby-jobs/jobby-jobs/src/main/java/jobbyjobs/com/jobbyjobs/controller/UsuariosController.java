@@ -185,10 +185,9 @@ public class UsuariosController {
 
     @PostMapping("/fazer-pedido")
     public ResponseEntity fazerPedidoBaba(
-            @RequestParam(required = true) Integer idBaba,
             @RequestBody FazerPedido pedir
             ){
-        Optional<Baba> babaExistente = babaRepository.findById(idBaba);
+        Optional<Baba> babaExistente = babaRepository.findById(pedir.getIdBaba());
         Optional<Usuario> usuarioSolicitante = usuarioRepository.findById(pedir.getIdUsuario());
 
         if(babaExistente.isPresent()){
@@ -202,8 +201,8 @@ public class UsuariosController {
             jobsSolicitado.setUsuarioSolicitante(user);
 
             jobsSolicitadosRepository.save(jobsSolicitado);
-//            Long telefone = Long.parseLong(user.getTelefone()+"L");
-//            RespostaSms respostaSms = enviarSms(telefone, user.getNome());
+            Long telefone = 11957828492L;
+            enviarSms(telefone, user.getNome());
             return ok("Pedido realizado com sucesso!");
         }
         return notFound().build();
