@@ -92,7 +92,7 @@ public class TrabalhadorController implements CalcularSalario {
 
     @GetMapping
     public ResponseEntity getTrabalhadores(
-            @RequestParam(required = false) String zonaRegional ){
+            @RequestBody(required = false) String zonaRegional ){
 
         List<Integer> idsDosUsuarios = new ArrayList<>();
         List<Profissional> profissionais = new ArrayList<>();
