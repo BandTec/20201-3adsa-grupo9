@@ -1,8 +1,8 @@
 import React from 'react';
-import './InfosPrestadorLogado.css';
+import './InfosPrestadorLogado1.css';
 import { Link, useHistory } from 'react-router-dom';
 import LeftArrow from '../../assets/img/icons/left-arrow.png';
-import BabaLimpeza from '../../assets/img/icons/baba-limpeza.png';
+import BabaLimpeza from '../../assets/img/imagens/babaS.png';
 import starIcon from '../../assets/img/icons/star.png';
 
 
@@ -11,11 +11,11 @@ function InfosPrestadorLogado(){
     return(
         <div className='InfosPrestadorLogadoContainer'>
 
-            <div className='lateral'>
+<div className='lateral'>
             <Link to='/'><img className="Return" src={LeftArrow} alt="Ícone de seta para a esquerda para voltar para a tela innicial"/></Link>
             <div className='baba'>
               <img src={BabaLimpeza} className='imgBaba' />
-              <p>ANA JÚLIA</p>
+              <p>Suellen</p>
               <ul>
                   <li>Babá + faxina</li>
                   <li>Informações de contato:</li>
@@ -40,7 +40,7 @@ function InfosPrestadorLogado(){
             
             <div className='infoTrabalho'>
                 <div style={{marginLeft:'30%'}} className='titulo'>INFORMAÇÕES DO PRESTADO DE SERVIÇO</div>
-                <div className='subTitulo'>Meu nome é Ana Júlia, tenho 34 anos e sou diarista trabalho 3 vezes na semana com faxina, 
+                <div className='subTitulo'>Meu nome é Suellen, tenho 25 anos e sou babá a 3 anos na semana trabalho com faxina, 
                 limpeza pesada e também faço comida, estou procurando uma oportunidade de ampliar minha rede de clientela,
                 entre em contato comigo!</div>
             </div>
@@ -54,12 +54,12 @@ function InfosPrestadorLogado(){
             <div className='tituloComentarios'>Comentários sobre trabalhos realizados na plataforma:</div>
 
    <div style={{marginTop:'-28%'}} id="login-container">
-   <div class="profile-img"></div>
+   <div class="profile-img1"></div>
    <h1>
-    Amanda
+    Carlos
    </h1>
    <div class="description">
-   “Ana júlia é extremamente caprichosa e cozinha muito bem.”
+   “Suellen é extremamente caprichosa e cozinha muito bem.”
   </div>
 </div>
 
@@ -67,6 +67,7 @@ function InfosPrestadorLogado(){
 
 
         </div>
+
     )
 }
 

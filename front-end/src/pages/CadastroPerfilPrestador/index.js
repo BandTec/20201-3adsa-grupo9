@@ -177,7 +177,7 @@ function CadastroPerfilPrestador() {
 
                 <div className='QtdSemana'>
                     <h3>Quantos dias da semana voce deseja trabalhar?</h3>
-                    <select className='select' id='selectDias'>
+                    <select style={{marginLeft:'37%'}} className='select' id='selectDias'>
                         <option value='0'> Selecione a quantidade de dias</option>
                         <option value='1'>1 dia</option>
                         <option value='2'>2 dias</option>
