@@ -23,6 +23,8 @@ function DashboardContrantante() {
             <MenuLogado />
 
             <div style={{ marginTop: '10%' }} className='perfilPrestadorContainer'>
+
+                <Link to='/info-prestador-logado01'>
                 <div className='barra'>
                     <img className='BabaSImage' alt='baba com criança no colo' src={babaImage} />
                     <p>SUELLEN SILVA - 2,6KM </p>
@@ -38,7 +40,9 @@ function DashboardContrantante() {
                         <li>Cuido de crianças de 8 a 10 anos, sou nova nesse ramo mas tenho algumas experiencias.</li>
                     </ul>
                 </div>
+                </Link>
 
+                <Link to='/info-prestador-logado'>
                 <div className='barra1'>
                     <img className='BabaSImage' alt='baba com criança no colo' src={BabaLimpeza} />
                     <p>ANA JÚLIA - 1,4KM</p>
@@ -54,7 +58,9 @@ function DashboardContrantante() {
                         <li>Sou nova no aplicativo mas tenho muita experiencia e otimas recomendações.</li>
                     </ul>
                 </div>
-
+                </Link>
+                
+                <Link to='/info-prestador-logado02'>
                 <div className='barra2'>
                     <img className='PauloImage' alt='baba com criança no colo' src={BabaHomem} />
                     <p>PAULO CÉSAR - 3,4KM</p>
@@ -70,7 +76,9 @@ function DashboardContrantante() {
                         <li>Trabalho como babá a mais de 5 anos, tenho muita experiencia e procuro sempre novos clientes.</li>
                     </ul>
                 </div>
+                </Link>
             </div>
+            
 
             <Footer />
 

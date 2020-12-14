@@ -19,6 +19,8 @@ import CadastroBancarioPrestador from './pages/CadastroBancarioPrestador';
 import DashboardPrestador from './pages/DashboardPrestador';
 import DashboardContratante from './pages/DashboardContratante';
 import InfosPrestadorLogado from './pages/InfosPrestadorLogado';
+import InfosPrestadorLogado01 from './pages/InfosPrestadorLogado01';
+import InfosPrestadorLogado02 from './pages/InfosPrestadorLogado02';
 import FormaPagamento from './pages/FormaPagamento';
 import PagamentoCartao from './pages/PagamentoCartao';
 import BoletoBancario from './pages/BoletoBancario';
@@ -46,6 +48,8 @@ export default function Routes(){
                 <Route path="/dashboard-prestador" component={DashboardPrestador} />
                 <Route path="/dashboard-contratante" component={DashboardContratante} />
                 <Route path="/info-prestador-logado" component={InfosPrestadorLogado} />
+                <Route path="/info-prestador-logado01" component={InfosPrestadorLogado01} />
+                <Route path="/info-prestador-logado02" component={InfosPrestadorLogado02} />
                 <Route path="/forma-pagamento" component={FormaPagamento} />
                 <Route path="/pagamento-cartao" component={PagamentoCartao} />
                 <Route path="/pagamento-boleto" component={BoletoBancario} />

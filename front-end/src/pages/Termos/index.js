@@ -183,19 +183,22 @@ function Termos() {
             <img className='logo' src={Logo} alt="Logo Jobby Jobs" />
 
             <h1>Termos e condições de uso</h1>
-            <h2>Contrary to popular belief, Lorem Ipsum is not simply random text.
-            It has roots in a piece of classical Latin literature from 45 BC,
-            making it over 2000 years old. Richard McClintock, a Latin professor
-            at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
-            consectetur, from a Lorem Ipsum passage, and going through the cites of the word in
-            classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections
-            1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil)
-            by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance.
-            The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
-            Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" </h2>
+            <h2>Política Privacidade
+A sua privacidade é importante para nós. É política do Jobby Jobs respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site Jobby Jobs, e outros sites que possuímos e operamos.
 
-            <div style={{ margin: '10%' }}>
+Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço. Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que estamos coletando e como será usado.
+
+Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Quando armazenamos dados, protegemos dentro de meios comercialmente aceitáveis ​​para evitar perdas e roubos, bem como acesso, divulgação, cópia, uso ou modificação não autorizados.
+
+Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei.
+
+O nosso site pode ter links para sites externos que não são operados por nós. Esteja ciente de que não temos controle sobre o conteúdo e práticas desses sites e não podemos aceitar responsabilidade por suas respectivas políticas de privacidade.
+
+Você é livre para recusar a nossa solicitação de informações pessoais, entendendo que talvez não possamos fornecer alguns dos serviços desejados.
+
+O uso continuado de nosso site será considerado como aceitação de nossas práticas em torno de privacidade e informações pessoais. Se você tiver alguma dúvida sobre como lidamos com dados do usuário e informações pessoais, entre em contato conosco. </h2>
+
+            <div style={{ margin: '5%' }}>
                 <Link className="botao_termo" onClick={redirect} >Li e concordo com os termos de uso</Link>
                 <Link className="botao" onClick={voltar} >Voltar</Link>
             </div>

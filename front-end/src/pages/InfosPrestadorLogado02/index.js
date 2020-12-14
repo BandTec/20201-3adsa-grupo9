@@ -1,8 +1,8 @@
 import React from 'react';
-import './InfosPrestadorLogado.css';
+import './InfosPrestadorLogado2.css';
 import { Link, useHistory } from 'react-router-dom';
 import LeftArrow from '../../assets/img/icons/left-arrow.png';
-import BabaLimpeza from '../../assets/img/icons/baba-limpeza.png';
+import BabaLimpeza from '../../assets/img/icons/paulo.jpg';
 import starIcon from '../../assets/img/icons/star.png';
 
 
@@ -15,11 +15,11 @@ function InfosPrestadorLogado(){
             <Link to='/'><img className="Return" src={LeftArrow} alt="Ícone de seta para a esquerda para voltar para a tela innicial"/></Link>
             <div className='baba'>
               <img src={BabaLimpeza} className='imgBaba' />
-              <p>ANA JÚLIA</p>
+              <p>Paulo César</p>
               <ul>
                   <li>Babá + faxina</li>
                   <li>Informações de contato:</li>
-                  <li>ana_julia@gmail.com</li>
+                  <li>paulo_baba@gmail.com</li>
                   <li>Celular: (11) 94259-0707</li>
                   <li>Residencial: (11) 4002-8822</li>
               </ul>
@@ -40,8 +40,7 @@ function InfosPrestadorLogado(){
             
             <div className='infoTrabalho'>
                 <div style={{marginLeft:'30%'}} className='titulo'>INFORMAÇÕES DO PRESTADO DE SERVIÇO</div>
-                <div className='subTitulo'>Meu nome é Ana Júlia, tenho 34 anos e sou diarista trabalho 3 vezes na semana com faxina, 
-                limpeza pesada e também faço comida, estou procurando uma oportunidade de ampliar minha rede de clientela,
+                <div className='subTitulo'>Meu nome é Paulo César, tenho 38 anos e sou babá trabalho 3 vezes na semana e também faço faxina, estou procurando uma oportunidade de ampliar minha rede de clientela,
                 entre em contato comigo!</div>
             </div>
 
@@ -54,12 +53,12 @@ function InfosPrestadorLogado(){
             <div className='tituloComentarios'>Comentários sobre trabalhos realizados na plataforma:</div>
 
    <div style={{marginTop:'-28%'}} id="login-container">
-   <div class="profile-img"></div>
+   <div class="profile-img2"></div>
    <h1>
-    Amanda
+    Sofia
    </h1>
    <div class="description">
-   “Ana júlia é extremamente caprichosa e cozinha muito bem.”
+   “Paulo César é super atencioso, contrataria mais vezes.”
   </div>
 </div>
 

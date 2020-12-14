@@ -50,6 +50,7 @@ background: #7AB6DD;
 
 .titulo{
 position: absolute;
+left: 10%;
 font-family: 'Aldrich';
 font-style: normal;
 font-weight: normal;
@@ -122,12 +123,12 @@ margin: 60px;
 	 position: relative;
      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
      margin-left: 35%;
-     margin-top: -45%;
+     margin-top: -35%;
 }
- #login-container .profile-img {
+ #login-container .profile-img2 {
 	 height: 100px;
 	 width: 100px;
-	 background: url('https://images.unsplash.com/photo-1504933350103-e840ede978d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=564&q=80');
+	 background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFBsngOXHAbQ6J_CW14WylJB6R8fU3Ap7kgA&usqp=CAU');
 	 background-size: cover;
 	 background-position: center;
 	 position: absolute;
