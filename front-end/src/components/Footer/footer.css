@@ -23,10 +23,34 @@
     margin-top: 10%;
 }
 
-footer{
-    background: var(--pink);
+.Servicos {
+    width: 20%;
+}
+
+.Institucional {
+    width: 20%;
+}
+
+.Social {
+    width: 20%;
+}
+
+.SocialMedia img{
+    cursor: not-allowed;
+}
+
+.Download img {
+    width: 60%;
 }
 
 .Direitos{
     text-align: center;
+}
+
+footer{
+    background: var(--pink);
+}
+
+.Download {
+    width: 20%;
 }

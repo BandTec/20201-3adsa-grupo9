@@ -41,7 +41,7 @@
 
 .Dicas{
     width: 100%;
-    margin-top: 6%;
+    margin-top: 10%;
 }
 
 .Dicas h2{
@@ -66,6 +66,7 @@
 .Chamada{
     width: 100%;
     margin-top: 6%;
+    border: black 1px solid;
 }
 
 .Chamada div{
@@ -80,11 +81,15 @@
 .Chamada div p{
     font-weight: 300;
     line-height: 3.0;
+    color: var(--black);
 }
 
 .Chamada img{
     position: relative;
     width: 40%;
+    border-radius: 324.5px; 
+    width: 25%; 
+    margin-left: 15%;
 }
 
 .Equipe{
@@ -178,67 +183,49 @@
     width: 300px;
 }
 
+.Cliente{
+    margin-top: 18%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 10%;
 
-.bloco01{
-position: absolute;
-width: 350px;
-height: 270px;
-left: 90px;
-background: #7AB6DD;
+    display: flex;
+    justify-content: space-between;
 }
 
-
-.bloco02{
-position: absolute;
-width: 350px;
-height: 270px;
-right: 40%;
-background: #7AB6DD;
+.Cliente img {
+    border-radius: 50%;
+    width: 90%;
+    height: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
 }
 
-
-.bloco03{
-position: absolute;
-width: 350px;
-height: 270px;
-right: 10%;
-background: #7AB6DD;
+.Bloco {
+    width: 30%;
+    height: 270px;
+    background: #7AB6DD;
 }
 
-.blobs01{
+.Bloco h1 {
+    color: var(--white); 
+    font-size: 20px; 
+    margin: 4%; 
+    margin-left: 45%;
+}
+
+.Bloco p {
+    color: var(--white); 
+    font-size: 15px; 
+    text-align: center
+}
+
+.Blobs {
     border: 3px solid var(--white);
     border-radius: 60%;
     width: 70%;
     height: 90%;
     margin-left: 15%;
-    margin-top: -3cm;
+    margin-top: -40%;
     border-style:dotted;
-}
-
-.blobs02{
-    border: 3px solid var(--white);
-    border-radius: 60%;
-    width: 70%;
-    height: 90%;
-    margin-left: 18%;
-    margin-top: -3cm;
-    border-style:dotted;
-}
-
-.blobs03{
-    border: 3px solid var(--white);
-    border-radius: 60%;
-    width: 70%;
-    height: 90%;
-    margin-left: 18%;
-    margin-top: -3cm;
-    border-style:dotted;
-}
-
-.Cliente{
-    margin-top: 18%;
-}
-
-.espacoFooter{
-    padding: 10%;
 }

@@ -28,4 +28,38 @@
     /* Variaveis de tamanhos padroes utilizados */
     --marginTopButton: 5%;
     --bodyMarginTop: 94px;
+    --tamanhoMinimo: 110px;
+}
+
+@media (max-width: 1000px) {
+  /* Area reservada para estilizar o Menu */
+  .Menu{
+    display: none;
+  }
+
+  .MenuDropdown{
+    display: flex;
+  }
+  /* Fim da area reservada para estilizar o Menu */
+
+  /* Area reservada para estilizar a pagina Home */
+  .Apresentacao {
+    margin-bottom: 25%;
+  }
+
+  .Chamada{
+    margin-top: 10%;
+    margin-bottom: 25%;
+  }
+
+  .Chamada div p{
+    line-height: 2.5;
+  }
+  /* Fim da area reservada para estilizar a pagina Home */
+
+  /* Area reservada para estilizar o Footer */
+  .Download img {
+    width: 100%;
+}
+  /* Fim da area reservada para estilizar o Footer */
 }
