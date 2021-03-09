@@ -22,17 +22,25 @@ function Termos() {
         const nome = localStorage.getItem("nome");
         const email = localStorage.getItem("email");
         const senha = localStorage.getItem("senha");
-        const telefone = Number(localStorage.getItem("telefone")); // ESTE CAMPO NÃO TEM NO BANCO
+        // const telefone = Number(localStorage.getItem("telefone")); // ESTE CAMPO NÃO TEM NO BANCO
+        const telefone = 11111111111; // ESTE CAMPO NÃO TEM NO BANCO
         const cpf = 11111111111; // ESTE CAMPO NÃO TEM NA TELA
 
         //Informacoes bancarias usuario
-        const banco = localStorage.getItem("banco"); // ESTE CAMPO NÃO TEM NO BANCO
-        const tipoConta = localStorage.getItem("tipo-conta"); // ESTE CAMPO NÃO TEM NO BANCO
-        const titularConta = localStorage.getItem("titular-conta"); // ESTE CAMPO NÃO TEM NO BANCO
-        const pessoa_fisica = localStorage.getItem("pessoa-fisica"); // ESTE CAMPO NÃO TEM NO BANCO
-        const pessoa_juridica = localStorage.getItem("pessoa-juridica"); // ESTE CAMPO NÃO TEM NO BANCO
-        const agencia = (localStorage.getItem("agencia") + "" + localStorage.getItem("digito-agencia"));
-        const conta = (localStorage.getItem("conta") + "" + localStorage.getItem("digito-conta"));
+        // const banco = localStorage.getItem("banco"); // ESTE CAMPO NÃO TEM NO BANCO
+        // const tipoConta = localStorage.getItem("tipo-conta"); // ESTE CAMPO NÃO TEM NO BANCO
+        // const titularConta = localStorage.getItem("titular-conta"); // ESTE CAMPO NÃO TEM NO BANCO
+        // const pessoa_fisica = localStorage.getItem("pessoa-fisica"); // ESTE CAMPO NÃO TEM NO BANCO
+        // const pessoa_juridica = localStorage.getItem("pessoa-juridica"); // ESTE CAMPO NÃO TEM NO BANCO
+        // const agencia = (localStorage.getItem("agencia") + "" + localStorage.getItem("digito-agencia"));
+        // const conta = (localStorage.getItem("conta") + "" + localStorage.getItem("digito-conta"));
+        const banco = "Itau";
+        const tipoConta = "Corrente"; 
+        const titularConta = localStorage.getItem("nome"); 
+        const pessoa_fisica = true; 
+        const pessoa_juridica = false; 
+        const agencia = 123456789;
+        const conta = 123456789;
 
         // Informacoes endereco
         const rua = localStorage.getItem("endereco");
@@ -42,7 +50,8 @@ function Termos() {
         const cep = localStorage.getItem("cep");
         const zonaRegional = "Zona Leste"; // Verificar se e possivel pegar pela api viaCep
 
-        if (localStorage.getItem("prev-page") === "/cadastro-info-bancaria-prestador") {
+        // if (localStorage.getItem("prev-page") === "/cadastro-info-bancaria-prestador") {
+        if (localStorage.getItem("prev-page") === "/cadastro-endereco-prestador") {
 
             // Informacoes baba
             const cozinhar = localStorage.getItem("cozinhar");

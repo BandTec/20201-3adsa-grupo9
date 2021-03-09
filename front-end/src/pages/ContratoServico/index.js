@@ -13,8 +13,8 @@ function ContratoServico(){
                 <h4>Eu, fulano de tal no dia xx/xx/xxxx confirmo a contratação do serviço y que será realizado nos diasxx/xx/xxxx ao dia xx/xx/xxxx com xx horas de trabalho residencial realizando o pagamento através de y. 
                     Concordo com os termos de uso e contrato de serviço</h4>
 
-                <Link className="ButtonSquareContratoServico" to="" style={{ background: "var(--dark-button)" }}>Aceito os termos de contrato de serviço</Link>
-                <Link className="ButtonSquareContratoServico" to="" style={{ background: "var(--pink)" }}>Termos e condições de uso</Link>
+                <Link className="ButtonSquareContratoServico" to="/dashboard-contratante" style={{ background: "var(--dark-button)" }}>Aceito os termos de contrato de serviço</Link>
+                <Link className="ButtonSquareContratoServico" to="/termos" style={{ background: "var(--pink)" }}>Termos e condições de uso</Link>
             </div>
 
             <BannerLogoLateral className={"LogoDireita"}/>

@@ -53,13 +53,13 @@ function Cadastro() {
                             <div className="step-description">Cadastro de endereço</div>
                         </div>
                     </li>
-                    <li style={{ width: "20%" }}>
+                    {/* <li style={{ width: "20%" }}>
                         <div className="step">
                             <div className="step-image"><span></span></div>
                             <div className="step-current">Etapa 4</div>
                             <div className="step-description">Dados bancários</div>
                         </div>
-                    </li>
+                    </li> */}
                 </ul>
                 <div className="step-bar" style={{ width: "10%" }}></div>
             </div>

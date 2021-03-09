@@ -53,7 +53,7 @@ function CaixaDeNotificacao() {
     useEffect(() => {
         async function atualizaDados() {
             try {
-                if (localStorage.getItem('tipo-usuario') === 1) {
+                if (localStorage.getItem('tipo-usuario') === "1") {
                     const response = await api.get('/trabalhadores/solicitacoes/' + localStorage.getItem("id"));
 
                     setNotificacoes(
@@ -66,19 +66,19 @@ function CaixaDeNotificacao() {
                         }))
                     );
                 }
-                else if(localStorage.getItem('tipo-usuario') === 2) {
-                    const response = await api.get('/usuarios/solicitacoes/' + localStorage.getItem("id"));
-                    console.log(response);
+                else if(localStorage.getItem('tipo-usuario') === "2") {
+                    // const response = await api.get('/usuarios/solicitacoes/' + localStorage.getItem("id"));
+                    // console.log(response);
 
-                    setNotificacoes(
-                        response.data.map(m => ({
-                            nome: m.usuarioSolicitante.nome,
-                            id: m.usuarioSolicitante.id,
-                            idJob: m.idJob,
-                            qtdHorasTrabalho: m.qtdHorasTrabalho,
-                            valorTotal: m.valorTotal,
-                        }))
-                    );
+                    // setNotificacoes(
+                    //     response.data.map(m => ({
+                    //         nome: m.usuarioSolicitante.nome,
+                    //         id: m.usuarioSolicitante.id,
+                    //         idJob: m.idJob,
+                    //         qtdHorasTrabalho: m.qtdHorasTrabalho,
+                    //         valorTotal: m.valorTotal,
+                    //     }))
+                    // );
                 }
             }
             catch (err) {
@@ -119,7 +119,7 @@ function CaixaDeNotificacao() {
     return (
         <div>
             {/* regra responsavel por gerar o card indicando que nao tem notificacoes */}
-            {notificacoes === undefined || notificacoes.length === 0 && (
+            {notificacoes === undefined || notificacoes.length === 0 || window.location.href.indexOf('/dashboard-contratante') > 0 && (
                 <Card className={classes.root} style={{ margin: "10px" }} variant="outlined">
                     <CardContent>
                         <p style={{ float: "right" }}>Você ainda não possui notificações.</p>
@@ -128,7 +128,7 @@ function CaixaDeNotificacao() {
             )}
 
             {/* regra responsavel por gerar os cards com as notificacoes */}
-            {notificacoes.map(data => {
+            {window.location.href.indexOf('/dashboard-prestador') > 0 || notificacoes.map(data => {
                 return (
                     <div>
                         {/* // Card com informacoes do back-end */}

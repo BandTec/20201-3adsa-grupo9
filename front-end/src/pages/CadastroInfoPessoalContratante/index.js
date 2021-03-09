@@ -21,8 +21,10 @@ function CadastroInfoPessoalContratante() {
         localStorage.setItem("bairro", document.getElementById("bairro").value);
         localStorage.setItem("numero", document.getElementById("numero").value);
         localStorage.setItem("complemento", document.getElementById("complemento").value);
+        localStorage.setItem("prev-page", "/cadastro-info-pessoal-contratante");
 
-        history.push('/cadastro-info-bancaria-contratante');
+        history.push('/termos');
+        // history.push('/cadastro-info-bancaria-contratante');
         // to="/cadastro-info-bancaria-contratante"
     }
 

@@ -82,7 +82,8 @@ function DashboardContrantante() {
                     }
                 })} */}
 
-                <Link to='/info-prestador-logado01'>
+                {/* <Link to='/info-prestador-logado01'> */}
+                <Link to='/info-contratacao'>
                     <div className='barra'>
                         <img className='BabaSImage' alt='baba com criança no colo' src={babaImage} />
                         <p>SUELLEN SILVA - 2,6KM </p>
@@ -100,7 +101,8 @@ function DashboardContrantante() {
                     </div>
                 </Link>
 
-                <Link to='/info-prestador-logado'>
+                {/* <Link to='/info-prestador-logado'> */}
+                <Link to='/info-contratacao'>
                     <div className='barra'>
                         <img className='BabaSImage' alt='baba com criança no colo' src={BabaLimpeza} />
                         <p>ANA JÚLIA - 1,4KM</p>
@@ -118,7 +120,8 @@ function DashboardContrantante() {
                     </div>
                 </Link>
 
-                <Link to='/info-prestador-logado02'>
+                {/* <Link to='/info-prestador-logado02'> */}
+                <Link to='/info-contratacao'>
                     <div className='barra'>
                         <img className='PauloImage' alt='baba com criança no colo' src={BabaHomem} />
                         <p>PAULO CÉSAR - 3,4KM</p>

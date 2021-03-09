@@ -10,11 +10,11 @@ import LeftArrow from '../../assets/img/icons/left-arrow.png';
 function Login(){
 
     function setPerfilBaba(){
-        localStorage.setItem("tipo-usuario", 2); // tipo de usuario prestador de servicos
+        localStorage.setItem("tipo-usuario", 1); // tipo de usuario prestador de servicos
     }
     
     function setPerfilContratante(){
-        localStorage.setItem("tipo-usuario", 1); // tipo de usuario contratante
+        localStorage.setItem("tipo-usuario", 2); // tipo de usuario contratante
     }
 
     return(
