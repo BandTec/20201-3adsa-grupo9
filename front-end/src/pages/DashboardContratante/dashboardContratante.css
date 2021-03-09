@@ -1,75 +1,80 @@
 .Logo{
-    max-width: 140px;
+  max-width: 140px;
 }
 
 .Menu {
-    width: 100vw;
-    height: 94px;
-    z-index: 100;
-  
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding-left: 5%;
-    padding-right: 5%;
-  
-    background: var(--pink);
-  }
+  width: 100vw;
+  height: 94px;
+  z-index: 100;
 
-  .ButtonLink {
-    color: var(--black);
-    background: var(--white);
-    border: 1px solid var(--black);
-    box-sizing: border-box;
-    cursor: pointer;
-    padding: 16px 24px;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    outline: none;
-    border-radius: 10px;
-    text-decoration: none;
-    display: inline-block;
-    transition: opacity .3s;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  .ButtonLinkSquare{
-      color: var(--black);
-      background: var(--white);
-      border: 1px solid var(--black);
-      box-sizing: border-box;
-      cursor: pointer;
-      padding: 16px 24px;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 16px;
-      outline: none;
-      border-radius: 10px;
-      text-decoration: none;
-      display: inline-block;
-      transition: opacity .3s;
-  }
-  .filtro{
-    width: 30px;
-    margin-top: 10%;
-    margin-left: 32%;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-left: 5%;
+  padding-right: 5%;
 
-  input[type=text], select {
-    width: 30%;
-    padding: 10px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid var(--black);
-    box-sizing: border-box;
-    display: block;
-    margin-left: 35%;
-    margin-top: -2.8%;
+  background: var(--pink);
+}
+
+.DashboardContratanteContent{
+  margin-top: 10%;
+}
+
+.ButtonLink {
+  color: var(--black);
+  background: var(--white);
+  border: 1px solid var(--black);
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 16px 24px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  outline: none;
+  border-radius: 10px;
+  text-decoration: none;
+  display: inline-block;
+  transition: opacity .3s;
+}
+
+.ButtonLinkSquare{
+  color: var(--black);
+  background: var(--white);
+  border: 1px solid var(--black);
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 16px 24px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  outline: none;
+  border-radius: 10px;
+  text-decoration: none;
+  display: inline-block;
+  transition: opacity .3s;
+}
+
+.filtro{
+  width: 30px;
+  margin-top: 10%;
+  margin-left: 32%;
+}
+
+input[type=text], select {
+  width: 30%;
+  padding: 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid var(--black);
+  box-sizing: border-box;
+  display: block;
+  margin-left: 35%;
+  margin-top: -2.8%;
 }
    
 .searchIcon{
@@ -77,28 +82,6 @@
 }
     
 .barra{
-  width: 80%;
-  height: 120px;
-  margin-left: 2%;
-  margin: 50px;
-  background-color: rgb(255, 255, 255);
-  -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
--moz-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77)
-}
-
-.barra1{
-  width: 80%;
-  height: 120px;
-  margin-left: 2%;
-  margin: 50px;
-  background-color: rgb(255, 255, 255);
-  -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
--moz-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77)
-}
-
-.barra2{
   width: 80%;
   height: 120px;
   margin-left: 2%;

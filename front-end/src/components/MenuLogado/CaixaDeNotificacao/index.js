@@ -32,13 +32,13 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
     },
-    buttonAccept:{
+    buttonAccept: {
         backgroundColor: '#11cb5f',
         width: 150,
         height: 30,
         marginRight: 50,
     },
-    buttonNegate:{
+    buttonNegate: {
         backgroundColor: '#f44336',
         width: 150,
         height: 30,
@@ -51,23 +51,43 @@ function CaixaDeNotificacao() {
 
 
     useEffect(() => {
-        async function atualizaDadosTrabalhador() {
-            const response = await api.get('/trabalhadores/solicitacoes/' + localStorage.getItem("id"));
-            console.log(response);
+        async function atualizaDados() {
+            try {
+                if (localStorage.getItem('tipo-usuario') === 1) {
+                    const response = await api.get('/trabalhadores/solicitacoes/' + localStorage.getItem("id"));
 
-            setNotificacoes(
-                response.data.map(m => ({
-                    nome: m.usuarioSolicitante.nome,
-                    id: m.usuarioSolicitante.id,
-                    idJob: m.idJob,
-                    qtdHorasTrabalho: m.qtdHorasTrabalho,
-                    valorTotal: m.valorTotal,
-                }))
-            );
+                    setNotificacoes(
+                        response.data.map(m => ({
+                            nome: m.usuarioSolicitante.nome,
+                            id: m.usuarioSolicitante.id,
+                            idJob: m.idJob,
+                            qtdHorasTrabalho: m.qtdHorasTrabalho,
+                            valorTotal: m.valorTotal,
+                        }))
+                    );
+                }
+                else if(localStorage.getItem('tipo-usuario') === 2) {
+                    const response = await api.get('/usuarios/solicitacoes/' + localStorage.getItem("id"));
+                    console.log(response);
+
+                    setNotificacoes(
+                        response.data.map(m => ({
+                            nome: m.usuarioSolicitante.nome,
+                            id: m.usuarioSolicitante.id,
+                            idJob: m.idJob,
+                            qtdHorasTrabalho: m.qtdHorasTrabalho,
+                            valorTotal: m.valorTotal,
+                        }))
+                    );
+                }
+            }
+            catch (err) {
+                console.log(err);
+            }
         }
 
         // Sempre quando o objeto e iniciado, ele executa a seguinte funcao
-        atualizaDadosTrabalhador();
+        atualizaDados();
     }, []);
 
     // Parametros card
@@ -76,7 +96,7 @@ function CaixaDeNotificacao() {
 
     // Parametros do modal das notificacoes
     const [open, setOpen] = React.useState(false);
-    
+
     const handleOpen = () => {
         setOpen(true);
     };
@@ -85,12 +105,12 @@ function CaixaDeNotificacao() {
         setOpen(false);
     };
 
-    function aceitar(){
+    function aceitar() {
         notificacoes.pop();
         handleClose();
     }
 
-    function negar(){
+    function negar() {
         notificacoes.pop();
         handleClose();
     }

@@ -71,16 +71,20 @@ function MenuLogado() {
             setUrlPerfil("/perfil-contratante");
         }
     }
-    // Parametros de rota por tipo de usuario
 
+    // Parametros de rota por tipo de usuario
     async function getId() {
         const resposta = await api.get('trabalhadores/email/' + localStorage.getItem("email"));
         localStorage.setItem('id', resposta.data);
     }
 
+    function reset () {
+        localStorage.clear();
+    }
+
     return (
         <nav className="Menu" onLoad={getId}>
-            <Link to="/">
+            <Link to="/" onClick={reset}>
                 <img className="Logo" src={Logo} alt="Logo da empresa Jobby Jobs" />
             </Link>
 
