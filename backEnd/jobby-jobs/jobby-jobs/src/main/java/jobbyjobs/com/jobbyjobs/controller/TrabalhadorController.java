@@ -22,9 +22,9 @@ import javax.validation.Valid;
 
 import static org.springframework.http.ResponseEntity.*;
 
-@CrossOrigin(origins = "http://54.243.208.81" , maxAge = 3600)
 @RestController
 @RequestMapping("/trabalhadores")
+@CrossOrigin(origins = "http://54.243.208.81")
 public class TrabalhadorController implements CalcularSalario {
 
     @Autowired
